@@ -5,12 +5,12 @@
    die Anzeige verwendet.
    ================================================== */
 const CONFIG = {
-  kanzlei:   "ŞAHIN & PARTNER Rechtsanwälte",
-  email:     "info@sahin-partner.de",      // <-- ANPASSEN
-  telefon:   "+49 000 0000000",            // <-- ANPASSEN (Anzeige)
-  telRaw:    "+490000000000",              // <-- ANPASSEN (tel:-Link)
+  kanzlei:   "Anwaltskanzlei Serpil Şahin",
+  email:     "info@serpil-sahin.de",
+  telefon:   "0162 6210087",
+  telRaw:    "+491626210087",
   whatsapp:  "491626210087",               // WhatsApp +49 162 6210087
-  adresse:   "Musterstraße 1, 00000 Musterstadt", // <-- ANPASSEN
+  adresse:   "Klingholzstraße 7, 65189 Wiesbaden",
 };
 
 /* ---------- Kontaktdaten in Seite einsetzen ---------- */
@@ -28,9 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
     a.href = "tel:" + CONFIG.telRaw;
   });
   // WhatsApp-Links
-  const waText = encodeURIComponent("Guten Tag, ich habe eine Frage an die Kanzlei ŞAHIN & PARTNER.");
+  const waText = encodeURIComponent("Guten Tag, ich habe eine Frage an die Anwaltskanzlei Serpil Şahin.");
   document.querySelectorAll("[data-wa]").forEach(a => {
     a.href = `https://wa.me/${CONFIG.whatsapp}?text=${waText}`;
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  // Notfall-WhatsApp (vorausgefüllte Notfall-Nachricht)
+  const waEmerg = encodeURIComponent("🚨 NOTFALL – Ich hatte gerade einen Verkehrsunfall und benötige dringend anwaltliche Hilfe. Bitte melden Sie sich schnellstmöglich.");
+  document.querySelectorAll("[data-wa-emergency]").forEach(a => {
+    a.href = `https://wa.me/${CONFIG.whatsapp}?text=${waEmerg}`;
     a.target = "_blank"; a.rel = "noopener";
   });
 });
@@ -66,11 +72,11 @@ function handleForm(e, betreff) {
 const AI_KNOWLEDGE = [
   {
     keys: ["unfall", "verkehrsunfall", "hatte einen unfall", "auto", "crash", "kollision"],
-    answer: "Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen kostenlos, ob Ihnen Schadenersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Möchten Sie eine Ersteinschätzung? Schreiben Sie uns über das Kontaktformular oder per WhatsApp."
+    answer: "Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen kostenlos, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Möchten Sie eine Ersteinschätzung? Schreiben Sie uns über das Kontaktformular oder per WhatsApp."
   },
   {
     keys: ["gutachter", "sachverständige", "sachverständiger", "bewerben", "zusammenarbeit", "kooperation", "gutachten"],
-    answer: "Sie sind Unfallgutachter/Kfz-Sachverständiger und möchten mit uns zusammenarbeiten? Über unsere Seite „Für Gutachter“ können Sie sich direkt bewerben. Wir vermitteln passende Mandate im Verkehrsrecht und arbeiten auf partnerschaftlicher Basis. Zum Bewerbungsformular: Menüpunkt „Für Gutachter“."
+    answer: "Sie sind Unfallgutachter/Kfz-Sachverständiger und möchten mit uns zusammenarbeiten? Über unsere Seite „Für Gutachter“ können Sie direkt eine Kooperationsanfrage stellen. Wir vermitteln passende Mandate im Verkehrsrecht und arbeiten auf transparenter, verlässlicher Basis. Zum Formular: Menüpunkt „Für Gutachter“."
   },
   {
     keys: ["kosten", "preis", "honorar", "was kostet", "gebühr", "teuer"],
@@ -94,17 +100,17 @@ const AI_KNOWLEDGE = [
   },
   {
     keys: ["rechtsgebiet", "andere", "familienrecht", "arbeitsrecht", "mietrecht", "strafrecht", "was macht ihr", "spezialisiert"],
-    answer: "Wir sind eine Vollkanzlei mit Schwerpunkt Verkehrsrecht, betreuen aber auch weitere Rechtsgebiete (u.a. Zivil-, Vertrags-, Straf- und Versicherungsrecht). Schildern Sie uns Ihr Anliegen – wir sagen Ihnen ehrlich, ob wir helfen können."
+    answer: "Der Schwerpunkt der Kanzlei liegt im Verkehrsrecht; daneben betreue ich auch weitere Rechtsgebiete (u.a. Zivil-, Vertrags-, Straf- und Versicherungsrecht). Schildern Sie uns Ihr Anliegen – wir sagen Ihnen ehrlich, ob wir helfen können."
   },
   {
     keys: ["frist", "verjährung", "zu spät", "wie lange"],
-    answer: "Fristen sind im Verkehrsrecht entscheidend: Einspruch gegen Bußgeld = 2 Wochen, Schadenersatzansprüche verjähren meist nach 3 Jahren. Warten Sie nicht zu lange – je früher wir informiert sind, desto besser."
+    answer: "Fristen sind im Verkehrsrecht entscheidend: Einspruch gegen Bußgeld = 2 Wochen, Schadensersatzansprüche verjähren meist nach 3 Jahren. Warten Sie nicht zu lange – je früher wir informiert sind, desto besser."
   },
 ];
 
-const AI_FALLBACK = "Das kann ich pauschal nicht beantworten – jeder Fall ist anders. Am besten schildern Sie uns Ihr Anliegen direkt: über das Kontaktformular, per WhatsApp (Button unten rechts) oder E-Mail. Ein Anwalt meldet sich kurzfristig bei Ihnen.";
+const AI_FALLBACK = "Das kann ich pauschal nicht beantworten – jeder Fall ist anders. Am besten schildern Sie uns Ihr Anliegen direkt: über das Kontaktformular, per WhatsApp (Button unten rechts) oder E-Mail. Wir melden uns kurzfristig bei Ihnen.";
 
-const AI_GREETING = "Guten Tag! Ich bin der digitale Assistent von ŞAHIN & PARTNER. Ich beantworte allgemeine Fragen rund um Verkehrsrecht, Unfall und die Zusammenarbeit mit Gutachtern. Womit kann ich helfen?";
+const AI_GREETING = "Guten Tag! Ich bin der digitale Assistent der Anwaltskanzlei Serpil Şahin. Ich beantworte allgemeine Fragen rund um Verkehrsrecht, Unfall und die Zusammenarbeit mit Gutachtern. Womit kann ich helfen?";
 
 function aiToggle() {
   const panel = document.getElementById("aiPanel");

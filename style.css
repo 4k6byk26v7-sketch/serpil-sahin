@@ -3,17 +3,17 @@
    -------------------------------------------------- */
 
 :root {
-  --navy: #0f2036;
+  --navy: #0e1b2a;
   --navy-800: #16304f;
   --navy-700: #1e3c63;
-  --gold: #c8a24a;
-  --gold-dark: #a8842f;
+  --gold: #b8965a;
+  --gold-dark: #9c7b3f;
   --ink: #1c2430;
   --muted: #5b6675;
   --line: #e4e8ee;
   --bg: #ffffff;
-  --bg-soft: #f5f7fa;
-  --bg-navy-soft: #0c1a2c;
+  --bg-soft: #f7f5f1;
+  --bg-navy-soft: #0a1622;
   --white: #ffffff;
   --success: #1f7a4d;
   --radius: 12px;
@@ -21,8 +21,8 @@
   --shadow-sm: 0 1px 3px rgba(15, 32, 54, .08);
   --shadow-md: 0 8px 28px rgba(15, 32, 54, .12);
   --maxw: 1160px;
-  --font-head: "Georgia", "Times New Roman", serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -74,10 +74,12 @@ img { max-width: 100%; display: block; }
 /* Header / Nav */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-.brand { display: flex; flex-direction: column; line-height: 1.05; }
-.brand__name { font-family: var(--font-head); font-weight: 700; font-size: 1.35rem; color: var(--navy); letter-spacing: .01em; }
-.brand__name span { color: var(--gold-dark); }
-.brand__sub { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.brand { display: flex; flex-direction: row; align-items: center; gap: 12px; line-height: 1.05; }
+.brand__mark { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--gold-dark); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--gold); border-radius: 10px; letter-spacing: 1px; flex: 0 0 auto; }
+.brand__mark span { color: var(--navy); }
+.brand__text { display: flex; flex-direction: column; }
+.brand__name { font-family: var(--font-head); font-weight: 600; font-size: 1.28rem; color: var(--navy); letter-spacing: .02em; }
+.brand__sub { font-size: .64rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
 .nav__links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .nav__links a { color: var(--ink); font-weight: 500; font-size: .97rem; }
 .nav__links a:hover, .nav__links a.active { color: var(--gold-dark); }
@@ -218,3 +220,76 @@ img { max-width: 100%; display: block; }
   .stats { grid-template-columns: 1fr 1fr; }
   .section { padding: 52px 0; }
 }
+
+
+/* Notfallleiste + Hero-Notiz */
+.emergency-bar{background:#b3261e;color:#fff;text-align:center;padding:9px 16px;font-size:.93rem;font-weight:600;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.emergency-bar a{color:#fff;text-decoration:underline;font-weight:700}
+.emergency-bar a:hover{color:#ffd9a8}
+.hero-note{color:#e9c877;font-weight:600;margin:2px 0;font-size:1.02rem}
+h1,h2{letter-spacing:.005em}
+.hero h1{font-weight:700}
+.nav__links a{font-family:var(--font-body);letter-spacing:.01em}
+.stat__num{letter-spacing:.01em}
+.btn{letter-spacing:.01em}
+
+
+/* ============================================================
+   PREMIUM POLISH – edler, ruhiger, hochwertiger Look
+   ============================================================ */
+body{ font-size: 16.5px; letter-spacing: .002em; }
+.section{ padding: 100px 0; }
+@media (max-width:720px){ .section{ padding: 62px 0; } }
+
+h1{ font-size: clamp(2.35rem, 5vw, 3.7rem); line-height: 1.1; }
+h2{ font-size: clamp(1.8rem, 3.2vw, 2.55rem); }
+h3{ font-size: 1.35rem; }
+.lead{ font-size: 1.18rem; line-height: 1.72; }
+
+/* Eyebrow mit feinem Goldstrich */
+.eyebrow{ display: inline-flex; align-items: center; gap: 12px; }
+.eyebrow::before{ content:""; width: 30px; height: 1px; background: var(--gold); display: inline-block; }
+.center .eyebrow{ justify-content: center; }
+
+/* Hero */
+.hero__inner{ padding: 122px 0 110px; }
+.hero p{ font-size: 1.22rem; line-height: 1.72; color: #c8d3e2; }
+.hero::before{ content:""; position:absolute; inset:0; z-index:0; background: radial-gradient(1100px 420px at 82% -12%, rgba(184,150,90,.16), transparent 60%); }
+.hero__inner{ position: relative; z-index: 1; }
+
+/* Buttons edler */
+.btn{ padding: 15px 30px; border-radius: 10px; letter-spacing: .015em; }
+.btn--primary{ background: linear-gradient(180deg,#c7a566,#b8965a); border-color:#b8965a; color:#122238; box-shadow: 0 8px 20px rgba(184,150,90,.28); }
+.btn--primary:hover{ background: linear-gradient(180deg,#ccab6d,#a8863f); color:#0e1b2a; }
+.btn--ghost{ border-width: 1.5px; }
+.btn--light{ box-shadow: 0 8px 20px rgba(0,0,0,.14); }
+
+/* Cards */
+.card{ border: 1px solid #ece7dd; border-radius: 16px; padding: 34px 32px; box-shadow: 0 2px 10px rgba(15,27,42,.05); }
+.card:hover{ transform: translateY(-5px); box-shadow: 0 22px 46px rgba(15,27,42,.10); }
+.card__icon{ width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(180deg,#fbf8f2,#f2ebdf); border: 1px solid #e7dcc6; font-size: 1.4rem; box-shadow: inset 0 0 0 4px #fff; }
+.card--path{ border-top: 1px solid #ece7dd; }
+
+/* Path */
+.path{ border: 1px solid #ece7dd; border-radius: 18px; padding: 46px 42px; position: relative; overflow: hidden; }
+.path::before{ content:""; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--gold), rgba(184,150,90,0)); }
+.path h3{ font-size: 1.55rem; }
+
+/* Navy / Stats */
+.section--navy{ background: linear-gradient(160deg,#0e1b2a 0%, #0a1622 100%); }
+.stat__num{ font-size: 3rem; }
+
+/* Header */
+.site-header{ border-bottom: 1px solid #eee7db; }
+.nav{ height: 84px; }
+.nav__links{ gap: 30px; }
+.nav__links a{ font-size: .95rem; letter-spacing: .015em; }
+
+/* Footer mit Gold-Hairline */
+.site-footer{ background: linear-gradient(180deg,#0e1b2a,#0a1622); position: relative; padding-top: 64px; }
+.site-footer::before{ content:""; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+/* Notfallleiste edler */
+.emergency-bar{ background: #7c1f1a; font-size: .9rem; letter-spacing: .01em; padding: 8px 16px; }
+.emergency-bar a{ text-decoration: none; border: 1px solid rgba(255,255,255,.55); padding: 3px 13px; border-radius: 20px; }
+.emergency-bar a:hover{ background: #fff; color: #7c1f1a; border-color:#fff; }
