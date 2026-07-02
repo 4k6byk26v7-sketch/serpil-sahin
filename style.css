@@ -332,3 +332,12 @@ h3{ font-size: 1.35rem; }
   .nav__toggle{ display: block; }
   .lang-switch{ margin-left: auto; margin-right: 6px; }
 }
+
+
+/* ============ Header final: kein Überlauf, Umschalter sichtbar ============ */
+.nav__links{ gap: 20px; margin-left: auto; }
+.nav__links a{ white-space: nowrap; }
+.lang-switch{ margin-left: 16px; }
+@media (max-width: 1024px){
+  .lang-switch{ margin-left: auto; margin-right: 8px; }
+}
