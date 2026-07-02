@@ -341,3 +341,9 @@ h3{ font-size: 1.35rem; }
 @media (max-width: 1024px){
   .lang-switch{ margin-left: auto; margin-right: 8px; }
 }
+
+
+/* Hero Trust-Badges */
+.hero-badges{ list-style:none; display:flex; flex-wrap:wrap; gap:8px 24px; padding:0; margin:16px 0 0; }
+.hero-badges li{ color:#e6edf6; font-size:.98rem; font-weight:500; letter-spacing:.005em; }
+@media (max-width:720px){ .hero-badges{ gap:6px 16px; } .hero-badges li{ font-size:.9rem; } }
