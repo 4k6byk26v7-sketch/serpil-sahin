@@ -3,16 +3,16 @@
    -------------------------------------------------- */
 
 :root {
-  --navy: #0e1b2a;
+  --navy: #102A43;
   --navy-800: #16304f;
   --navy-700: #1e3c63;
-  --gold: #b8965a;
-  --gold-dark: #9c7b3f;
+  --gold: #BFC7D5;
+  --gold-dark: #43566F;
   --ink: #1c2430;
   --muted: #5b6675;
   --line: #e4e8ee;
   --bg: #ffffff;
-  --bg-soft: #f7f5f1;
+  --bg-soft: #F7F9FC;
   --bg-navy-soft: #0a1622;
   --white: #ffffff;
   --success: #1f7a4d;
@@ -21,7 +21,7 @@
   --shadow-sm: 0 1px 3px rgba(15, 32, 54, .08);
   --shadow-md: 0 8px 28px rgba(15, 32, 54, .12);
   --maxw: 1160px;
-  --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-head: "Lora", Georgia, "Times New Roman", serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -522,3 +522,74 @@ h3{ font-size: 1.35rem; }
   .choice__t{ flex:1 1 auto; }
   .choice__s{ flex-basis:100%; }
 }
+
+/* ============================================================
+   PALETTE B – Navy & Silber-Grau · Lora-Headings  (FINALER OVERRIDE)
+   Navy #102A43 · Silber #BFC7D5 · Slate #43566F · Soft #F7F9FC
+   Regel: Silber NUR auf dunklem Grund, Slate/Navy auf hellem Grund.
+   ============================================================ */
+:root{
+  --navy:#102A43;
+  --gold:#BFC7D5;
+  --gold-dark:#43566F;
+  --bg-soft:#F7F9FC;
+  --on-dark:#CDD6E4;
+  --font-head:"Lora", Georgia, "Times New Roman", serif;
+}
+
+/* Überschriften: Lora */
+h1,h2,h3,h4,.brand__name,.door__title,.contact-choice h3,.stat__num{
+  font-family:"Lora", Georgia, "Times New Roman", serif;
+}
+h1,h2,h3,h4{ color:#102A43; }
+
+/* Dunkle Flächen: neues Navy überall, flach & clean */
+.hero{ background:linear-gradient(140deg,#102A43 0%,#0c2036 100%); }
+.page-hero{ background:linear-gradient(140deg,#102A43 0%,#0c2036 100%); }
+.section--navy{ background:linear-gradient(160deg,#102A43 0%,#0c2036 100%); }
+.site-footer{ background:linear-gradient(180deg,#102A43,#0c2036); }
+.contact-choice{ background:linear-gradient(160deg,#102A43,#0c2036); }
+.ai-head, .ai-msg--user{ background:#102A43; }
+.lang-btn.active{ background:#102A43; border-color:#102A43; }
+.hero::before,.hero::after{ background:none; }
+
+/* Heller Text auf Dunkel: EIN Silber-Ton, Überschriften weiß */
+.hero,.page-hero,.section--navy{ color:var(--on-dark); }
+.hero-sub,.hero p,.page-hero p,.section--navy p,.section--navy li,
+.hero-note,.hero-badges li,.stat__label,.door__text,.contact-choice > p,.choice__s{ color:var(--on-dark); }
+.hero h1,.page-hero h1,.section--navy h2,.section--navy h3,
+.door__title,.contact-choice h3,.ai-head strong,.choice__t{ color:#fff; }
+
+/* Akzent: Silber auf Dunkel */
+.hero .eyebrow,.page-hero .eyebrow,.section--navy .eyebrow,.door__tag{ color:#BFC7D5; }
+.hero .eyebrow::before,.page-hero .eyebrow::before,.section--navy .eyebrow::before{ background:#BFC7D5; }
+.stat__num{ color:#DCE4EF; font-size:2.6rem; }
+.site-footer::before{ background:linear-gradient(90deg,transparent,#5a6b82,transparent); }
+
+/* Akzent: Slate auf Hell (lesbar) */
+.eyebrow{ color:#43566F; }
+.eyebrow::before{ background:#43566F; }
+.path::before{ background:linear-gradient(90deg,#102A43,rgba(16,42,67,0)); }
+.card--path{ border-top:3px solid #102A43; }
+.card__icon{ background:#F0F3F8; border:1px solid #E2E8F1; box-shadow:none; }
+a:hover{ color:#43566F; }
+.field input:focus,.field select:focus,.field textarea:focus{ border-color:#102A43; box-shadow:0 0 0 3px rgba(16,42,67,.14); }
+
+/* Buttons: Navy primär · Weiß sekundär · Grün/Rot unverändert */
+.btn--primary{ background:#102A43; border-color:#102A43; color:#fff; box-shadow:0 8px 20px rgba(16,42,67,.20), inset 0 1px 0 rgba(255,255,255,.10); }
+.btn--primary:hover{ background:#183a5c; border-color:#183a5c; color:#fff; }
+.btn--primary:active{ transform:translateY(1px); box-shadow:0 4px 12px rgba(16,42,67,.20); }
+.btn--light,.door__cta.btn--light{ background:#fff; color:#102A43; border:1px solid #C6D0DE; }
+.btn--light:hover{ background:#F0F3F8; border-color:#AAB6C8; color:#102A43; }
+.fab--ai{ background:#102A43; color:#fff; }
+
+/* Türen & Kontakt-Kacheln auf Dunkel: Silber-Rahmen */
+.door{ border-color:rgba(191,199,213,.28); }
+.door:hover{ border-color:rgba(191,199,213,.62); }
+.choice{ border-color:rgba(191,199,213,.26); }
+.choice:hover{ border-color:rgba(191,199,213,.62); }
+
+/* Footer-Umbruch-Fix */
+.footer-brand .brand__name{ font-size:1.12rem; line-height:1.28; }
+.footer-grid{ gap:32px; }
+.site-footer a[data-tel],.site-footer a[data-wa]{ white-space:nowrap; }
