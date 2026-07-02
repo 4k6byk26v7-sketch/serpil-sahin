@@ -295,3 +295,18 @@ h3{ font-size: 1.35rem; }
 .emergency-bar{ background: #7c1f1a; font-size: .9rem; letter-spacing: .01em; padding: 8px 16px; }
 .emergency-bar a{ text-decoration: none; border: 1px solid rgba(255,255,255,.55); padding: 3px 13px; border-radius: 20px; }
 .emergency-bar a:hover{ background: #fff; color: #7c1f1a; border-color:#fff; }
+
+
+/* ============ MOBILE: weniger Dichte, ruhiger ============ */
+@media (max-width: 720px){
+  .hero__inner{ padding: 70px 0 58px; }
+  .hero h1{ font-size: 2.05rem; line-height: 1.16; }
+  .hero p{ font-size: 1.05rem; line-height: 1.6; }
+  .lead{ font-size: 1.03rem; }
+  h2{ font-size: 1.65rem; }
+  .section{ padding: 50px 0; }
+  .path{ padding: 28px 22px; }
+  .card{ padding: 26px 22px; }
+  .emergency-bar{ font-size: .82rem; gap: 10px; padding: 7px 12px; }
+  .emergency-bar span{ width: 100%; }
+}

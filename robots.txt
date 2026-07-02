@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://serpil-sahin.de/sitemap.xml
