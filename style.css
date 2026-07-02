@@ -593,3 +593,17 @@ a:hover{ color:#43566F; }
 .footer-brand .brand__name{ font-size:1.12rem; line-height:1.28; }
 .footer-grid{ gap:32px; }
 .site-footer a[data-tel],.site-footer a[data-wa]{ white-space:nowrap; }
+
+/* ============================================================
+   KLARE TRENNUNG DER BEIDEN TÜREN
+   Tür 1 (Unfall): weiß gefüllt · Tür 2 (Gutachter): weiße Outline
+   plus eigener Farb-Akzent je Tür
+   ============================================================ */
+.hero-doors{ gap:26px; }
+.door__cta--ghost.btn{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.55); box-shadow:none; }
+.door__cta--ghost.btn:hover{ background:#fff; color:#102A43; border-color:#fff; }
+
+/* je Tür ein eigener oberer Akzent → klar unterscheidbar */
+.hero-doors .door{ border-top:3px solid transparent; }
+.hero-doors .door:first-child{ border-top-color:#E6EBF2; }
+.hero-doors .door:last-child{ border-top-color:#5B7BA6; }
