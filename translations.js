@@ -26,7 +26,8 @@ const I18N = {
     "p2.text":"Sie sind Kfz-Sachverständiger? Profitieren Sie von einer langfristigen Zusammenarbeit mit unserer Kanzlei.",
     "p2.a":"Regelmäßige Mandate im Verkehrsrecht","p2.b":"Schnelle, digitale Zusammenarbeit",
     "p2.c":"Transparente Zusammenarbeit, feste Ansprechpartner","p2.d":"Direkte Kommunikation mit Ihrer Anwältin",
-    "p2.btn":"Kooperation anfragen →"
+    "p2.btn":"Kooperation anfragen →",
+    "stat.years":"Jahre Erfahrung","stat.clients":"betreute Mandanten","stat.answer":"Antwort auf Ihre Anfrage","stat.cost":"Anwaltskosten bei unverschuldetem Unfall*"
   },
   tr: {
     "nav.home":"Ana Sayfa","nav.recht":"Trafik Hukuku","nav.areas":"Hukuk Alanları","nav.after":"Kaza Sonrası",
@@ -53,7 +54,8 @@ const I18N = {
     "p2.text":"Oto bilirkişisi misiniz? Büromuzla uzun vadeli iş birliğinden yararlanın.",
     "p2.a":"Trafik hukukunda düzenli işler","p2.b":"Hızlı, dijital iş birliği",
     "p2.c":"Şeffaf iş birliği, sabit muhatap","p2.d":"Avukatınızla doğrudan iletişim",
-    "p2.btn":"İş birliği talebi →"
+    "p2.btn":"İş birliği talebi →",
+    "stat.years":"yıl deneyim","stat.clients":"danışılan müvekkil","stat.answer":"sorunuza yanıt","stat.cost":"kusursuz kazada avukatlık ücreti*"
   },
   en: {
     "nav.home":"Home","nav.recht":"Traffic Law","nav.areas":"Practice Areas","nav.after":"After the Accident",
@@ -80,7 +82,8 @@ const I18N = {
     "p2.text":"Are you a vehicle expert? Benefit from a long-term partnership with our firm.",
     "p2.a":"Regular cases in traffic law","p2.b":"Fast, digital collaboration",
     "p2.c":"Transparent collaboration, fixed contacts","p2.d":"Direct communication with your attorney",
-    "p2.btn":"Request cooperation →"
+    "p2.btn":"Request cooperation →",
+    "stat.years":"years of experience","stat.clients":"clients advised","stat.answer":"response to your enquiry","stat.cost":"legal fees in a no-fault accident*"
   }
 };
 
