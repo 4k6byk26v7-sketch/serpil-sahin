@@ -624,10 +624,10 @@ a:hover{ color:#43566F; }
 
 /* Trust-Leiste unter dem Hero */
 .trustbar{ background:#F7F9FC; border-top:1px solid #e7ecf3; border-bottom:1px solid #e7ecf3; }
-.trustbar__row{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 34px; padding:16px 24px; }
-.trustbar__item{ display:inline-flex; align-items:center; gap:8px; font-size:.9rem; font-weight:600; color:#3a4b63; }
-.trustbar__ic{ font-size:1.05rem; }
-@media(max-width:600px){ .trustbar__row{ gap:10px 18px; } .trustbar__item{ font-size:.82rem; } }
+.trustbar__row{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px 44px; padding:24px 24px; }
+.trustbar__item{ display:inline-flex; align-items:center; gap:11px; font-size:1.12rem; font-weight:600; color:#26364d; }
+.trustbar__ic{ font-size:1.5rem; }
+@media(max-width:600px){ .trustbar__row{ gap:14px 22px; padding:20px 16px; } .trustbar__item{ font-size:1rem; } .trustbar__ic{ font-size:1.3rem; } }
 
 /* Aktive Sprache klar hervorheben */
 .lang-btn.active{ background:#102A43; color:#fff; border-color:#102A43; box-shadow:0 2px 6px rgba(16,42,67,.28); }
