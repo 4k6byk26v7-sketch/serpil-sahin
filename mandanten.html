@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nach dem Unfall – Hilfe für Mandanten | ŞAHIN &amp; PARTNER</title>
+<meta name="description" content="Sie hatten einen Verkehrsunfall? Checkliste und direkte Anfrage. Wir prüfen Ihre Ansprüche und übernehmen die Abwicklung mit der Versicherung.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand__name">ŞAHIN <span>&amp;</span> PARTNER</span>
+      <span class="brand__sub">Rechtsanwälte · Verkehrsrecht</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="verkehrsrecht.html">Verkehrsrecht</a></li>
+      <li><a href="rechtsgebiete.html">Rechtsgebiete</a></li>
+      <li><a href="mandanten.html" class="active">Nach dem Unfall</a></li>
+      <li><a href="gutachter.html">Für Gutachter</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="kontakt.html" class="btn btn--primary nav__cta">Beratung anfragen</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Start</a> › Nach dem Unfall</div>
+    <h1>Sie hatten einen Unfall? Wir sind für Sie da.</h1>
+    <p>Atmen Sie durch. Wir sagen Ihnen, was jetzt wichtig ist – und übernehmen den Rest für Sie.</p>
+  </div>
+</section>
+
+<!-- CHECKLISTE -->
+<section class="section">
+  <div class="container grid grid--2" style="gap:44px; align-items:start">
+    <div>
+      <p class="eyebrow">Sofort-Checkliste</p>
+      <h2>Die wichtigsten Schritte am Unfallort</h2>
+      <ul class="features">
+        <li><span class="tick">1</span><span><strong>Unfallstelle sichern.</strong> Warnblinker an, Warndreieck aufstellen, Warnweste tragen.</span></li>
+        <li><span class="tick">2</span><span><strong>Verletzte versorgen.</strong> Bei Personenschaden sofort Notruf <strong>112</strong>.</span></li>
+        <li><span class="tick">3</span><span><strong>Polizei rufen (110).</strong> Besonders bei größeren Schäden, Streit oder Personenschaden.</span></li>
+        <li><span class="tick">4</span><span><strong>Dokumentieren.</strong> Fotos von Fahrzeugen, Schäden, Kennzeichen, Endstellung und Umgebung.</span></li>
+        <li><span class="tick">5</span><span><strong>Daten austauschen.</strong> Name, Anschrift, Kennzeichen, Versicherung – Zeugen notieren.</span></li>
+        <li><span class="tick">6</span><span><strong>Nichts unterschreiben.</strong> Kein Schuldanerkenntnis abgeben – erst mit uns sprechen.</span></li>
+        <li><span class="tick">7</span><span><strong>Uns kontaktieren.</strong> Wir übernehmen ab hier und sichern Ihre Ansprüche.</span></li>
+      </ul>
+      <div class="card" style="background:var(--bg-soft); margin-top:20px">
+        <h3>Gut zu wissen</h3>
+        <p class="mb-0 text-muted">Bei einem unverschuldeten Unfall haben Sie das Recht auf einen <strong>eigenen Gutachter</strong> und einen <strong>eigenen Anwalt</strong> – die Kosten trägt in der Regel die gegnerische Versicherung.</p>
+      </div>
+    </div>
+
+    <!-- ANFRAGE-FORMULAR -->
+    <div>
+      <form class="form" onsubmit="return handleForm(event, 'Unfall-Anfrage über Website')">
+        <p class="eyebrow">Kostenlose Ersteinschätzung</p>
+        <h2 style="margin-bottom:.6em">Ihren Unfall schildern</h2>
+        <div class="form__row">
+          <div class="field"><label>Vorname</label><input name="vorname" data-label="Vorname" required></div>
+          <div class="field"><label>Nachname</label><input name="nachname" data-label="Nachname" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label>E-Mail</label><input type="email" name="email" data-label="E-Mail" required></div>
+          <div class="field"><label>Telefon</label><input name="telefon" data-label="Telefon"></div>
+        </div>
+        <div class="field"><label>Unfalldatum</label><input type="date" name="datum" data-label="Unfalldatum"></div>
+        <div class="field"><label>Was ist passiert?</label><textarea name="schilderung" data-label="Schilderung" placeholder="Kurze Beschreibung des Unfalls, Verletzungen, Schäden…" required></textarea></div>
+        <div class="field"><label>Rechtsschutzversicherung vorhanden?</label>
+          <select name="rechtsschutz" data-label="Rechtsschutz">
+            <option value="unbekannt">Weiß nicht</option>
+            <option value="ja">Ja</option>
+            <option value="nein">Nein</option>
+          </select>
+        </div>
+        <div class="field field--check">
+          <input type="checkbox" name="datenschutz" required>
+          <label>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung der Anfrage einverstanden.</label>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%">Anfrage per E-Mail senden</button>
+        <p class="form-success" style="display:none; color:var(--success); margin-top:12px">✓ Ihr E-Mail-Programm öffnet sich. Bitte senden Sie die Nachricht ab.</p>
+        <p class="form__note">Alternativ: <a data-wa>per WhatsApp schreiben</a> oder <a data-mail>direkt E-Mail senden</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand__name" style="font-size:1.3rem">ŞAHIN &amp; PARTNER</span><p>Rechtsanwaltskanzlei mit Schwerpunkt Verkehrsrecht. Für Unfallgeschädigte und Sachverständige.</p></div>
+      <div><h4>Rechtsgebiete</h4><a href="verkehrsrecht.html">Verkehrsrecht</a><a href="rechtsgebiete.html">Weitere Rechtsgebiete</a><a href="mandanten.html">Nach dem Unfall</a></div>
+      <div><h4>Kanzlei</h4><a href="gutachter.html">Für Gutachter</a><a href="kontakt.html">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+      <div><h4>Kontakt</h4><a data-tel><span data-cfg="telefon">+49 000 0000000</span></a><a data-mail><span data-cfg="email">info@sahin-partner.de</span></a><a data-wa>WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 ŞAHIN &amp; PARTNER Rechtsanwälte.</span><span>Kein Ersatz für individuelle Rechtsberatung.</span></div>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <button class="fab fab--ai" onclick="aiToggle()" aria-label="Digitaler Assistent" title="Digitaler Assistent">💬</button>
+  <a class="fab fab--wa" data-wa aria-label="WhatsApp" title="WhatsApp">🟢</a>
+</div>
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head"><div><strong>Digitaler Assistent</strong><small>ŞAHIN &amp; PARTNER · unverbindlich</small></div><button class="ai-close" onclick="aiToggle()" aria-label="Schließen">×</button></div>
+  <div class="ai-body" id="aiBody"></div>
+  <div class="ai-chips">
+    <button class="ai-chip" onclick="aiSend('Was steht mir nach dem Unfall zu?')">Was steht mir zu?</button>
+    <button class="ai-chip" onclick="aiSend('Was kostet die Beratung?')">Kosten?</button>
+    <button class="ai-chip" onclick="aiSend('Brauche ich einen eigenen Gutachter?')">Eigener Gutachter?</button>
+    <button class="ai-chip" onclick="aiSend('Ich habe einen Bußgeldbescheid')">Bußgeld</button>
+  </div>
+  <div class="ai-foot"><input type="text" id="aiInput" placeholder="Ihre Frage…" onkeydown="aiKey(event)"><button class="ai-send" onclick="aiSend()" aria-label="Senden">➤</button></div>
+  <p class="ai-disclaimer">Automatische, allgemeine Antworten – keine individuelle Rechtsberatung.</p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

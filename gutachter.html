@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Für Gutachter – Zusammenarbeit &amp; Bewerbung | ŞAHIN &amp; PARTNER</title>
+<meta name="description" content="Unfallgutachter und Kfz-Sachverständige: Bewerben Sie sich für die Zusammenarbeit mit unserer Kanzlei im Verkehrsrecht.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand__name">ŞAHIN <span>&amp;</span> PARTNER</span>
+      <span class="brand__sub">Rechtsanwälte · Verkehrsrecht</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="verkehrsrecht.html">Verkehrsrecht</a></li>
+      <li><a href="rechtsgebiete.html">Rechtsgebiete</a></li>
+      <li><a href="mandanten.html">Nach dem Unfall</a></li>
+      <li><a href="gutachter.html" class="active">Für Gutachter</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="kontakt.html" class="btn btn--primary nav__cta">Beratung anfragen</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Start</a> › Für Gutachter</div>
+    <h1>Zusammenarbeit für Unfallgutachter</h1>
+    <p>Sie sind Kfz-Sachverständiger und suchen eine spezialisierte Kanzlei als verlässlichen Partner? Werden Sie Teil unseres Netzwerks.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center" style="margin-bottom:40px">
+      <p class="eyebrow">Ihre Vorteile</p>
+      <h2>Warum mit uns zusammenarbeiten?</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card"><div class="card__icon">🤝</div><h3>Regelmäßige Mandate</h3><p>Als Kanzlei mit Schwerpunkt Verkehrsrecht vermitteln wir Ihnen kontinuierlich passende Begutachtungen.</p></div>
+      <div class="card"><div class="card__icon">⚡</div><h3>Digitale Prozesse</h3><p>Schlanke, digitale Kommunikation und schnelle Beauftragung – ohne unnötigen Papierkram.</p></div>
+      <div class="card"><div class="card__icon">💬</div><h3>Direkter Draht</h3><p>Kurze Wege zum Anwaltsteam, klare Ansprechpartner und faire, partnerschaftliche Konditionen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container grid grid--2" style="gap:44px; align-items:start">
+    <div>
+      <p class="eyebrow">Wen wir suchen</p>
+      <h2>Ihr Profil</h2>
+      <ul class="features">
+        <li><span class="tick">✓</span><span>Anerkannte Qualifikation als Kfz-Sachverständiger / Unfallgutachter</span></li>
+        <li><span class="tick">✓</span><span>Erfahrung in der Erstellung von Schadens- und Wertgutachten</span></li>
+        <li><span class="tick">✓</span><span>Zuverlässige, termingerechte Arbeitsweise</span></li>
+        <li><span class="tick">✓</span><span>Idealerweise regionale Nähe zum Einsatzgebiet der Kanzlei</span></li>
+      </ul>
+      <div class="card" style="margin-top:20px">
+        <h3>Fragen vorab?</h3>
+        <p class="mb-0 text-muted">Melden Sie sich gern direkt – <a data-wa>per WhatsApp</a> oder <a data-mail>per E-Mail</a>.</p>
+      </div>
+    </div>
+
+    <!-- BEWERBUNGSFORMULAR -->
+    <div>
+      <form class="form" onsubmit="return handleForm(event, 'Gutachter-Bewerbung über Website')">
+        <p class="eyebrow">Bewerbung</p>
+        <h2 style="margin-bottom:.6em">Als Gutachter bewerben</h2>
+        <div class="form__row">
+          <div class="field"><label>Vorname</label><input name="vorname" data-label="Vorname" required></div>
+          <div class="field"><label>Nachname</label><input name="nachname" data-label="Nachname" required></div>
+        </div>
+        <div class="field"><label>Firma / Sachverständigenbüro</label><input name="firma" data-label="Firma"></div>
+        <div class="form__row">
+          <div class="field"><label>E-Mail</label><input type="email" name="email" data-label="E-Mail" required></div>
+          <div class="field"><label>Telefon</label><input name="telefon" data-label="Telefon"></div>
+        </div>
+        <div class="field"><label>Einsatzgebiet / Region</label><input name="region" data-label="Region" placeholder="z.B. Raum Musterstadt"></div>
+        <div class="field"><label>Qualifikation &amp; Schwerpunkte</label><textarea name="qualifikation" data-label="Qualifikation" placeholder="Zertifizierungen, Erfahrung, Fachgebiete…" required></textarea></div>
+        <div class="field field--check">
+          <input type="checkbox" name="datenschutz" required>
+          <label>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</label>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%">Bewerbung per E-Mail senden</button>
+        <p class="form-success" style="display:none; color:var(--success); margin-top:12px">✓ Ihr E-Mail-Programm öffnet sich. Bitte senden Sie die Nachricht ab.</p>
+        <p class="form__note">Unterlagen (z.B. Zertifikate) können Sie der E-Mail anhängen.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand__name" style="font-size:1.3rem">ŞAHIN &amp; PARTNER</span><p>Rechtsanwaltskanzlei mit Schwerpunkt Verkehrsrecht. Für Unfallgeschädigte und Sachverständige.</p></div>
+      <div><h4>Rechtsgebiete</h4><a href="verkehrsrecht.html">Verkehrsrecht</a><a href="rechtsgebiete.html">Weitere Rechtsgebiete</a><a href="mandanten.html">Nach dem Unfall</a></div>
+      <div><h4>Kanzlei</h4><a href="gutachter.html">Für Gutachter</a><a href="kontakt.html">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+      <div><h4>Kontakt</h4><a data-tel><span data-cfg="telefon">+49 000 0000000</span></a><a data-mail><span data-cfg="email">info@sahin-partner.de</span></a><a data-wa>WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 ŞAHIN &amp; PARTNER Rechtsanwälte.</span><span>Kein Ersatz für individuelle Rechtsberatung.</span></div>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <button class="fab fab--ai" onclick="aiToggle()" aria-label="Digitaler Assistent" title="Digitaler Assistent">💬</button>
+  <a class="fab fab--wa" data-wa aria-label="WhatsApp" title="WhatsApp">🟢</a>
+</div>
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head"><div><strong>Digitaler Assistent</strong><small>ŞAHIN &amp; PARTNER · unverbindlich</small></div><button class="ai-close" onclick="aiToggle()" aria-label="Schließen">×</button></div>
+  <div class="ai-body" id="aiBody"></div>
+  <div class="ai-chips">
+    <button class="ai-chip" onclick="aiSend('Wie läuft die Zusammenarbeit als Gutachter?')">Zusammenarbeit</button>
+    <button class="ai-chip" onclick="aiSend('Welche Qualifikation braucht ein Gutachter?')">Voraussetzungen</button>
+    <button class="ai-chip" onclick="aiSend('Wie erreiche ich euch?')">Kontakt</button>
+  </div>
+  <div class="ai-foot"><input type="text" id="aiInput" placeholder="Ihre Frage…" onkeydown="aiKey(event)"><button class="ai-send" onclick="aiSend()" aria-label="Senden">➤</button></div>
+  <p class="ai-disclaimer">Automatische, allgemeine Antworten – keine individuelle Rechtsberatung.</p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

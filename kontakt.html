@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – ŞAHIN &amp; PARTNER Rechtsanwälte</title>
+<meta name="description" content="Kontaktieren Sie ŞAHIN & PARTNER per Telefon, E-Mail, WhatsApp oder über unseren digitalen Assistenten.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand__name">ŞAHIN <span>&amp;</span> PARTNER</span>
+      <span class="brand__sub">Rechtsanwälte · Verkehrsrecht</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="verkehrsrecht.html">Verkehrsrecht</a></li>
+      <li><a href="rechtsgebiete.html">Rechtsgebiete</a></li>
+      <li><a href="mandanten.html">Nach dem Unfall</a></li>
+      <li><a href="gutachter.html">Für Gutachter</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+      <li><a href="kontakt.html" class="btn btn--primary nav__cta">Beratung anfragen</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Start</a> › Kontakt</div>
+    <h1>Kontakt aufnehmen</h1>
+    <p>Wählen Sie den Weg, der Ihnen am liebsten ist. Wir melden uns kurzfristig zurück.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <!-- INFO -->
+    <div>
+      <p class="eyebrow">So erreichen Sie uns</p>
+      <h2>Direkt &amp; unkompliziert</h2>
+      <ul class="contact-list">
+        <li><span class="ci-icon">📞</span><span><span class="ci-label">Telefon</span><br><a data-tel class="ci-value"><span data-cfg="telefon">+49 000 0000000</span></a></span></li>
+        <li><span class="ci-icon">✉️</span><span><span class="ci-label">E-Mail</span><br><a data-mail class="ci-value"><span data-cfg="email">info@sahin-partner.de</span></a></span></li>
+        <li><span class="ci-icon">🟢</span><span><span class="ci-label">WhatsApp</span><br><a data-wa class="ci-value">Nachricht schreiben</a></span></li>
+        <li><span class="ci-icon">📍</span><span><span class="ci-label">Adresse</span><br><span class="ci-value" data-cfg="adresse">Musterstraße 1, 00000 Musterstadt</span></span></li>
+        <li><span class="ci-icon">🕘</span><span><span class="ci-label">Sprechzeiten</span><br><span class="ci-value"><span class="ph">Mo–Fr 9:00–18:00 Uhr</span></span></span></li>
+      </ul>
+      <div class="btn-row" style="margin-top:20px">
+        <a data-wa class="btn btn--wa">WhatsApp öffnen</a>
+        <button class="btn btn--ghost" onclick="aiToggle()">Assistent fragen</button>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div>
+      <form class="form" onsubmit="return handleForm(event, 'Kontaktanfrage über Website')">
+        <p class="eyebrow">Nachricht senden</p>
+        <h2 style="margin-bottom:.6em">Schreiben Sie uns</h2>
+        <div class="form__row">
+          <div class="field"><label>Name</label><input name="name" data-label="Name" required></div>
+          <div class="field"><label>Telefon</label><input name="telefon" data-label="Telefon"></div>
+        </div>
+        <div class="field"><label>E-Mail</label><input type="email" name="email" data-label="E-Mail" required></div>
+        <div class="field"><label>Betreff</label>
+          <select name="betreff" data-label="Betreff">
+            <option>Frage nach einem Unfall</option>
+            <option>Bußgeld / Fahrverbot</option>
+            <option>Bewerbung als Gutachter</option>
+            <option>Sonstiges Anliegen</option>
+          </select>
+        </div>
+        <div class="field"><label>Ihre Nachricht</label><textarea name="nachricht" data-label="Nachricht" required></textarea></div>
+        <div class="field field--check">
+          <input type="checkbox" name="datenschutz" required>
+          <label>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</label>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%">Per E-Mail senden</button>
+        <p class="form-success" style="display:none; color:var(--success); margin-top:12px">✓ Ihr E-Mail-Programm öffnet sich. Bitte senden Sie die Nachricht ab.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MAP PLACEHOLDER -->
+<section class="section section--soft">
+  <div class="container center">
+    <h2>Anfahrt</h2>
+    <p class="lead center">Binden Sie hier Ihre Karte ein.</p>
+    <div class="card" style="height:320px; display:flex; align-items:center; justify-content:center; background:var(--bg); border-style:dashed">
+      <p class="text-muted mb-0"><span class="ph">Platzhalter:</span> Google-Maps-Einbettung (iframe) mit der echten Kanzleiadresse hier einfügen.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand__name" style="font-size:1.3rem">ŞAHIN &amp; PARTNER</span><p>Rechtsanwaltskanzlei mit Schwerpunkt Verkehrsrecht. Für Unfallgeschädigte und Sachverständige.</p></div>
+      <div><h4>Rechtsgebiete</h4><a href="verkehrsrecht.html">Verkehrsrecht</a><a href="rechtsgebiete.html">Weitere Rechtsgebiete</a><a href="mandanten.html">Nach dem Unfall</a></div>
+      <div><h4>Kanzlei</h4><a href="gutachter.html">Für Gutachter</a><a href="kontakt.html">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+      <div><h4>Kontakt</h4><a data-tel><span data-cfg="telefon">+49 000 0000000</span></a><a data-mail><span data-cfg="email">info@sahin-partner.de</span></a><a data-wa>WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 ŞAHIN &amp; PARTNER Rechtsanwälte.</span><span>Kein Ersatz für individuelle Rechtsberatung.</span></div>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <button class="fab fab--ai" onclick="aiToggle()" aria-label="Digitaler Assistent" title="Digitaler Assistent">💬</button>
+  <a class="fab fab--wa" data-wa aria-label="WhatsApp" title="WhatsApp">🟢</a>
+</div>
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head"><div><strong>Digitaler Assistent</strong><small>ŞAHIN &amp; PARTNER · unverbindlich</small></div><button class="ai-close" onclick="aiToggle()" aria-label="Schließen">×</button></div>
+  <div class="ai-body" id="aiBody"></div>
+  <div class="ai-chips">
+    <button class="ai-chip" onclick="aiSend('Ich hatte einen Unfall')">Ich hatte einen Unfall</button>
+    <button class="ai-chip" onclick="aiSend('Wie kann ich einen Termin bekommen?')">Termin</button>
+    <button class="ai-chip" onclick="aiSend('Was kostet die Beratung?')">Kosten?</button>
+  </div>
+  <div class="ai-foot"><input type="text" id="aiInput" placeholder="Ihre Frage…" onkeydown="aiKey(event)"><button class="ai-send" onclick="aiSend()" aria-label="Senden">➤</button></div>
+  <p class="ai-disclaimer">Automatische, allgemeine Antworten – keine individuelle Rechtsberatung.</p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
