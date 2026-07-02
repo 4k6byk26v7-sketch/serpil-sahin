@@ -310,3 +310,25 @@ h3{ font-size: 1.35rem; }
   .emergency-bar{ font-size: .82rem; gap: 10px; padding: 7px 12px; }
   .emergency-bar span{ width: 100%; }
 }
+
+
+/* ============ Sprachumschalter + Header-Konsistenz ============ */
+.nav{ justify-content: flex-start; gap: 16px; }
+.nav__links{ margin-left: auto; gap: 22px; }
+.nav__links a{ font-size: .92rem; }
+.nav__cta{ white-space: nowrap; }
+.lang-switch{ display: flex; gap: 4px; }
+.lang-btn{ background: none; border: 1px solid var(--line); color: var(--muted); font-family: var(--font-body); font-size: .72rem; font-weight: 600; padding: 4px 7px; border-radius: 6px; cursor: pointer; letter-spacing: .04em; }
+.lang-btn.active{ background: var(--navy); color: #fff; border-color: var(--navy); }
+.lang-btn:hover{ border-color: var(--gold); color: var(--gold-dark); }
+
+/* Navigation klappt schon unter 1024px ins Hamburger-Menü (verhindert Umbrüche) */
+@media (max-width: 1024px){
+  .nav__links{ position: fixed; inset: 84px 0 auto 0; background: #fff; flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 24px 20px; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-md); display: none; margin-left: 0; }
+  .nav__links.open{ display: flex; }
+  .nav__links li{ width: 100%; }
+  .nav__links a{ display: block; padding: 12px 0; width: 100%; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .nav__links .nav__cta{ display: inline-block; width: auto; margin-top: 12px; border: 2px solid var(--gold); }
+  .nav__toggle{ display: block; }
+  .lang-switch{ margin-left: auto; margin-right: 6px; }
+}
