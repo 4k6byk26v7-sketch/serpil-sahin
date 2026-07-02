@@ -39,6 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
     a.href = `https://wa.me/${CONFIG.whatsapp}?text=${waEmerg}`;
     a.target = "_blank"; a.rel = "noopener";
   });
+  // WhatsApp-Sprachnachricht (öffnet Chat – Nutzer nimmt dort die Sprachnachricht auf)
+  const waVoice = encodeURIComponent("Guten Tag, ich sende Ihnen gleich eine Sprachnachricht zu meinem Anliegen.");
+  document.querySelectorAll("[data-wa-voice]").forEach(a => {
+    a.href = `https://wa.me/${CONFIG.whatsapp}?text=${waVoice}`;
+    a.target = "_blank"; a.rel = "noopener";
+  });
 });
 
 /* ---------- Mobile Navigation ---------- */

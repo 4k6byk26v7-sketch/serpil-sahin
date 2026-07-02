@@ -496,3 +496,29 @@ h3{ font-size: 1.35rem; }
   .door{ padding:22px 20px; }
   .door__title{ font-size:1.32rem; }
 }
+
+/* ============================================================
+   KONTAKT-AUSWAHL – Sprachnachricht / Text WhatsApp / Text E-Mail
+   ============================================================ */
+.contact-choice{ background:linear-gradient(160deg,#0e1b2a,#0a1622); border:none; color:var(--on-dark); }
+.contact-choice h3{ color:#fff; margin:0 0 6px; }
+.contact-choice > p{ color:var(--on-dark); margin:0 0 18px; }
+.choice-row{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.choice{
+  display:flex; flex-direction:column; align-items:flex-start; gap:3px;
+  padding:16px 16px 15px; border-radius:14px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(227,213,184,.26);
+  text-decoration:none; cursor:pointer;
+  transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.choice:hover{ transform:translateY(-3px); border-color:rgba(227,213,184,.6); background:rgba(255,255,255,.09); box-shadow:0 12px 26px rgba(0,0,0,.28); }
+.choice__ico{ font-size:1.5rem; line-height:1; margin-bottom:5px; }
+.choice__t{ font-weight:700; color:#fff; font-size:1rem; }
+.choice__s{ font-size:.82rem; color:var(--on-dark); line-height:1.35; }
+@media (max-width:640px){
+  .choice-row{ grid-template-columns:1fr; }
+  .choice{ flex-direction:row; align-items:center; gap:12px; flex-wrap:wrap; }
+  .choice__ico{ margin-bottom:0; }
+  .choice__t{ flex:1 1 auto; }
+  .choice__s{ flex-basis:100%; }
+}

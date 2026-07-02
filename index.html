@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=14">
 <link rel="canonical" href="https://serpil-sahin.de/">
 <meta name="theme-color" content="#0e1b2a">
 <meta property="og:type" content="website">
@@ -156,14 +156,26 @@
         <a href="kontakt.html" class="btn btn--primary" data-i18n="why.btn">Kostenlose Ersteinschätzung</a>
       </div>
     </div>
-    <div class="card" style="background:var(--navy); color:#dbe3ee; border:none">
-      <h3 style="color:#fff" data-i18n="help.h">Benötigen Sie sofort anwaltliche Hilfe?</h3>
-      <p style="color:#c4d0e0" data-i18n="help.t">Schreiben Sie uns direkt – Antwort meist innerhalb von 24 Stunden.</p>
-      <div class="btn-row" style="margin-top:16px">
-        <a data-wa class="btn btn--wa" data-i18n="help.wa">WhatsApp schreiben</a>
-        <a data-mail class="btn btn--light" data-i18n="help.mail">E-Mail senden</a>
+    <div class="card contact-choice">
+      <h3 data-i18n="help.h">Wie möchten Sie uns erreichen?</h3>
+      <p data-i18n="help.t">Sprechen oder schreiben – ganz wie es Ihnen lieber ist. Antwort meist innerhalb von 24 Stunden.</p>
+      <div class="choice-row">
+        <a data-wa-voice class="choice">
+          <span class="choice__ico">🎤</span>
+          <span class="choice__t" data-i18n="cc.voice">Sprachnachricht</span>
+          <span class="choice__s" data-i18n="cc.voiceS">Per WhatsApp einsprechen</span>
+        </a>
+        <a data-wa class="choice">
+          <span class="choice__ico">💬</span>
+          <span class="choice__t" data-i18n="cc.waText">Text per WhatsApp</span>
+          <span class="choice__s" data-i18n="cc.waTextS">Schnell &amp; direkt schreiben</span>
+        </a>
+        <a data-mail class="choice">
+          <span class="choice__ico">✉️</span>
+          <span class="choice__t" data-i18n="cc.mail">Text per E-Mail</span>
+          <span class="choice__s" data-i18n="cc.mailS">Ausführlich per E-Mail</span>
+        </a>
       </div>
-      <p style="margin-top:18px; color:#8ea0b8; font-size:.9rem" data-i18n="help.note">Oder nutzen Sie unten rechts den digitalen Assistenten für schnelle Antworten.</p>
     </div>
   </div>
 </section>
@@ -228,7 +240,7 @@
   <p class="ai-disclaimer" data-i18n="asst.disc">Der digitale Assistent beantwortet allgemeine Fragen und ersetzt keine individuelle Rechtsberatung.</p>
 </div>
 
-<script src="main.js?v=7"></script>
-<script src="translations.js?v=6"></script>
+<script src="main.js?v=8"></script>
+<script src="translations.js?v=7"></script>
 </body>
 </html>
