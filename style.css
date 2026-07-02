@@ -404,3 +404,25 @@ h3{ font-size: 1.35rem; }
 .fab:active{ transform:translateY(1px) scale(1.04); }
 .brand__mark{ filter:drop-shadow(0 5px 7px rgba(0,0,0,.45)); }
 .emergency-bar a{ box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
+
+/* ============================================================
+   ECHTES CHAMPAGNE-BEIGE (finaler Override) – heller, entsättigt
+   ============================================================ */
+:root{ --gold:#e3d5b8; --gold-dark:#c2ad82; }
+
+.btn--primary{
+  background:linear-gradient(180deg,#f3ead6,#e1d2ae);
+  border-color:#dccba4; color:#132436;
+  box-shadow:0 10px 22px rgba(14,27,42,.16), inset 0 1px 0 rgba(255,255,255,.75), inset 0 -2px 0 rgba(150,128,82,.22);
+}
+.btn--primary:hover{ background:linear-gradient(180deg,#f7f0e0,#d8c69f); color:#0e1b2a; }
+.btn--primary:active{ transform:translateY(1px); box-shadow:0 5px 12px rgba(14,27,42,.16), inset 0 1px 0 rgba(255,255,255,.55); }
+.btn--light:hover{ background:linear-gradient(180deg,#f3ead6,#e1d2ae); border-color:#dccba4; color:#132436; }
+.fab--ai{ background:linear-gradient(180deg,#f3ead6,#e1d2ae); color:#132436; }
+.card__icon{ background:linear-gradient(180deg,#fdfbf6,#f2ecdd); border-color:#eadfc8; }
+.stat__num{ color:#ecdcb6; }
+.eyebrow::before{ background:linear-gradient(90deg,#ecdcb6,#c9b587); }
+.path::before{ background:linear-gradient(90deg,#e3d5b8,rgba(227,213,184,0)); }
+.site-footer::before{ background:linear-gradient(90deg,transparent,#e3d5b8,transparent); }
+.hero::before{ background:radial-gradient(1100px 420px at 82% -12%, rgba(227,213,184,.18), transparent 60%); }
+.hero::after{ background:radial-gradient(circle, rgba(227,213,184,.20), transparent 70%); }
