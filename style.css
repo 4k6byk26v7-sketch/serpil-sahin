@@ -611,22 +611,15 @@ a:hover{ color:#43566F; }
 /* ============================================================
    AUDIT-VERBESSERUNGEN: Hero-Porträt · Trust-Leiste · aktive Sprache
    ============================================================ */
-.hero__inner{ max-width:1080px; }
-.hero__lead{ display:grid; grid-template-columns:1fr; gap:26px; align-items:center; margin-bottom:8px; }
+/* Hero: Text volle Breite (Foto-Slot bei Bedarf via .hero__portrait rechts) */
+.hero__lead{ display:block; margin-bottom:8px; }
+.hero__lead-text{ max-width:760px; }
 .hero__portrait{ margin:0; }
-.portrait-ph{
-  aspect-ratio:4/5; max-width:290px; margin:0 auto;
-  border-radius:18px; background:linear-gradient(160deg,#17324e,#0c2036);
-  border:1px solid rgba(191,199,213,.30);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:10px; text-align:center; box-shadow:0 18px 40px rgba(0,0,0,.28);
-}
-.portrait-ph__mark{ font-family:"Lora",Georgia,serif; font-size:3.4rem; color:#BFC7D5; line-height:1; }
-.portrait-ph__cap{ font-family:"Lora",Georgia,serif; color:#eaf0f7; font-weight:600; font-size:1.05rem; line-height:1.25; }
-.portrait-ph__note{ color:#9fb0c6; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; }
+.hero__portrait img{ width:100%; border-radius:18px; box-shadow:0 18px 40px rgba(0,0,0,.28); }
 @media(min-width:980px){
-  .hero__lead{ grid-template-columns:1.55fr .95fr; gap:44px; }
-  .portrait-ph{ max-width:320px; margin:0 0 0 auto; }
+  .hero__inner{ max-width:1120px; }
+  .hero__lead:has(.hero__portrait){ display:grid; grid-template-columns:1.5fr .9fr; gap:44px; align-items:center; }
+  .hero__lead:has(.hero__portrait) .hero__lead-text{ max-width:none; }
 }
 
 /* Trust-Leiste unter dem Hero */
