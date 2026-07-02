@@ -607,3 +607,34 @@ a:hover{ color:#43566F; }
 .hero-doors .door{ border-top:3px solid transparent; }
 .hero-doors .door:first-child{ border-top-color:#E6EBF2; }
 .hero-doors .door:last-child{ border-top-color:#5B7BA6; }
+
+/* ============================================================
+   AUDIT-VERBESSERUNGEN: Hero-Porträt · Trust-Leiste · aktive Sprache
+   ============================================================ */
+.hero__inner{ max-width:1080px; }
+.hero__lead{ display:grid; grid-template-columns:1fr; gap:26px; align-items:center; margin-bottom:8px; }
+.hero__portrait{ margin:0; }
+.portrait-ph{
+  aspect-ratio:4/5; max-width:290px; margin:0 auto;
+  border-radius:18px; background:linear-gradient(160deg,#17324e,#0c2036);
+  border:1px solid rgba(191,199,213,.30);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; text-align:center; box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+.portrait-ph__mark{ font-family:"Lora",Georgia,serif; font-size:3.4rem; color:#BFC7D5; line-height:1; }
+.portrait-ph__cap{ font-family:"Lora",Georgia,serif; color:#eaf0f7; font-weight:600; font-size:1.05rem; line-height:1.25; }
+.portrait-ph__note{ color:#9fb0c6; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; }
+@media(min-width:980px){
+  .hero__lead{ grid-template-columns:1.55fr .95fr; gap:44px; }
+  .portrait-ph{ max-width:320px; margin:0 0 0 auto; }
+}
+
+/* Trust-Leiste unter dem Hero */
+.trustbar{ background:#F7F9FC; border-top:1px solid #e7ecf3; border-bottom:1px solid #e7ecf3; }
+.trustbar__row{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 34px; padding:16px 24px; }
+.trustbar__item{ display:inline-flex; align-items:center; gap:8px; font-size:.9rem; font-weight:600; color:#3a4b63; }
+.trustbar__ic{ font-size:1.05rem; }
+@media(max-width:600px){ .trustbar__row{ gap:10px 18px; } .trustbar__item{ font-size:.82rem; } }
+
+/* Aktive Sprache klar hervorheben */
+.lang-btn.active{ background:#102A43; color:#fff; border-color:#102A43; box-shadow:0 2px 6px rgba(16,42,67,.28); }
