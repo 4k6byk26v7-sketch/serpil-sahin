@@ -51,6 +51,33 @@
   </div>
 </section>
 
+<!-- SOFORT-KONTAKT (1 Tap) -->
+<section class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="card contact-choice">
+      <h3 data-i18n="cc.head">In einer Minute Kontakt aufnehmen</h3>
+      <p data-i18n="cc.sub">Am einfachsten per WhatsApp – sprechen oder schreiben. Antwort meist innerhalb von 24 Stunden.</p>
+      <div class="choice-row">
+        <a data-wa-voice class="choice">
+          <span class="choice__ico">🎤</span>
+          <span class="choice__t" data-i18n="cc.voice">Sprachnachricht</span>
+          <span class="choice__s" data-i18n="cc.voiceS">Per WhatsApp einsprechen</span>
+        </a>
+        <a data-wa class="choice">
+          <span class="choice__ico">💬</span>
+          <span class="choice__t" data-i18n="cc.waText">Text per WhatsApp</span>
+          <span class="choice__s" data-i18n="cc.waTextS">Schnell &amp; direkt schreiben</span>
+        </a>
+        <a data-mail class="choice">
+          <span class="choice__ico">✉️</span>
+          <span class="choice__t" data-i18n="cc.mail">Text per E-Mail</span>
+          <span class="choice__s" data-i18n="cc.mailS">Ausführlich per E-Mail</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CHECKLISTE -->
 <section class="section">
   <div class="container grid grid--2" style="gap:44px; align-items:start">
@@ -75,8 +102,8 @@
     <!-- ANFRAGE-FORMULAR -->
     <div>
       <form class="form" onsubmit="return handleForm(event, 'Unfall-Anfrage über Website')">
-        <p class="eyebrow">Kostenlose Ersteinschätzung</p>
-        <h2 style="margin-bottom:.6em">Ihren Unfall schildern</h2>
+        <p class="eyebrow">Alternative · ausführliches Formular</p>
+        <h2 style="margin-bottom:.6em">Lieber schriftlich? Unfall schildern</h2>
         <div class="form__row">
           <div class="field"><label>Vorname</label><input name="vorname" data-label="Vorname" required></div>
           <div class="field"><label>Nachname</label><input name="nachname" data-label="Nachname" required></div>
@@ -136,6 +163,6 @@
 </div>
 
 <script src="main.js?v=8"></script>
-<script src="translations.js?v=7"></script>
+<script src="translations.js?v=8"></script>
 </body>
 </html>
