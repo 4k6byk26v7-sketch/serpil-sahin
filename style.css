@@ -426,3 +426,39 @@ h3{ font-size: 1.35rem; }
 .site-footer::before{ background:linear-gradient(90deg,transparent,#e3d5b8,transparent); }
 .hero::before{ background:radial-gradient(1100px 420px at 82% -12%, rgba(227,213,184,.18), transparent 60%); }
 .hero::after{ background:radial-gradient(circle, rgba(227,213,184,.20), transparent 70%); }
+
+/* ============================================================
+   TYPOGRAFIE AUF DUNKEL – EINHEITLICH (finaler Override)
+   3 Stufen:  Überschrift = weiß · Fließtext = 1 Hellton · Label = Beige
+   ============================================================ */
+:root{ --on-dark:#cdd8e6; }
+
+/* Überschriften auf dunkel: immer reinweiß */
+.hero h1, .page-hero h1,
+.section--navy h2, .section--navy h3,
+.ai-head strong{ color:#fff; }
+
+/* Sämtlicher heller Fließ-/Support-Text: EINE Farbe */
+.hero, .page-hero, .section--navy{ color:var(--on-dark); }
+.hero p, .page-hero p,
+.section--navy p, .section--navy li,
+.hero-note, .hero-badges li,
+.stat__label{ color:var(--on-dark); }
+
+/* Einheitliche Größen im Hero */
+.hero p, .page-hero p{ font-size:1.15rem; line-height:1.7; font-weight:400; }
+.hero-note{ font-size:1rem; font-weight:600; margin:2px 0; }
+.hero-badges li{ font-size:1rem; font-weight:500; }
+
+/* Label-Akzent (eyebrow) einheitlich Beige, eine Größe */
+.eyebrow, .section--navy .eyebrow{ color:var(--gold); font-size:.8rem; font-weight:700; letter-spacing:.16em; }
+
+/* dezent gedämpfte Sekundärzeilen bleiben lesbar, aber im gleichen Farbton */
+.breadcrumb{ color:var(--on-dark); opacity:.7; }
+.breadcrumb a{ color:var(--on-dark); }
+.stat__num{ font-size:2.6rem; }
+
+@media (max-width:720px){
+  .hero p, .page-hero p{ font-size:1.02rem; }
+  .hero-note, .hero-badges li{ font-size:.94rem; }
+}
