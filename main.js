@@ -9,7 +9,7 @@ const CONFIG = {
   email:     "info@sahin-partner.de",      // <-- ANPASSEN
   telefon:   "+49 000 0000000",            // <-- ANPASSEN (Anzeige)
   telRaw:    "+490000000000",              // <-- ANPASSEN (tel:-Link)
-  whatsapp:  "490000000000",               // <-- ANPASSEN (nur Ziffern, Ländervorwahl ohne +/00)
+  whatsapp:  "491626210087",               // WhatsApp +49 162 6210087
   adresse:   "Musterstraße 1, 00000 Musterstadt", // <-- ANPASSEN
 };
 
