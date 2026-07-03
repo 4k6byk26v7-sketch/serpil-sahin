@@ -513,13 +513,13 @@ h3{ font-size: 1.35rem; }
 }
 .choice:hover{ transform:translateY(-3px); border-color:rgba(227,213,184,.6); background:rgba(255,255,255,.09); box-shadow:0 12px 26px rgba(0,0,0,.28); }
 .choice__ico{ font-size:1.5rem; line-height:1; margin-bottom:5px; }
-.choice__t{ font-weight:700; color:#fff; font-size:1rem; }
+.choice__t{ font-weight:700; color:#fff; font-size:1rem; line-height:1.25; min-height:2.5em; display:flex; align-items:flex-start; }
 .choice__s{ font-size:.82rem; color:var(--on-dark); line-height:1.35; }
 @media (max-width:640px){
   .choice-row{ grid-template-columns:1fr; }
   .choice{ flex-direction:row; align-items:center; gap:12px; flex-wrap:wrap; }
   .choice__ico{ margin-bottom:0; }
-  .choice__t{ flex:1 1 auto; }
+  .choice__t{ flex:1 1 auto; min-height:auto; display:block; }
   .choice__s{ flex-basis:100%; }
 }
 
@@ -624,10 +624,11 @@ a:hover{ color:#43566F; }
 
 /* Trust-Leiste unter dem Hero */
 .trustbar{ background:#F7F9FC; border-top:1px solid #e7ecf3; border-bottom:1px solid #e7ecf3; }
-.trustbar__row{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px 44px; padding:24px 24px; }
-.trustbar__item{ display:inline-flex; align-items:center; gap:11px; font-size:1.12rem; font-weight:600; color:#26364d; }
-.trustbar__ic{ font-size:1.5rem; }
-@media(max-width:600px){ .trustbar__row{ gap:14px 22px; padding:20px 16px; } .trustbar__item{ font-size:1rem; } .trustbar__ic{ font-size:1.3rem; } }
+.trustbar__row{ display:grid; grid-template-columns:repeat(4,auto); justify-content:center; align-items:center; gap:16px 34px; padding:22px 24px; }
+.trustbar__item{ display:inline-flex; align-items:center; gap:10px; font-size:1.05rem; font-weight:600; color:#26364d; white-space:nowrap; }
+.trustbar__ic{ font-size:1.4rem; }
+@media(max-width:1000px){ .trustbar__row{ grid-template-columns:auto auto; gap:16px 48px; } }
+@media(max-width:560px){ .trustbar__row{ grid-template-columns:1fr; justify-items:center; gap:14px; padding:20px 16px; } .trustbar__item{ font-size:1rem; } .trustbar__ic{ font-size:1.3rem; } }
 
 /* Aktive Sprache klar hervorheben */
 .lang-btn.active{ background:#102A43; color:#fff; border-color:#102A43; box-shadow:0 2px 6px rgba(16,42,67,.28); }
@@ -638,8 +639,11 @@ a:hover{ color:#43566F; }
 .quote cite{ font-style:normal; font-weight:600; color:#5a6b82; font-size:.9rem; }
 
 /* Wort-Kennzahl (statt großer Zahl) etwas kleiner */
-.stat__num--word{ font-size:1.9rem; }
-@media(max-width:600px){ .stat__num--word{ font-size:1.5rem; } }
+.stat__num--word{ font-size:2.3rem; }
+@media(max-width:600px){ .stat__num--word{ font-size:1.8rem; } }
+/* Kennzahl-Labels einheitlich (kein 2-Zeilen-Umbruch, symmetrisch) */
+.stat__label{ min-height:2.6em; display:flex; align-items:flex-start; justify-content:center; text-align:center; }
+@media(max-width:600px){ .stat__label{ min-height:0; } }
 
 /* ============================================================
    ABLAUF IN 3 SCHRITTEN
