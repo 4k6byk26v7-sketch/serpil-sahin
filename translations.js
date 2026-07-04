@@ -4,6 +4,7 @@ const I18N = {
   de: {
     "nav.home":"Start","nav.recht":"Verkehrsrecht","nav.areas":"Rechtsgebiete","nav.after":"Nach dem Unfall",
     "nav.experts":"Für Gutachter","nav.contact":"Kontakt","nav.cta":"Beratung anfragen",
+    "map.title":"📍 Klingholzstraße 7, 65189 Wiesbaden","map.hint":"Beim Laden der Karte werden Daten an Google übertragen.","map.privacy":"Datenschutzhinweise","map.load":"Karte laden",
     "emerg.label":"🚨 Unfall-Notfall?","emerg.wa":"WhatsApp sofort","emerg.call":"Anrufen",
     "foot.desc":"Ihre Ansprechpartnerin im Verkehrsrecht: Unterstützung bei Verkehrsunfällen, Unfallregulierung, Schadensersatz, Schmerzensgeld, Bußgeldverfahren und Führerscheinangelegenheiten – bundesweit.",
     "foot.h1":"Rechtsgebiete","foot.h2":"Kanzlei","foot.h3":"Kontakt",
@@ -39,6 +40,7 @@ const I18N = {
   tr: {
     "nav.home":"Ana Sayfa","nav.recht":"Trafik Hukuku","nav.areas":"Hukuk Alanları","nav.after":"Kaza Sonrası",
     "nav.experts":"Bilirkişiler İçin","nav.contact":"İletişim","nav.cta":"Danışma Talebi",
+    "map.title":"📍 Klingholzstraße 7, 65189 Wiesbaden","map.hint":"Harita yüklenirken Google'a veri aktarılır.","map.privacy":"Gizlilik bilgileri","map.load":"Haritayı yükle",
     "emerg.label":"🚨 Acil Kaza Durumu?","emerg.wa":"Hemen WhatsApp","emerg.call":"Ara",
     "foot.desc":"Trafik hukukunda muhatabınız: Trafik kazaları, hasar tasfiyesi, tazminat, manevi tazminat, para cezası ve ehliyet işlemlerinde destek – Almanya genelinde.",
     "foot.h1":"Hukuk Alanları","foot.h2":"Büro","foot.h3":"İletişim",
@@ -74,6 +76,7 @@ const I18N = {
   en: {
     "nav.home":"Home","nav.recht":"Traffic Law","nav.areas":"Practice Areas","nav.after":"After the Accident",
     "nav.experts":"For Experts","nav.contact":"Contact","nav.cta":"Request Consultation",
+    "map.title":"📍 Klingholzstraße 7, 65189 Wiesbaden","map.hint":"Loading the map transfers data to Google.","map.privacy":"Privacy policy","map.load":"Load map",
     "emerg.label":"🚨 Accident Emergency?","emerg.wa":"WhatsApp Now","emerg.call":"Call",
     "foot.desc":"Your contact for traffic law: support with traffic accidents, accident settlement, damages, compensation, fine proceedings and driving-licence matters – nationwide.",
     "foot.h1":"Practice Areas","foot.h2":"Firm","foot.h3":"Contact",
