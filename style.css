@@ -779,3 +779,8 @@ a:hover{ color:#43566F; }
 .fab--wa{position:relative}
 .fab-badge{position:absolute;right:110%;top:50%;transform:translateY(-50%);background:#0f2a43;color:#fff;font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 @media(max-width:640px){.fab-badge{display:none}}
+
+.urteile{background:#f2f5f9;border-left:4px solid #102A43;padding:20px 26px;border-radius:10px;margin:1.6em 0}
+.urteile ul{margin:0;padding-left:1.1em}
+.urteile li{margin-bottom:.9em}
+.urteile li:last-child{margin-bottom:0}
