@@ -784,3 +784,11 @@ a:hover{ color:#43566F; }
 .urteile ul{margin:0;padding-left:1.1em}
 .urteile li{margin-bottom:.9em}
 .urteile li:last-child{margin-bottom:0}
+
+/* VOLLBILD-WEICHE */
+.hero{min-height:calc(100vh - 130px);display:flex;align-items:center}
+.hero-doors{gap:28px}
+.door{padding:36px 32px}
+.door__title{font-size:1.65rem}
+.door__tag{font-size:.85rem}
+@media(max-width:760px){.hero{min-height:auto}.door{padding:24px 20px}.door__title{font-size:1.25rem}}
