@@ -77,6 +77,11 @@ function handleForm(e, betreff) {
    ================================================== */
 const AI_KNOWLEDGE = [
   {
+    keys: ["telefonieren","anrufen","anruf","rückruf","telefonat","telefonisch","sprechen","aramak","telefon etmek","call me","phone call","call you"],
+    html: true,
+    answer: 'Sehr gern – am schnellsten erreichen Sie uns direkt:<br><br>📞 <a href="tel:+491626210087" style="font-weight:700">+49 162 62 100 87</a> (antippen zum Anrufen)<br>💬 <a href="https://wa.me/491626210087" target="_blank" rel="noopener" style="font-weight:700">WhatsApp öffnen</a> – auch für Sprachanrufe.<br><br>Termine nach Vereinbarung – wir rufen Sie auch gern zurück: Hinterlassen Sie Ihre Nummer per WhatsApp oder Formular.'
+  },
+  {
     keys: ["unfall", "verkehrsunfall", "hatte einen unfall", "auto", "crash", "kollision"],
     answer: "Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen kostenlos, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Möchten Sie eine Ersteinschätzung? Schreiben Sie uns über das Kontaktformular oder per WhatsApp."
   },
@@ -128,11 +133,11 @@ function aiToggle() {
   }
 }
 
-function aiBotSay(text) {
+function aiBotSay(text, asHtml) {
   const body = document.getElementById("aiBody");
   const div = document.createElement("div");
   div.className = "ai-msg ai-msg--bot";
-  div.textContent = text;
+  if (asHtml) { div.innerHTML = text; } else { div.textContent = text; }
   body.appendChild(div);
   body.scrollTop = body.scrollHeight;
 }
@@ -153,7 +158,7 @@ function aiRespond(text) {
     const hits = item.keys.filter(k => q.includes(k)).length;
     if (hits > score) { score = hits; best = item; }
   });
-  return best ? best.answer : AI_FALLBACK;
+  return best ? best : {answer: AI_FALLBACK};
 }
 
 function aiSend(preset) {
@@ -162,7 +167,7 @@ function aiSend(preset) {
   if (!text) return;
   aiUserSay(text);
   input.value = "";
-  setTimeout(() => aiBotSay(aiRespond(text)), 350);
+  setTimeout(() => { const r = aiRespond(text); aiBotSay(r.answer, r.html); }, 350);
 }
 
 function aiKey(e) { if (e.key === "Enter") aiSend(); }
@@ -195,4 +200,26 @@ document.addEventListener('DOMContentLoaded', function(){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
     els.forEach(function(el){el.classList.add('reveal');io.observe(el);});
   }
+});
+
+/* FAQ-Toggle */
+function faqMore(btn){
+  var wrap=btn.closest('.faq-wrap');
+  var less=btn.getAttribute('data-less'), more=btn.textContent;
+  if(wrap.classList.toggle('faq-collapsed')){btn.textContent=btn.dataset.more||more;}
+  else{btn.dataset.more=more;btn.textContent=less;}
+}
+/* Mobiler CTA-Balken */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var tel=(typeof CONFIG!=='undefined'&&CONFIG.telefon)?CONFIG.telefon.replace(/\s/g,''):'+491626210087';
+    var wa=(typeof CONFIG!=='undefined'&&CONFIG.whatsapp)?CONFIG.whatsapp:'491626210087';
+    var bar=document.createElement('div');bar.className='mobile-cta';
+    var l=document.documentElement.lang||'de';
+    var T={de:['Anrufen','WhatsApp'],tr:['Ara','WhatsApp'],en:['Call','WhatsApp']}[l]||['Anrufen','WhatsApp'];
+    bar.innerHTML='<a href="tel:'+tel+'">'+T[0]+'</a><a href="https://wa.me/'+wa+'" target="_blank" rel="noopener">'+T[1]+'</a>';
+    document.body.appendChild(bar);
+    var chips=document.querySelector('.ai-chips');
+    if(chips){var c=document.createElement('button');c.className='ai-chip';c.textContent='📞 Telefonieren';c.onclick=function(){aiSend('ich möchte telefonieren');};chips.insertBefore(c,chips.firstChild);}
+  }catch(e){}
 });

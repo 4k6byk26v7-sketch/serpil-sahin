@@ -859,3 +859,26 @@ html{scroll-behavior:smooth}
 @media(max-width:760px){.door__img{width:calc(100% + 40px);margin:0 -20px 14px;height:140px}}
 /* Footer bleibt dunkel */
 .site-footer{background:linear-gradient(160deg,#102A43,#0a1622)}
+
+/* ===== LAYOUT-FIX Hero & Doors ===== */
+.hero{min-height:auto;padding:64px 0 80px;display:block}
+.hero__portrait img{max-height:600px;object-position:top}
+.door__img{max-width:calc(100% + 64px)}
+@media(max-width:760px){.door__img{max-width:calc(100% + 40px)}}
+.hero__inner{align-items:center}
+
+/* ===== Audit-Fixes ===== */
+.faq-collapsed details.faq:nth-of-type(n+7){display:none}
+/* WhatsApp links, Chat rechts – nicht mehr übereinander */
+.fab--wa{right:auto;left:22px}
+.fab-badge{right:auto;left:112%}
+/* Mobiler CTA-Balken */
+.mobile-cta{display:none}
+@media(max-width:760px){
+.mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;box-shadow:0 -6px 18px rgba(16,42,67,.18)}
+.mobile-cta a{flex:1;text-align:center;padding:15px 8px calc(15px + env(safe-area-inset-bottom));font-weight:700;text-decoration:none}
+.mobile-cta a:first-child{background:var(--navy);color:#fff}
+.mobile-cta a:last-child{background:#22c55e;color:#fff}
+.fab--wa,.fab--ai{bottom:86px}
+body{padding-bottom:64px}
+}
