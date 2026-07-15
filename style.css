@@ -882,3 +882,17 @@ html{scroll-behavior:smooth}
 .fab--wa,.fab--ai{bottom:86px}
 body{padding-bottom:64px}
 }
+
+/* ===== Conversion-Paket ===== */
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0 0 26px}
+.hero-badges li{background:#fff;border:1px solid #dfe6ef;color:#334e68;border-radius:999px;padding:7px 15px;font-size:.88rem;font-weight:600;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+/* Unfall-Karte primär (80/20) */
+@media(min-width:761px){.hero-doors{grid-template-columns:1.45fr 1fr}}
+.hero-doors .door:first-child .door__cta{display:inline-block;background:var(--navy);color:#fff;border-radius:10px;padding:13px 22px;font-weight:700}
+.hero-doors .door:first-child .door__cta:hover{background:#1d3f63}
+.hero-doors .door:first-child .door__title{font-size:1.9rem}
+/* Mobile: nur EIN Kontaktweg unten (Bottom-Bar), Floating-Buttons weg */
+@media(max-width:760px){.fab--ai,.fab--wa{display:none}}
+/* Footer-CTA */
+.footer-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);padding:22px 0;margin:26px 0 6px;color:#fff}
+.footer-cta strong{font-size:1.1rem}
