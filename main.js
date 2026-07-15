@@ -166,3 +166,33 @@ function aiSend(preset) {
 }
 
 function aiKey(e) { if (e.key === "Enter") aiSend(); }
+
+/* === Premium UI: Ratgeber-Dropdown & Scroll-Reveal === */
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var a=document.querySelector('.nav__links a[href$="ratgeber/index.html"]');
+    if(!a && /\/ratgeber\//.test(location.pathname)) a=document.querySelector('.nav__links a[href="index.html"].active');
+    if(a){
+      var prefix=a.getAttribute('href').replace(/index\.html$/,'');
+      var items=[['index.html','Alle Ratgeber-Artikel →','dd-all'],
+        ['was-tun-nach-verkehrsunfall.html','Checkliste nach dem Unfall'],
+        ['schmerzensgeld.html','Schmerzensgeld'],
+        ['nutzungsausfall.html','Nutzungsausfall'],
+        ['totalschaden.html','Totalschaden & 130%-Regel'],
+        ['wertminderung.html','Wertminderung'],
+        ['fiktive-abrechnung.html','Fiktive Abrechnung'],
+        ['sachverstaendigen-risiko.html','Sachverständigen-Risiko'],
+        ['dashcam.html','Dashcam als Beweis'],
+        ['fahrerflucht.html','Fahrerflucht']];
+      var li=a.parentElement; li.classList.add('has-dd');
+      var dd=document.createElement('div'); dd.className='nav-dd';
+      items.forEach(function(it){var l=document.createElement('a');l.href=prefix+it[0];l.textContent=it[1];if(it[2])l.className=it[2];dd.appendChild(l);});
+      li.appendChild(dd);
+    }
+  }catch(e){}
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var els=document.querySelectorAll('.card,.door,.step,details.faq');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(el){el.classList.add('reveal');io.observe(el);});
+  }
+});
