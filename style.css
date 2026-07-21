@@ -907,3 +907,8 @@ html,body{overflow-x:hidden}
 .hero__lead:has(.hero__portrait){display:block}
 .hero__portrait{max-width:380px;margin:18px auto 0}
 }
+
+/* ===== Hotfix: Hero-Padding + FAB-Trennung ===== */
+.hero__inner{padding-left:24px!important;padding-right:24px!important;margin-left:auto!important;margin-right:auto!important}
+.fab--wa{position:fixed!important;left:22px!important;right:auto!important;bottom:20px!important}
+@media(max-width:760px){.fab--wa{display:none!important}}
