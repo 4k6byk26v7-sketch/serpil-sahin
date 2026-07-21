@@ -896,3 +896,14 @@ body{padding-bottom:64px}
 /* Footer-CTA */
 .footer-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);padding:22px 0;margin:26px 0 6px;color:#fff}
 .footer-cta strong{font-size:1.1rem}
+
+/* ===== Responsive-Absicherung ===== */
+html,body{overflow-x:hidden}
+@media(max-width:1280px){
+.hero__portrait img{max-height:480px}
+.hero__lead:has(.hero__portrait){gap:30px}
+}
+@media(max-width:980px){
+.hero__lead:has(.hero__portrait){display:block}
+.hero__portrait{max-width:380px;margin:18px auto 0}
+}
