@@ -920,3 +920,13 @@ html,body{overflow-x:hidden}
 .sv-badge{display:inline-block;background:#b08d3e;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:4px 12px;border-radius:999px}
 .sv-li a{color:#8a6b25;font-weight:600;text-decoration:none}
 .sv-li a:hover{text-decoration:underline}
+
+/* ===== Landingpage-Bilder ===== */
+.lp-hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.lp-hero-img img{width:100%;border-radius:18px;box-shadow:0 24px 48px -20px rgba(16,42,67,.45);object-fit:cover;max-height:420px}
+@media(max-width:860px){.lp-hero-grid{display:block}.lp-hero-img{margin-top:24px;max-width:520px}}
+
+/* LP-Bild: Overlay + Badge (Agentur-Finish) */
+.lp-hero-img{position:relative}
+.lp-hero-img::after{content:"";position:absolute;inset:0;border-radius:18px;background:linear-gradient(180deg,transparent 55%,rgba(16,42,67,.45));pointer-events:none}
+.img-badge{position:absolute;left:14px;bottom:14px;z-index:2;background:#fff;color:var(--navy);font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
