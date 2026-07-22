@@ -912,3 +912,11 @@ html,body{overflow-x:hidden}
 .hero__inner{padding-left:24px!important;padding-right:24px!important;margin-left:auto!important;margin-right:auto!important}
 .fab--wa{position:fixed!important;left:22px!important;right:auto!important;bottom:20px!important}
 @media(max-width:760px){.fab--wa{display:none!important}}
+
+/* ===== Sachverständigenrisiko-Hinweis ===== */
+.sv-hinweis{background:linear-gradient(120deg,#fdf8ec,#f7f2e2);border:1px solid #e5d9b8;border-left:6px solid #b08d3e;border-radius:14px;padding:26px 30px;box-shadow:0 10px 28px -18px rgba(16,42,67,.35)}
+.sv-hinweis h2{color:var(--navy)}
+.sv-hinweis p{color:#4a5568}
+.sv-badge{display:inline-block;background:#b08d3e;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:4px 12px;border-radius:999px}
+.sv-li a{color:#8a6b25;font-weight:600;text-decoration:none}
+.sv-li a:hover{text-decoration:underline}
