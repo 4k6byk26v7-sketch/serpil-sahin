@@ -930,3 +930,80 @@ html,body{overflow-x:hidden}
 .lp-hero-img{position:relative}
 .lp-hero-img::after{content:"";position:absolute;inset:0;border-radius:18px;background:linear-gradient(180deg,transparent 55%,rgba(16,42,67,.45));pointer-events:none}
 .img-badge{position:absolute;left:14px;bottom:14px;z-index:2;background:#fff;color:var(--navy);font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+
+/* ================= PREMIUM CREME THEME ================= */
+:root{
+  --navy:#2b2b2b;            /* Textfarbe: Dunkelgrau */
+  --gold:#b08d3e;            /* Akzent: Gold */
+  --gold-dark:#8a6b25;
+  --creme:#faf7f0;
+  --creme-tief:#f3eee1;
+  --linie:#e6dfcd;
+}
+body{background:var(--creme);color:#3a3a3a}
+h1,h2,h3,h4{color:#232323}
+p,li{color:#4a4a4a}
+/* Header: creme, kein Blau */
+.site-header{background:#fffdf8;box-shadow:0 1px 0 var(--linie),0 8px 24px -18px rgba(60,50,30,.25)}
+.brand__mark{background:none!important;box-shadow:none!important;width:56px;height:56px;border-radius:0}
+.brand__mark img{width:52px!important;height:52px!important;filter:none}
+.brand__name{color:#232323}
+.brand__sub{color:#8a6b25}
+.nav__links a{color:#3a3a3a}
+.nav__links a::after{background:var(--gold)}
+.lang-switch .lang-btn{border-color:var(--linie);color:#5c5c5c}
+.lang-switch .lang-btn.active{background:#2b2b2b;color:#fff}
+/* Hero & Sektionen: creme statt blaugrau */
+.hero,.page-hero{background:linear-gradient(165deg,#fffdf8 0%,#f3eee1 100%);color:#2b2b2b}
+.hero h1,.page-hero h1{color:#232323}
+.hero .eyebrow,.page-hero .eyebrow,.eyebrow{color:var(--gold-dark)!important}
+.hero-sub,.page-hero .lead{color:#5c5c5c!important}
+.section--soft,.section--navy{background:var(--creme-tief)}
+.section--navy h2,.section--navy h3{color:#232323}
+.section--navy p,.section--navy li{color:#4a4a4a}
+.section--navy .eyebrow{color:var(--gold-dark)}
+.trustbar{background:#f3eee1;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.trustbar__row span{color:#4a4a4a}
+/* Karten */
+.card,.door{background:#fffdf8;border-color:var(--linie)}
+.card:hover{box-shadow:0 18px 36px -18px rgba(90,70,30,.3)}
+.card__icon{background:linear-gradient(160deg,#f6f1e4,#ece4d0)}
+.card__icon svg{stroke:#8a6b25}
+.door{border-color:#e2dac6;box-shadow:0 20px 44px -22px rgba(60,50,30,.35)}
+.door .door__tag{background:#f1ebdb;color:#8a6b25}
+.door .door__title{color:#232323}
+.door .door__text{color:#5c5c5c}
+.door .door__cta{color:#8a6b25}
+.hero-doors .door:first-child .door__cta{background:#2b2b2b;color:#fff}
+.hero-doors .door:first-child .door__cta:hover{background:#111}
+.hero-badges li{background:#fffdf8;border-color:var(--linie);color:#4a4a4a}
+/* Buttons */
+.btn--primary{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn--primary:hover{background:var(--gold-dark);border-color:var(--gold-dark);color:#fff}
+.btn--light{border-color:#2b2b2b;color:#2b2b2b}
+.btn--light:hover{background:#2b2b2b;color:#fff}
+a{color:#8a6b25}
+a:hover{color:#6b5320}
+.nav-dd{border-color:var(--linie)}
+.nav-dd a{color:#3a3a3a}
+.nav-dd a:hover{background:#f6f1e4}
+/* Formulare, FAQ, Karte */
+.form input,.form select,.form textarea{border-color:var(--linie);background:#fff}
+details.faq{border-color:var(--linie);background:#fffdf8}
+.urteile{background:#f6f1e4;border-left-color:var(--gold)}
+/* Portrait-Rahmen & LP */
+.hero__portrait::before{border-color:rgba(138,107,37,.3)}
+.img-badge{color:#232323}
+.fab-badge{background:#2b2b2b}
+.fab--ai{background:#2b2b2b!important;color:#fff}
+.mobile-cta a:first-child{background:#2b2b2b}
+/* Breadcrumb & Kleinkram */
+.breadcrumb,.breadcrumb a{color:#8a8577}
+.sv-badge{background:var(--gold)}
+/* Footer: bleibt dunkel (einziger dunkler Bereich) */
+.site-footer{background:linear-gradient(160deg,#1b1b1b,#2b2b2b)}
+.site-footer a{color:#d9cfb8}
+.site-footer a:hover{color:#fff}
+.footer-cta strong{color:#fff}
+/* Fußzeile: einziger blauer Bereich (Kundenwunsch) */
+.site-footer{background:linear-gradient(160deg,#102A43,#0a1622)!important}
