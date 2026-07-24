@@ -1050,3 +1050,23 @@ a[data-wa]:not(.btn):not(.fab--wa):not(.choice){color:#1da851;font-weight:600}
 .door .door__cta{margin-top:auto;align-self:flex-start}
 .hero-doors .door:last-child .door__cta{display:inline-block;border:2px solid #2e2e2e;border-radius:10px;padding:12px 20px;color:#2e2e2e;font-weight:700;background:none}
 .hero-doors .door:last-child .door__cta:hover{background:#2e2e2e;color:#fff}
+
+/* ===== Monochrom: keine goldene Schrift ===== */
+.brand__sub{color:#6b6b6b!important}
+.eyebrow,.lp-eyebrow,.section--navy .eyebrow,.hero .eyebrow,.page-hero .eyebrow{color:#6b6b6b!important}
+a{color:#2e2e2e}
+a:hover{color:#000}
+.door .door__cta{color:#2e2e2e}
+.door .door__tag{background:#edebe4;color:#555}
+.sv-li a{color:#2e2e2e}
+.sv-badge{background:#2e2e2e}
+.sv-hinweis{background:#f6f4ee;border-color:var(--linie);border-left:6px solid #2e2e2e}
+.urteile{border-left-color:#2e2e2e}
+.lp-claim{color:#3a3a3a}
+.breadcrumb,.breadcrumb a{color:#8a8a8a}
+/* Ausnahmen: WhatsApp bleibt grün, Footer-Links hell auf dunkel */
+a[data-wa]:not(.btn):not(.fab--wa):not(.choice){color:#1da851!important}
+.site-footer a{color:#c9d4e2!important}
+.site-footer a:hover{color:#fff!important}
+.btn--primary{color:#fff!important}
+a[data-wa].btn,a[data-wa-emergency]{color:#fff!important}
