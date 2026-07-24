@@ -1041,3 +1041,12 @@ a[data-wa]:not(.btn):not(.fab--wa):not(.choice){color:#1da851;font-weight:600}
 .hero-badges{margin-bottom:20px}
 .hero-badges li{font-size:.85rem;padding:7px 13px}
 @media(max-width:860px){.lp-hero-img img{min-height:0}}
+
+/* ===== Harmonie-Fix Weiche ===== */
+@media(min-width:761px){.hero-doors{grid-template-columns:1fr 1fr!important;gap:28px}}
+.door{border:1px solid var(--linie)!important;display:flex;flex-direction:column}
+.door__img{height:210px;object-fit:cover}
+.door .door__title{font-size:1.6rem!important}
+.door .door__cta{margin-top:auto;align-self:flex-start}
+.hero-doors .door:last-child .door__cta{display:inline-block;border:2px solid #2e2e2e;border-radius:10px;padding:12px 20px;color:#2e2e2e;font-weight:700;background:none}
+.hero-doors .door:last-child .door__cta:hover{background:#2e2e2e;color:#fff}
