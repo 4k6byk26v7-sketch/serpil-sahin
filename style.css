@@ -1227,3 +1227,8 @@ p,li{line-height:1.75}
 .form input,.form select,.form textarea{font-size:1rem;padding:12px 14px}
 details.faq summary{font-size:1.05rem}
 @media(max-width:760px){html{font-size:16.5px}}
+
+/* Nav-Platz */
+.nav__links{gap:24px}
+.nav__links a{font-size:.95rem}
+@media(max-width:1240px){.nav__links{gap:18px}.nav__links a{font-size:.9rem}}
