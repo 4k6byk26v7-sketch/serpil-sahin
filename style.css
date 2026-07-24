@@ -1256,3 +1256,13 @@ details.faq summary{font-size:1.05rem}
 .hero__portrait::before{content:none!important;display:none!important}
 .hero__portrait{width:fit-content;margin-left:auto}
 .hero__portrait img{display:block;border-radius:16px;box-shadow:0 20px 44px -22px rgba(0,0,0,.3)}
+
+/* ===== Ablauf-Karten: linksbündig, lesbar, dezente Nummern ===== */
+.grid--4{text-align:left!important}
+.grid--4 .card{padding:24px 26px}
+.grid--4 .card .stat__num{font-size:1rem!important;color:#8a8a86!important;margin:0 0 10px!important;font-family:Inter,sans-serif!important;font-weight:700}
+.grid--4 .card .stat__num::before{content:"Schritt "}
+html[lang="tr"] .grid--4 .card .stat__num::before{content:"Adım "}
+html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
+.grid--4 .card h3{margin-bottom:8px}
+.grid--4 .card p{line-height:1.65}
