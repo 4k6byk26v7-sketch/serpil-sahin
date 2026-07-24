@@ -1007,3 +1007,24 @@ details.faq{border-color:var(--linie);background:#fffdf8}
 .footer-cta strong{color:#fff}
 /* Fußzeile: einziger blauer Bereich (Kundenwunsch) */
 .site-footer{background:linear-gradient(160deg,#102A43,#0a1622)!important}
+
+/* ================= PALETTE v2 — Feinschliff ================= */
+:root{--creme:#fbfaf7;--creme-tief:#f4f2ec;--linie:#e7e3d8}
+body{background:var(--creme)}
+.hero,.page-hero{background:linear-gradient(165deg,#fdfcfa 0%,#f1eee6 100%)}
+.section--soft,.section--navy,.trustbar{background:var(--creme-tief)}
+/* Primär-Buttons: ruhiges Anthrazit, Gold nur als Akzent */
+.btn--primary{background:#2e2e2e;border-color:#2e2e2e;color:#fff}
+.btn--primary:hover{background:#111;border-color:#111}
+.sv-hinweis .btn--primary{background:#2e2e2e;border-color:#2e2e2e}
+/* WhatsApp: IMMER Grün — Buttons und Textlinks */
+a[data-wa].btn,a[data-wa-emergency],.help-wa,a.choice[data-wa]{background:#25D366!important;border-color:#25D366!important;color:#fff!important}
+a[data-wa].btn:hover,a[data-wa-emergency]:hover{background:#1da851!important;border-color:#1da851!important}
+a[data-wa]:not(.btn):not(.fab--wa):not(.choice){color:#1da851;font-weight:600}
+.mobile-cta a:last-child{background:#25D366}
+.fab--wa{background:#25D366!important}
+/* Goldakzente nur klein: Untertitel, Badges, Linien */
+.brand__sub{color:#a3803a}
+.eyebrow{color:#a3803a!important}
+.sv-badge,.img-badge{box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.hero-badges li{border-color:#e7e3d8}
