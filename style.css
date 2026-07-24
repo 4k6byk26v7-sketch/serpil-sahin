@@ -1159,3 +1159,9 @@ h1,h2,h3,h4{color:#1c1c1c;letter-spacing:.005em}
 .fab--ai{background:#1c1c1c!important}
 .footer-cta strong{color:#fff}
 /* WhatsApp bleibt grün, Footer bleibt blau */
+
+/* ===== Überschriften-Feinschliff (Garamond-Maße) ===== */
+h2{font-size:clamp(1.75rem,3vw,2.35rem);line-height:1.15}
+h3{font-size:1.35rem}
+.hero .lp-h1{font-size:clamp(2.6rem,5vw,3.8rem)}
+.hero .lp-claim{max-width:38ch}
