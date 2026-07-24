@@ -1188,3 +1188,10 @@ h3{font-size:1.35rem}
 .btn--primary,a[data-wa].btn,a[data-wa-emergency],.hero-doors .door:first-child .door__cta{color:#fff!important}
 .fab-badge,.mobile-cta a{color:#fff!important}
 .sv-badge{color:#fff!important}
+
+/* ===== Symmetrie II: Weiche vollbreit, Warum-Sektion oben ausgerichtet ===== */
+.hero-doors{max-width:none!important}
+.hero-badges{max-width:none}
+/* Zweispaltige Sektionen: oben bündig statt schwebend */
+.section .grid,.why-grid,.split{align-items:start!important}
+.card.contact-choice{align-self:start;position:sticky;top:110px}
