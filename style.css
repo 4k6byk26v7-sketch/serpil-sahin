@@ -1081,3 +1081,8 @@ a[data-wa].btn,a[data-wa-emergency]{color:#fff!important}
 .nav__links a{font-size:.95rem}
 .nav__links a::after{background:#2e2e2e!important}
 .lang-switch .lang-btn{padding:4px 9px;font-size:.8rem}
+
+/* ===== Symmetrie: eine Fluchtlinie für alle Sektionen ===== */
+.hero__inner{max-width:var(--maxw)!important}
+.hero{padding:84px 0!important}
+.page-hero .container{max-width:var(--maxw)}
