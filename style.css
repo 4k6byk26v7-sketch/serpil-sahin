@@ -1070,3 +1070,14 @@ a[data-wa]:not(.btn):not(.fab--wa):not(.choice){color:#1da851!important}
 .site-footer a:hover{color:#fff!important}
 .btn--primary{color:#fff!important}
 a[data-wa].btn,a[data-wa-emergency]{color:#fff!important}
+
+/* ===== Header minimal ===== */
+.nav{min-height:62px!important}
+.brand__mark{width:46px!important;height:46px!important}
+.brand__mark img{width:44px!important;height:44px!important}
+.brand__name{font-size:1.18rem}
+.brand__sub{font-size:.66rem;letter-spacing:.16em}
+.emergency-bar{font-size:.85rem;padding:5px 0}
+.nav__links a{font-size:.95rem}
+.nav__links a::after{background:#2e2e2e!important}
+.lang-switch .lang-btn{padding:4px 9px;font-size:.8rem}
