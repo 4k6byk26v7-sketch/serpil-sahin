@@ -1217,3 +1217,13 @@ h3{font-size:1.35rem}
 
 .brand__name{white-space:nowrap}
 .brand__text{min-width:max-content}
+
+/* ===== Lesbarkeit: größere Grundschrift ===== */
+html{font-size:17.5px}
+p,li{line-height:1.75}
+.hero-sub{font-size:1.1rem!important}
+.door .door__text,.card p{font-size:1rem}
+.form label{font-size:.95rem}
+.form input,.form select,.form textarea{font-size:1rem;padding:12px 14px}
+details.faq summary{font-size:1.05rem}
+@media(max-width:760px){html{font-size:16.5px}}
