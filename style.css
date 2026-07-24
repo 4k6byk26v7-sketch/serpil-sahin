@@ -1086,3 +1086,76 @@ a[data-wa].btn,a[data-wa-emergency]{color:#fff!important}
 .hero__inner{max-width:var(--maxw)!important}
 .hero{padding:84px 0!important}
 .page-hero .container{max-width:var(--maxw)}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/ebgaramond-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/ebgaramond-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/ebgaramond-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/ebgaramond-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/ebgaramond-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/ebgaramond-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* ================= FINAL: Weiß + Anthrazit + Garamond ================= */
+:root{--creme:#ffffff;--creme-tief:#f7f7f5;--linie:#e6e6e3}
+body{background:#fff;color:#333}
+h1,h2,h3,h4,.brand__name,.lp-claim,.lp-h1,.door .door__title{font-family:'EB Garamond',Georgia,serif!important}
+h1,h2,h3,h4{color:#1c1c1c;letter-spacing:.005em}
+.site-header{background:#fff;box-shadow:0 1px 0 #ececea,0 8px 24px -18px rgba(0,0,0,.12)}
+.hero,.page-hero{background:linear-gradient(170deg,#ffffff 0%,#f5f5f3 100%)}
+.section--soft,.section--navy,.trustbar{background:#f7f7f5}
+.trustbar{border-color:#ececea}
+.card,.door,.hero-badges li,details.faq{background:#fff;border-color:#e6e6e3}
+.door{box-shadow:0 18px 40px -24px rgba(0,0,0,.28)}
+.door .door__tag{background:#f0f0ee;color:#555}
+.card__icon{background:#f2f2f0}
+.card__icon svg{stroke:#444}
+.sv-hinweis{background:#f7f7f5;border-color:#e6e6e3;border-left:6px solid #1c1c1c}
+.sv-badge{background:#1c1c1c}
+.urteile{background:#f7f7f5;border-left-color:#1c1c1c}
+.eyebrow,.lp-eyebrow,.brand__sub{color:#767672!important}
+.form input,.form select,.form textarea{border-color:#dcdcd9}
+.btn--primary{background:#1c1c1c;border-color:#1c1c1c}
+.btn--primary:hover{background:#000;border-color:#000}
+.mobile-cta a:first-child{background:#1c1c1c}
+.fab--ai{background:#1c1c1c!important}
+.footer-cta strong{color:#fff}
+/* WhatsApp bleibt grün, Footer bleibt blau */
