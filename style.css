@@ -1251,3 +1251,8 @@ details.faq summary{font-size:1.05rem}
 .stats > div,.stat{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 .stat__num{line-height:1!important;margin-bottom:10px;display:block}
 .stat__label{line-height:1.5;text-align:center}
+
+/* ===== Portrait: kein versetzter Zierrahmen ===== */
+.hero__portrait::before{content:none!important;display:none!important}
+.hero__portrait{width:fit-content;margin-left:auto}
+.hero__portrait img{display:block;border-radius:16px;box-shadow:0 20px 44px -22px rgba(0,0,0,.3)}
