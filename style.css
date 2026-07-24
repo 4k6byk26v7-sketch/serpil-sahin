@@ -1214,3 +1214,6 @@ h3{font-size:1.35rem}
 .emergency-bar{padding:8px 0;font-size:.88rem}
 .lang-switch .lang-btn{padding:6px 11px;font-size:.82rem}
 .site-header{box-shadow:0 1px 0 #efefec}
+
+.brand__name{white-space:nowrap}
+.brand__text{min-width:max-content}
