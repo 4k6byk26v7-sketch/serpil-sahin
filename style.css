@@ -1195,3 +1195,22 @@ h3{font-size:1.35rem}
 /* Zweispaltige Sektionen: oben bündig statt schwebend */
 .section .grid,.why-grid,.split{align-items:start!important}
 .card.contact-choice{align-self:start;position:sticky;top:110px}
+
+/* ===== Eyebrow: kein Strich, Einzug null ===== */
+.eyebrow::before,.lp-eyebrow::before{content:none!important;display:none!important}
+.eyebrow,.lp-eyebrow{display:block;padding-left:0!important;margin-left:0!important;gap:0}
+.center .eyebrow{display:block;text-align:center}
+
+/* ===== Header elegant & großzügig ===== */
+.nav{min-height:88px!important}
+.brand__mark{width:58px!important;height:58px!important}
+.brand__mark img{width:56px!important;height:56px!important}
+.brand__name{font-size:1.5rem}
+.brand__sub{font-size:.7rem;letter-spacing:.24em;color:#8a8a86!important}
+.nav__links{gap:32px}
+.nav__links a{font-size:1rem;color:#2b2b2b!important;font-weight:500;padding:8px 2px}
+.nav__links a.active{color:#111!important;font-weight:600}
+.nav__links a::after{height:1.5px;bottom:-4px;background:#111!important}
+.emergency-bar{padding:8px 0;font-size:.88rem}
+.lang-switch .lang-btn{padding:6px 11px;font-size:.82rem}
+.site-header{box-shadow:0 1px 0 #efefec}
