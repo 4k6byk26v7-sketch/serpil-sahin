@@ -1165,3 +1165,26 @@ h2{font-size:clamp(1.75rem,3vw,2.35rem);line-height:1.15}
 h3{font-size:1.35rem}
 .hero .lp-h1{font-size:clamp(2.6rem,5vw,3.8rem)}
 .hero .lp-claim{max-width:38ch}
+
+/* ===== Kontrast-Profi (WCAG-Audit-Fix) ===== */
+.hero p,.page-hero p{color:#3a3a3a!important}
+.lp-claim{color:#2b2b2b!important}
+.section--navy h2,.section--navy h3,.section--navy h4{color:#1c1c1c!important}
+.section--navy p,.section--navy li,.section--navy span{color:#3d3d3d!important}
+.center,.stat__note{color:#555!important}
+.choice{background:#fff!important;border:1px solid #e6e6e3!important}
+.choice__t{color:#1c1c1c!important}
+.choice__s{color:#4a4a4a!important}
+.choice__ico{color:#444!important}
+.stat__label{color:#555!important}
+.stat__num{color:#1c1c1c!important}
+.eyebrow,.lp-eyebrow{color:#5f5f5c!important}
+.text-muted{color:#4a4a4a!important}
+/* Ausnahmen: dunkle Flächen behalten helle Schrift */
+.site-footer p,.site-footer span,.site-footer h4,.site-footer .brand__name,.site-footer a{color:#d6dde6!important}
+.site-footer a:hover{color:#fff!important}
+.footer-cta strong{color:#fff!important}
+.emergency-bar,.emergency-bar span,.emergency-bar a{color:#fff!important}
+.btn--primary,a[data-wa].btn,a[data-wa-emergency],.hero-doors .door:first-child .door__cta{color:#fff!important}
+.fab-badge,.mobile-cta a{color:#fff!important}
+.sv-badge{color:#fff!important}
