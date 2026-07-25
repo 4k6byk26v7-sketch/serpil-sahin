@@ -1305,3 +1305,17 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 /* C: Feinschliff */
 .footer-cta{margin:26px 0!important}
 .trustbar__row{padding:22px 0!important}
+
+/* ===== Abnahme-Korrekturen 25.07 (2. Runde) ===== */
+/* (a) Footer: Reserve 96px Desktop — Badge+FAB verdecken nichts, ohne 130px-Totflaeche */
+.site-footer{padding-bottom:96px!important}
+@media(max-width:760px){.site-footer{padding-bottom:130px!important}}
+/* (b) Hero-Portraet auf Textspaltenhoehe — Luecke zu Badges < 100px */
+.hero__portrait img{max-height:340px!important}
+/* (c) Nav passt bei 1280px: engere Gaps unter 1440px */
+@media(max-width:1440px){
+  .nav__links{gap:18px}
+  .nav__links a{font-size:.92rem}
+  .lang-switch{gap:2px}
+  .lang-btn{padding:5px 8px}
+}
