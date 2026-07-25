@@ -1319,3 +1319,11 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
   .lang-switch{gap:2px}
   .lang-btn{padding:5px 8px}
 }
+
+/* ===== Frage-Karten (Muster: grosse Frage + ein Klick) ===== */
+.hero-doors .door{background:#c5d1c5!important;border:none!important;border-radius:10px!important;display:flex;flex-direction:column;min-height:330px;padding:40px 36px!important;box-shadow:none!important}
+.hero-doors .door:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(20,30,20,.14)!important}
+.door__img,.door__tag,.door__text{display:none!important}
+.door__title{font-family:Inter,-apple-system,sans-serif!important;font-weight:800!important;font-size:2.2rem!important;line-height:1.14!important;color:#141414!important;letter-spacing:-.015em;margin:0 0 24px!important}
+.hero-doors .door .door__cta{margin-top:auto!important;align-self:flex-start;background:#141414!important;color:#fff!important;border:none!important;border-radius:4px!important;padding:14px 24px!important;font-size:1rem!important;font-weight:600}
+@media(max-width:760px){.door__title{font-size:1.7rem!important}.hero-doors .door{min-height:240px;padding:30px 26px!important}}
