@@ -83,7 +83,7 @@ const AI_KNOWLEDGE = [
   },
   {
     keys: ["unfall", "verkehrsunfall", "hatte einen unfall", "auto", "crash", "kollision"],
-    answer: "Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen kostenlos, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Möchten Sie eine Ersteinschätzung? Schreiben Sie uns über das Kontaktformular oder per WhatsApp."
+    answer: "Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen für Sie, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Möchten Sie eine Ersteinschätzung? Schreiben Sie uns über das Kontaktformular oder per WhatsApp."
   },
   {
     keys: ["gutachter", "sachverständige", "sachverständiger", "bewerben", "zusammenarbeit", "kooperation", "gutachten"],
