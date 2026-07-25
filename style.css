@@ -1271,7 +1271,7 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 .grid--4 .card{padding:22px 28px!important;height:auto}
 .grid--4 .card p{max-width:none}
 
-/* ===== Audit 25.07 — K1-Fixes ===== */
-.btn--light{background:#fff!important;color:#132435!important;border-color:#fff!important}
-.btn--light:hover{background:#ececea!important;color:#132435!important;border-color:#ececea!important}
+/* ===== Audit 25.07 — K1-Fixes (nur Footer, Abnahme-korrigiert) ===== */
+.site-footer a.btn--light{background:#fff!important;color:#132435!important;border-color:#fff!important}
+.site-footer a.btn--light:hover{background:#ececea!important;color:#132435!important;border-color:#ececea!important}
 .site-footer{padding-bottom:130px!important}
