@@ -1275,3 +1275,33 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 .site-footer a.btn--light{background:#fff!important;color:#132435!important;border-color:#fff!important}
 .site-footer a.btn--light:hover{background:#ececea!important;color:#132435!important;border-color:#ececea!important}
 .site-footer{padding-bottom:130px!important}
+
+/* ===== Abstands-Audit 25.07 — A/B/C-Fixes ===== */
+/* A1+B7: Hero einfach gepolstert, Seitenköpfe einheitlich */
+.hero__inner{padding-top:0!important;padding-bottom:0!important}
+.hero{padding:64px 0!important}
+.page-hero{padding:64px 0!important}
+/* A2: Porträt kürzer — schließt das Loch zwischen Text und Badges */
+.hero__portrait img{max-height:400px!important}
+/* A3: Footer-Reserve nur mobil (Desktop hat keine CTA-Leiste) */
+.site-footer{padding-bottom:26px!important}
+@media(max-width:760px){.site-footer{padding-bottom:130px!important}}
+/* B2: Gap-Raster — 24 Kartenraster, 48 Zweispalter */
+.paths,.hero-doors,.grid--4,.stats,.grid{gap:24px!important}
+.contact-grid,.lp-hero-grid{gap:48px!important}
+/* B3: Karten-Innenabstände — 32 Standard, 24 kompakt, symmetrisch */
+.card,.path{padding:32px!important}
+.grid--4 .card{padding:24px!important}
+.step{padding:24px!important}
+.choice{padding:16px!important}
+/* B1/C4: Buttons gleiche Höhe, Door-CTAs identisch */
+.btn--light{border-width:2px!important}
+.door__cta{padding:13px 22px!important;border-width:1.5px!important}
+/* B4: Kontakt-Spalten gleich hoch */
+.contact-grid{align-items:stretch!important}
+/* B6: LP-Hero-Bild nicht künstlich hoch, Spalten zentriert */
+.lp-hero-img img{min-height:0!important;height:auto!important;max-height:520px!important}
+.lp-hero-grid{align-items:center!important}
+/* C: Feinschliff */
+.footer-cta{margin:26px 0!important}
+.trustbar__row{padding:22px 0!important}
