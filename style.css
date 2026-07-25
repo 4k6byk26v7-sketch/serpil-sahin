@@ -1355,3 +1355,46 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 .hero-doors .door .door__title{padding:10px 30px 0!important;margin:0!important}
 .hero-doors .door .door__cta{margin:20px 30px 30px!important}
 @media(max-width:760px){.hero-doors .door .door__img{height:160px}}
+
+/* ================= Modernisierung 25.07: einladend & lebendig ================= */
+html{scroll-behavior:smooth}
+*{-webkit-font-smoothing:antialiased}
+
+/* Hero luftiger, warmer Lichtschimmer */
+.hero{background:radial-gradient(1100px 520px at 82% -8%, #f6f2e9 0%, rgba(246,242,233,0) 60%), #fff!important}
+.lp-h1{letter-spacing:-.022em!important}
+.hero__portrait img{box-shadow:0 24px 60px -18px rgba(20,20,15,.28)!important}
+
+/* Sanfte, moderne Schatten + Feder-Hover auf allen Karten */
+.card,.q-card,.hero-doors .door{box-shadow:0 1px 3px rgba(20,20,15,.05);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease,border-color .22s ease!important}
+.q-card:hover,.hero-doors .door:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px -14px rgba(20,20,15,.22)!important;border-color:#dcd4c2!important}
+.card:hover{box-shadow:0 14px 34px -14px rgba(20,20,15,.18)}
+
+/* Frage-Karten: feiner Akzentbalken oben beim Hover (anthrazit) */
+.q-card{position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:#141414;transition:width .28s cubic-bezier(.2,.7,.3,1)}
+.q-card:hover::before{width:100%}
+
+/* Buttons: lebendiger, klarer Klick-Reiz */
+.btn{transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease,filter .16s ease!important}
+.btn:hover{transform:translateY(-2px)}
+.q-card__b,.hero-doors .door__cta{transition:filter .18s ease,transform .18s ease!important}
+.q-card:hover .q-card__b,.hero-doors .door:hover .door__cta{filter:brightness(1.18)}
+
+/* Kontakt-Auswahl: einladende Kacheln */
+.choice{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+.choice:hover{transform:translateY(-3px);box-shadow:0 12px 28px -12px rgba(20,20,15,.2)}
+
+/* WhatsApp-FAB: dezenter, freundlicher Puls */
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.fab--wa{animation:waPulse 2.8s ease-out infinite}
+
+/* Trust-Leiste: klare, moderne Trennung */
+.trustbar{border-top:1px solid #efece4;border-bottom:1px solid #efece4;background:#fcfbf8}
+
+/* Links im Fließtext: sanfter Unterstrich-Effekt */
+.section a:not(.btn):not(.q-card):not(.choice):not(.door){background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s ease}
+.section a:not(.btn):not(.q-card):not(.choice):not(.door):hover{background-size:100% 1px}
+
+/* Reduzierte Bewegung respektieren */
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
