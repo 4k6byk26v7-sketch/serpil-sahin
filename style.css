@@ -1266,3 +1266,8 @@ html[lang="tr"] .grid--4 .card .stat__num::before{content:"Adım "}
 html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 .grid--4 .card h3{margin-bottom:8px}
 .grid--4 .card p{line-height:1.65}
+
+/* ===== Ablauf: 2x2 statt 4 schmale Säulen ===== */
+@media(min-width:761px){.grid--4{grid-template-columns:1fr 1fr!important;gap:20px!important}}
+.grid--4 .card{padding:22px 28px!important;height:auto}
+.grid--4 .card p{max-width:none}
