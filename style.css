@@ -1327,3 +1327,7 @@ html[lang="en"] .grid--4 .card .stat__num::before{content:"Step "}
 .door__title{font-family:Inter,-apple-system,sans-serif!important;font-weight:800!important;font-size:2.2rem!important;line-height:1.14!important;color:#141414!important;letter-spacing:-.015em;margin:0 0 24px!important}
 .hero-doors .door .door__cta{margin-top:auto!important;align-self:flex-start;background:#141414!important;color:#fff!important;border:none!important;border-radius:4px!important;padding:14px 24px!important;font-size:1rem!important;font-weight:600}
 @media(max-width:760px){.door__title{font-size:1.7rem!important}.hero-doors .door{min-height:240px;padding:30px 26px!important}}
+/* Frage-Karten: Titel-Spezifität sichern */
+.hero-doors .door .door__title,a.door .door__title{font-family:Inter,-apple-system,sans-serif!important;font-weight:800!important;font-size:2.2rem!important;line-height:1.14!important;letter-spacing:-.015em!important;color:#141414!important}
+.hero-doors .door{min-height:300px}
+@media(max-width:760px){.hero-doors .door .door__title{font-size:1.7rem!important}}
