@@ -89,7 +89,7 @@ const I18N = {
     "foot.weitere":"Other Practice Areas","foot.impressum":"Legal Notice","foot.datenschutz":"Privacy",
     "foot.disc":"The information on this website does not replace individual legal advice.",
     "asst.title":"Digital Assistant","asst.sub":"Chat assistant (automated) · not legal advice",
-    "asst.disc":"The first orientation is free and non-binding. The digital assistant answers general questions and does not replace individual legal advice.",
+    "asst.disc":"The first orientation is non-binding. The digital assistant answers general questions and does not replace individual legal advice.",
     "h.eyebrow":"Attorney for Traffic Accidents & Traffic Law",
     "h.title":"Had an accident?","h.claim":"We handle the entire claims process.",
     "h.text":"You don't need a dispute with the insurer – you need an attorney who enforces your claims after the accident, consistently. Choose your path:",
