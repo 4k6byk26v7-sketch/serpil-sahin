@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="stylesheet" href="../style.css?v=36">
+<link rel="stylesheet" href="../style.css?v=38">
 <meta name="theme-color" content="#102A43">
 </head>
 <body>
@@ -76,5 +76,17 @@
 </div></footer>
 <script>document.addEventListener('DOMContentLoaded',function(){var p=new URLSearchParams(location.search).get('src');if(p){var i=document.querySelector('input[name="quelle"]');if(i)i.value=p;}});</script>
 <script src="../main.js?v=10"></script>
+<div class="float-actions">
+<button aria-label="Digital Assistant" class="fab fab--ai" onclick="aiToggle()" title="Digital Assistant">💬</button>
+<a aria-label="WhatsApp" class="fab fab--wa" data-wa="" title="WhatsApp"><span class="fab-badge">Reply < 24 h</span>🟢</a>
+</div>
+<div class="ai-panel" id="aiPanel">
+<div class="ai-head"><div><strong>Digital Assistant</strong><small>Automated chat assistant · not legal advice</small></div><button aria-label="X" class="ai-close" onclick="aiToggle()">×</button></div>
+<div class="ai-body" id="aiBody"></div>
+<div class="ai-chips"><button class="ai-chip" onclick="aiSend('Ich hatte einen Unfall')">I had an accident</button><button class="ai-chip" onclick="aiSend('Was kostet die Beratung?')">Costs?</button><button class="ai-chip" onclick="aiSend('Brauche ich einen eigenen Gutachter?')">My own expert?</button></div>
+<div class="ai-foot"><input id="aiInput" onkeydown="aiKey(event)" placeholder="Your question…" type="text"/><button aria-label="Senden" class="ai-send" onclick="aiSend()">➤</button></div>
+<p class="ai-disclaimer">The digital assistant answers general questions and does not replace individual legal advice.</p>
+</div>
+<script>(function(){var m=document.querySelector('textarea[name="nachricht"]');if(!m)return;var d=false;m.addEventListener('focus',function(){if(d)return;d=true;var p=document.getElementById('aiPanel');if(p&&!p.classList.contains('open')&&typeof aiToggle==='function')aiToggle();});})();</script>
 </body>
 </html>
