@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="style.css?v=36">
+<link rel="stylesheet" href="style.css?v=38">
 <meta name="theme-color" content="#102A43">
 </head>
 <body>
@@ -76,5 +76,17 @@
 </div></footer>
 <script>document.addEventListener('DOMContentLoaded',function(){var p=new URLSearchParams(location.search).get('src');if(p){var i=document.querySelector('input[name="quelle"]');if(i)i.value=p;}});</script>
 <script src="main.js?v=10"></script>
+<div class="float-actions">
+<button aria-label="Digitaler Assistent" class="fab fab--ai" onclick="aiToggle()" title="Digitaler Assistent">💬</button>
+<a aria-label="WhatsApp" class="fab fab--wa" data-wa="" title="WhatsApp"><span class="fab-badge">Antwort < 24 h</span>🟢</a>
+</div>
+<div class="ai-panel" id="aiPanel">
+<div class="ai-head"><div><strong>Digitaler Assistent</strong><small>Chat-Assistent (automatisch) · keine Rechtsberatung</small></div><button aria-label="X" class="ai-close" onclick="aiToggle()">×</button></div>
+<div class="ai-body" id="aiBody"></div>
+<div class="ai-chips"><button class="ai-chip" onclick="aiSend('Ich hatte einen Unfall')">Ich hatte einen Unfall</button><button class="ai-chip" onclick="aiSend('Was kostet die Beratung?')">Kosten?</button><button class="ai-chip" onclick="aiSend('Brauche ich einen eigenen Gutachter?')">Eigener Gutachter?</button></div>
+<div class="ai-foot"><input id="aiInput" onkeydown="aiKey(event)" placeholder="Ihre Frage…" type="text"/><button aria-label="Senden" class="ai-send" onclick="aiSend()">➤</button></div>
+<p class="ai-disclaimer">Der digitale Assistent beantwortet allgemeine Fragen und ersetzt keine individuelle Rechtsberatung.</p>
+</div>
+
 </body>
 </html>
