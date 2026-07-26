@@ -1428,3 +1428,7 @@ html{scroll-behavior:smooth}
 /* ===== ECHTER Header-Fix: overflow-x:hidden brach position:sticky ===== */
 html,body{overflow-x:clip!important}
 .site-header{position:sticky!important;top:0!important;z-index:60!important}
+
+/* ===== Landingpage: 3-Fragen-Raster ===== */
+.q3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.q3-grid{grid-template-columns:1fr}}
