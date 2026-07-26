@@ -8,7 +8,7 @@
 <meta content="Kaza mı geçirdiniz? Acil kontrol listesi ve tüm sürecin devralınması. WhatsApp ile hızlı iletişim." name="description"/>
 <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="../style.css?v=36" rel="stylesheet"/>
+<link href="../style.css?v=37" rel="stylesheet"/>
 <link href="https://serpil-sahin.de/tr/mandanten.html" rel="canonical"/><link href="https://serpil-sahin.de/mandanten.html" hreflang="de" rel="alternate"/>
 <link href="https://serpil-sahin.de/tr/mandanten.html" hreflang="tr" rel="alternate"/>
 <link href="https://serpil-sahin.de/en/mandanten.html" hreflang="en" rel="alternate"/>
@@ -79,6 +79,40 @@
 </div>
 </div>
 </section>
+<!-- SCHREIBHILFE -->
+<section class="section" style="padding-top:0">
+<div class="container" style="max-width:820px">
+<div class="card gm-card">
+<h3 style="margin-top:0">Ne yazacağınızı bilmiyor musunuz?</h3>
+<p class="text-muted">Dört kısa soruyu yanıtlayın – mesajınızı biz oluşturalım, siz doğrudan gönderin.</p>
+<div class="gm-grid">
+<label>Ne oldu?<select id="gmQ1"><option value="arkadan çarpmalı bir kaza">Arkadan çarpma</option><option value="şerit değiştirirken bir kaza">Şerit değiştirme kazası</option><option value="bir park hasarı">Park hasarı</option><option value="bir trafik kazası">Diğer</option></select></label>
+<label>Yaralanan oldu mu?<select id="gmQ2"><option value="Kimse yaralanmadı">Hayır, yaralanan yok</option><option value="Hafif yaralanmalar oldu">Hafif yaralanma</option><option value="Yaralılar var">Evet, yaralı var</option></select></label>
+<label>Aracınız hâlâ çalışır durumda mı?<select id="gmQ3"><option value="hâlâ çalışır durumda">Evet, çalışıyor</option><option value="artık çalışmıyor">Hayır, çalışmıyor</option><option value="çalışır durumda olup olmadığı belirsiz">Bilmiyorum</option></select></label>
+<label>Kusur kimde?<select id="gmQ4"><option value="Kusur karşı tarafta">Karşı taraf</option><option value="Kusur durumu henüz belirsiz">Henüz belirsiz</option><option value="Kusur konusunda emin değilim">Emin değilim</option></select></label>
+</div>
+<button class="btn btn--primary" type="button" onclick="gmBuild()" style="margin-top:6px">Mesajı oluştur</button>
+<div id="gmOut" style="display:none;margin-top:18px">
+<label style="font-weight:600;display:block;margin-bottom:6px">Mesajınız (düzenleyebilirsiniz):</label>
+<textarea id="gmText" rows="5" style="width:100%"></textarea>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+<a id="gmWa" class="btn btn--primary" data-wa-dyn="" target="_blank" rel="noopener">WhatsApp ile gönder</a>
+<button class="btn btn--ghost" type="button" onclick="gmCopy()">Metni kopyala</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+function gmBuild(){
+ var q=function(id){var e=document.getElementById(id);return e.value};
+ var msg="Merhaba, {1} geçirdim. {2}. Aracım {3}. {4}. Lütfen benim için sürecin nasıl ilerleyeceğini bildirin. Teşekkürler.".replace('{1}',q('gmQ1')).replace('{2}',q('gmQ2')).replace('{3}',q('gmQ3')).replace('{4}',q('gmQ4'));
+ document.getElementById('gmText').value=msg;
+ document.getElementById('gmOut').style.display='block';
+ document.getElementById('gmWa').href='https://wa.me/491626210087?text='+encodeURIComponent(msg);
+}
+function gmCopy(){var t=document.getElementById('gmText');t.select();try{document.execCommand('copy')}catch(e){}navigator.clipboard&&navigator.clipboard.writeText(t.value);}
+</script>
 <!-- FRAGEN-FLUSS -->
 <section class="section">
 <div class="container" style="max-width:820px">
@@ -182,6 +216,6 @@
 <p class="ai-disclaimer" data-i18n="asst.disc">İlk yönlendirme bağlayıcı değildir. Dijital asistan genel soruları yanıtlar ve bireysel hukuki danışmanlığın yerini tutmaz.</p>
 </div>
 <script src="../main.js?v=10"></script>
-<script>try{localStorage.setItem('lang','tr')}catch(e){}</script><script src="../translations.js?v=19"></script>
+<script>try{localStorage.setItem('lang','tr')}catch(e){}</script><script src="../translations.js?v=24"></script>
 </body>
 </html>
