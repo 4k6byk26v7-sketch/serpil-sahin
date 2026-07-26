@@ -102,7 +102,7 @@ const AI_KNOWLEDGE = [
     }
   },
   {
-    keys: ["kosten","preis","honorar","gebühr","teuer","maliyet","ücret","cost","price","fee","how much"],
+    keys: ["kosten","kostet","kost","preis","honorar","gebühr","teuer","maliyet","ücret","cost","price","fee","how much","what does it cost"],
     answer: {
       de: "Bei einem unverschuldeten Verkehrsunfall trägt die gegnerische Haftpflichtversicherung in der Regel die erforderlichen Anwaltskosten. Verfügen Sie über eine Rechtsschutzversicherung, übernimmt diese die Kosten – wir klären die Deckung gern für Sie. Was in Ihrem Fall gilt, sagen wir Ihnen vor der Beauftragung.",
       tr: "Kusursuz bir trafik kazasında gerekli avukatlık ücretlerini kural olarak karşı tarafın trafik sigortası öder. Hukuki koruma sigortanız varsa masrafları o karşılar – teminatı sizin için netleştiririz. Sizin dosyanızda ne geçerli olduğunu, vekalet vermeden önce söyleriz.",
