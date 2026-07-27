@@ -278,3 +278,30 @@ document.addEventListener('DOMContentLoaded', function(){
     if(chips){var cl=(document.documentElement.lang||'de').slice(0,2);var ct={de:'📞 Telefonieren',tr:'📞 Telefon',en:'📞 Call'}[cl]||'📞 Telefonieren';var cq={de:'ich möchte telefonieren',tr:'telefon etmek istiyorum',en:'I want to call'}[cl]||'ich möchte telefonieren';var c=document.createElement('button');c.className='ai-chip';c.textContent=ct;c.onclick=function(){aiSend(cq);};chips.insertBefore(c,chips.firstChild);}
   }catch(e){}
 });
+
+
+/* ---------- Social-Media-Icons im Footer (Facebook + Instagram) ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+  var brand = document.querySelector(".site-footer .footer-brand");
+  if (!brand || brand.querySelector(".footer-social")) return;
+  var FB = "https://www.facebook.com/profile.php?id=61592177447957";
+  var IG = "https://www.instagram.com/kanzlei.sahin/";
+  var wrap = document.createElement("div");
+  wrap.className = "footer-social";
+  wrap.setAttribute("aria-label", "Soziale Medien");
+  wrap.innerHTML =
+    '<a href="' + FB + '" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4H16.4V5.6c-.3 0-1.3-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.7H7.7V14h2.4v7z"/></svg></a>' +
+    '<a href="' + IG + '" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2M12 7.4a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2m0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6m5.8-7.8a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0"/></svg></a>';
+  brand.appendChild(wrap);
+  if (!document.getElementById("footer-social-style")) {
+    var st = document.createElement("style");
+    st.id = "footer-social-style";
+    st.textContent =
+      ".footer-social{display:flex;gap:12px;margin-top:18px}" +
+      ".footer-social a{width:40px;height:40px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);transition:.2s}" +
+      ".footer-social a:hover{background:var(--gold,#c9a24b);transform:translateY(-2px)}" +
+      ".footer-social svg{width:20px;height:20px;fill:#e6edf3}" +
+      ".footer-social a:hover svg{fill:#102A43}";
+    document.head.appendChild(st);
+  }
+});
