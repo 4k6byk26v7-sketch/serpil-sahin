@@ -1,3 +1,34 @@
+
+
+/* ---------- Strafrecht-Link in Navigation + Footer (alle Seiten) ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+  var segs = location.pathname.split("/").filter(Boolean);
+  var depth = segs.length;
+  if (segs.length && segs[segs.length - 1].indexOf(".") > -1) depth = segs.length - 1;
+  var href = (depth > 0 ? "../".repeat(depth) : "") + "strafrecht.html";
+
+  var nav = document.getElementById("navLinks");
+  if (nav && !nav.querySelector('a[href$="strafrecht.html"]')) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = href; a.textContent = "Strafrecht";
+    li.appendChild(a);
+    var vk = nav.querySelector('a[href$="verkehrsrecht.html"]');
+    if (vk && vk.parentNode && vk.parentNode.parentNode === nav) {
+      vk.parentNode.insertAdjacentElement("afterend", li);
+    } else {
+      nav.appendChild(li);
+    }
+  }
+
+  var h4 = document.querySelector('.site-footer h4[data-i18n="foot.h1"]');
+  if (h4 && !h4.parentNode.querySelector('a[href$="strafrecht.html"]')) {
+    var fa = document.createElement("a");
+    fa.href = href; fa.textContent = "Strafrecht";
+    if (h4.nextSibling) h4.parentNode.insertBefore(fa, h4.nextSibling);
+    else h4.parentNode.appendChild(fa);
+  }
+});
 /* ŞAHIN & PARTNER – Website-Logik
    ==================================================
    HINWEIS: Trage hier eure echten Kontaktdaten ein.
