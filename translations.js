@@ -128,6 +128,11 @@ function setLang(lang){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
 }
 document.addEventListener('DOMContentLoaded', ()=>{
-  let l="de"; try{ l = localStorage.getItem('lang')||"de"; }catch(e){}
+  // Sprache stammt aus der Seite selbst (<html lang="...">), NICHT aus localStorage:
+  // sonst "vergiftet" ein Besuch von /tr/ oder /en/ die Sprache aller später besuchten
+  // deutschen Seiten (z.B. /ratgeber/*.html), weil deren data-i18n-Elemente dann beim
+  // nächsten Laden auf Basis der zuletzt gespeicherten Sprache überschrieben werden.
+  let l = (document.documentElement.lang || "de").slice(0,2);
+  if(!I18N[l]) l = "de";
   setLang(l);
 });

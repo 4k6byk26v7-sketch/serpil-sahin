@@ -1429,6 +1429,24 @@ html{scroll-behavior:smooth}
 html,body{overflow-x:clip!important}
 .site-header{position:sticky!important;top:0!important;z-index:60!important}
 
+/* ===== Mobile-Header-Fix: Nav-Zeile lief auf schmalen Screens über =====
+   Logo (58px) + große Marke ("Header elegant & großzügig") + Untertitel
+   (nowrap, min-width:max-content) + Sprachumschalter + Menü-Button passten
+   zusammen nicht in <480px Breite. Da html,body overflow-x:clip gesetzt ist,
+   wurde der Überlauf nicht als Scrollbalken sichtbar, sondern rechts
+   abgeschnitten – dadurch verschwanden "EN" und der Menü-Button komplett. */
+@media (max-width: 480px){
+  .nav{ min-height:64px!important; }
+  .brand__mark{ width:38px!important; height:38px!important; }
+  .brand__mark img{ width:36px!important; height:36px!important; }
+  .brand__text{ min-width:0!important; }
+  .brand__name{ font-size:1.02rem!important; white-space:nowrap!important; }
+  .brand__sub{ display:none!important; }
+  .lang-switch{ gap:3px!important; }
+  .lang-switch .lang-btn{ padding:5px 8px!important; font-size:.74rem!important; }
+  .nav__toggle{ padding:6px 4px!important; }
+}
+
 /* ===== Landingpage: 3-Fragen-Raster ===== */
 .q3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:820px){.q3-grid{grid-template-columns:1fr}}
