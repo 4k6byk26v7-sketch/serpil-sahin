@@ -1,34 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://serpil-sahin.de/</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/verkehrsrecht.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/rechtsgebiete.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/mandanten.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/gutachter.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/kontakt.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/verkehrsrecht.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/rechtsgebiete.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/mandanten.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/gutachter.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/tr/kontakt.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/verkehrsrecht.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/rechtsgebiete.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/mandanten.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/gutachter.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/en/kontakt.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/dashcam.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/fahrerflucht.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/fiktive-abrechnung.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/index.html</loc></url>
-<url><loc>https://serpil-sahin.de/ratgeber/bussgeldbescheid-einspruch.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/nutzungsausfall.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/schmerzensgeld.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/totalschaden.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/was-tun-nach-verkehrsunfall.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/wertminderung.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/ratgeber/sachverstaendigen-risiko.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/impressum.html</loc><changefreq>yearly</changefreq></url>
-  <url><loc>https://serpil-sahin.de/datenschutz.html</loc><changefreq>yearly</changefreq></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://serpil-sahin.de/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/index.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/index.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/verkehrsrecht.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/verkehrsrecht.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/verkehrsrecht.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/verkehrsrecht.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/verkehrsrecht.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/rechtsgebiete.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/rechtsgebiete.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/rechtsgebiete.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/rechtsgebiete.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/rechtsgebiete.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/mandanten.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/mandanten.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/mandanten.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/mandanten.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/mandanten.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/mandanten.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/mandanten.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/gutachter.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/gutachter.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/gutachter.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/gutachter.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/gutachter.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/gutachter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/gutachter.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/kontakt.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/kontakt.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/tr/kontakt.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/kontakt.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/en/kontakt.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://serpil-sahin.de/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://serpil-sahin.de/tr/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://serpil-sahin.de/en/kontakt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://serpil-sahin.de/kontakt.html"/>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/impressum.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/index.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/bussgeldbescheid-einspruch.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/dashcam.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/fahrerflucht.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/fiktive-abrechnung.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/nutzungsausfall.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/sachverstaendigen-risiko.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/schmerzensgeld.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/totalschaden.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/was-tun-nach-verkehrsunfall.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://serpil-sahin.de/ratgeber/wertminderung.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+
+# Seiten ohne eigenständigen Suchwert
+Disallow: /danke.html
+Disallow: /tr/danke.html
+Disallow: /en/danke.html
+
 Sitemap: https://serpil-sahin.de/sitemap.xml
