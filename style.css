@@ -564,6 +564,16 @@ strong,b{font-weight:600;color:var(--ink)}
   justify-self:end;align-self:center;
   width:100%;max-width:400px;
 }
+/* Visual-QA-Fix 04.08.2026: Waage-Wasserzeichen entfernt, Portraet fuellt
+   den freigewordenen Raum -- ca. 12% groesser und leicht weiter rechts
+   (bleibt innerhalb von .container / --gutter, kein Overflow). Nur ab
+   1081px aktiv; die Mobile-/Tablet-Regeln unten bleiben unveraendert. */
+@media (min-width:1081px){
+  .hero__portrait{
+    max-width:448px;
+    margin-right:clamp(-28px,-2vw,-12px);
+  }
+}
 .hero__portrait::after{
   content:"";position:absolute;inset:0;
   border:1px solid var(--line);border-radius:var(--r-lg);
@@ -1689,15 +1699,9 @@ a.ci-value:hover{color:var(--accent)}
 .hero--dark .hero-badges li + li::before{background:rgba(255,255,255,.14)}
 .hero--dark .hero__portrait::after{border-color:rgba(208,142,124,.35)}
 
-/* Justitia-Wasserzeichen: metallisch gefuellte Eigenzeichnung, gross
-   angeschnitten (wie die Statuen-Referenzen), hinter dem Inhalt.
-   Ersetzt die Strichgrafik vom selben Tag ("das ist so billig"). */
-.hero-justitia{
-  position:absolute;right:clamp(-170px,-7vw,-40px);top:-24px;
-  width:min(54vw,700px);height:auto;
-  opacity:.42;
-  pointer-events:none;
-}
-@media (max-width:900px){
-  .hero-justitia{width:96vw;right:-34vw;opacity:.14}
-}
+/* Visual-QA-Fix 04.08.2026: Justitia/Waage-Wasserzeichen vollstaendig
+   entfernt (Variante A). Es ueberlappte die Headline und konkurrierte
+   optisch mit dem Portraet -- ausdruecklicher Wunsch des Product Owners,
+   keine Transparenz-/Verkleinerungs-Kompromisse. Die zugehoerige
+   .hero-justitia SVG-Markup wurde aus index.html / tr/index.html /
+   en/index.html entfernt. */
