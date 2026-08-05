@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Marktplatz-Preisvergleich TR ⇄ DE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Marktplatz-Preisvergleich <span>TR ⇄ DE</span></h1>
+    <p class="sub">Sprich oder tippe einen Suchbegriff ein. Das Tool erzeugt fertige Such-Links für sahibinden, Amazon, Trendyol &amp; Co. – du öffnest sie, trägst gefundene Angebote strukturiert ein, das Tool berechnet Kauf-/Nichtkauffakten und den Preisunterschied Türkei ⇄ Deutschland.</p>
+  </header>
+
+  <section class="card" id="search-card">
+    <h2>1. Suchbegriff</h2>
+    <div class="search-row">
+      <input type="text" id="query" placeholder="z.B. iPhone 15 Pro 256GB gebraucht" autocomplete="off">
+      <button id="mic-btn" type="button" title="Spracheingabe starten">🎤</button>
+      <select id="mic-lang">
+        <option value="de-DE">DE</option>
+        <option value="tr-TR">TR</option>
+      </select>
+      <button id="go-btn" type="button" class="primary">Suchlinks erzeugen</button>
+    </div>
+    <p class="mic-status" id="mic-status"></p>
+  </section>
+
+  <section class="card" id="links-card" hidden>
+    <h2>2. Suchlinks öffnen</h2>
+    <p class="hint">sahibinden, Amazon &amp; Co. blockieren automatisches Abgreifen ihrer Seiten (Bot-Schutz, bei Amazon auch AGB-Verbot). Deshalb öffnest du die Angebote hier bewusst selbst – das Tool bereitet nur die Links vor.</p>
+
+    <div class="link-cols">
+      <div class="link-col">
+        <h3>🇹🇷 Türkei</h3>
+        <div id="links-tr" class="link-list"></div>
+      </div>
+      <div class="link-col">
+        <h3>🇩🇪 Deutschland (Alternativen)</h3>
+        <div id="links-de" class="link-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="form-card">
+    <h2>3. Gefundenes Angebot eintragen</h2>
+    <form id="offer-form">
+      <div class="grid">
+        <label>Plattform
+          <select id="f-platform"></select>
+        </label>
+        <label>Land
+          <select id="f-land">
+            <option value="TR">Türkei</option>
+            <option value="DE">Deutschland</option>
+          </select>
+        </label>
+        <label>Titel / Artikel
+          <input type="text" id="f-titel" required>
+        </label>
+        <label>Link zum Angebot
+          <input type="url" id="f-link" placeholder="https://...">
+        </label>
+        <label>Preis
+          <input type="number" id="f-preis" step="0.01" min="0" required>
+        </label>
+        <label>Währung
+          <select id="f-waehrung">
+            <option value="EUR">EUR</option>
+            <option value="TRY">TRY</option>
+          </select>
+        </label>
+        <label>Versandkosten
+          <input type="number" id="f-versand" step="0.01" min="0" value="0">
+        </label>
+        <label>Zustand
+          <select id="f-zustand">
+            <option>Neu</option>
+            <option>Wie neu</option>
+            <option>Gebraucht</option>
+            <option>Beschädigt/Defekt</option>
+          </select>
+        </label>
+        <label>Verkäufer-Bewertung
+          <input type="text" id="f-bewertung" placeholder="z.B. 4.8 / 5, 230 Bewertungen">
+        </label>
+        <label>Lieferzeit (Tage)
+          <input type="number" id="f-lieferzeit" min="0">
+        </label>
+      </div>
+
+      <div class="fakten-cols">
+        <div class="fakten-col kauf">
+          <h4>✅ Kauffakten (Pro)</h4>
+          <div class="tags" id="tags-kauf">
+            <label><input type="checkbox" value="Kostenloser Versand"> Kostenloser Versand</label>
+            <label><input type="checkbox" value="Käuferschutz vorhanden"> Käuferschutz vorhanden</label>
+            <label><input type="checkbox" value="Verifizierter Verkäufer"> Verifizierter Verkäufer</label>
+            <label><input type="checkbox" value="Schnelle Lieferung"> Schnelle Lieferung</label>
+            <label><input type="checkbox" value="Original/bekannte Marke"> Original/bekannte Marke</label>
+            <label><input type="checkbox" value="Rückgaberecht"> Rückgaberecht</label>
+            <label><input type="checkbox" value="Rechnung/Garantie"> Rechnung/Garantie</label>
+          </div>
+          <input type="text" id="f-kauf-frei" placeholder="weitere Kauffakten, mit Komma trennen">
+        </div>
+        <div class="fakten-col nichtkauf">
+          <h4>❌ Nichtkauffakten (Contra)</h4>
+          <div class="tags" id="tags-nichtkauf">
+            <label><input type="checkbox" value="Kein Käuferschutz"> Kein Käuferschutz</label>
+            <label><input type="checkbox" value="Hohe Versandkosten"> Hohe Versandkosten</label>
+            <label><input type="checkbox" value="Lange Lieferzeit"> Lange Lieferzeit</label>
+            <label><input type="checkbox" value="Unbekannter/neuer Verkäufer"> Unbekannter/neuer Verkäufer</label>
+            <label><input type="checkbox" value="Negative Bewertungen"> Negative Bewertungen</label>
+            <label><input type="checkbox" value="Kein Rückgaberecht"> Kein Rückgaberecht</label>
+            <label><input type="checkbox" value="Zollrisiko bei Import"> Zollrisiko bei Import</label>
+          </div>
+          <input type="text" id="f-nichtkauf-frei" placeholder="weitere Nichtkauffakten, mit Komma trennen">
+        </div>
+      </div>
+
+      <label class="notiz-label">Notiz
+        <textarea id="f-notiz" rows="2"></textarea>
+      </label>
+
+      <button type="submit" class="primary">Angebot speichern</button>
+    </form>
+  </section>
+
+  <section class="card" id="list-card">
+    <div class="list-head">
+      <h2>4. Erfasste Angebote</h2>
+      <span id="offer-counter" class="counter">0 / 10 erfasst</span>
+    </div>
+    <div class="table-wrap">
+      <table id="offer-table">
+        <thead>
+          <tr>
+            <th>Plattform</th><th>Land</th><th>Titel</th><th>Preis</th><th>Versand</th>
+            <th>Gesamt (EUR)</th><th>Zustand</th><th>Pro</th><th>Contra</th><th>Empfehlung</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="offer-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="compare-card">
+    <h2>5. Vergleichs-Dashboard TR ⇄ DE</h2>
+    <div class="rate-row">
+      <label>Wechselkurs (1 EUR = wie viel TRY?)
+        <input type="number" id="fx-rate" step="0.01" min="0.01">
+      </label>
+      <span class="hint">Bitte aktuellen Kurs manuell eintragen – wird nicht automatisch abgerufen.</span>
+    </div>
+    <div id="compare-stats" class="stats-grid"></div>
+  </section>
+
+  <section class="card" id="export-card">
+    <h2>6. Export &amp; Zurücksetzen</h2>
+    <div class="export-row">
+      <button id="export-csv">CSV exportieren</button>
+      <button id="export-json">JSON exportieren</button>
+      <button id="clear-all" class="danger">Alle Angebote löschen</button>
+    </div>
+  </section>
+
+  <footer class="disclaimer">
+    <p><strong>Hinweis:</strong> Dieses Tool scrapt keine Marktplätze automatisch. sahibinden, Amazon und Trendyol setzen aktiven Bot-Schutz ein, Amazon untersagt automatisiertes Auslesen zusätzlich in den AGB. Alle Angebotsdaten werden daher bewusst manuell von dir nach eigener Sichtung eingetragen. Alle Daten bleiben lokal im Browser (localStorage) – es gibt keinen Server, kein Tracking.</p>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
