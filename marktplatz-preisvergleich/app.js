@@ -42,9 +42,9 @@
     setupSpeech();
     goBtn.addEventListener("click", onGenerateLinks);
     form.addEventListener("submit", onSaveOffer);
-    fxRateInput.value = parseFloat(localStorage.getItem(RATE_KEY)) || 38;
+    fxRateInput.value = parseFloat(localStorage.getItem(RATE_KEY)) || 54.78;
     fxRateInput.addEventListener("input", () => {
-      localStorage.setItem(RATE_KEY, fxRateInput.value || "38");
+      localStorage.setItem(RATE_KEY, fxRateInput.value || "54.78");
       render();
     });
     $("export-csv").addEventListener("click", exportCsv);
@@ -203,7 +203,7 @@
   // ---------- Berechnung & Rendering ----------
 
   function fxRate() {
-    return parseFloat(fxRateInput.value) > 0 ? parseFloat(fxRateInput.value) : 38;
+    return parseFloat(fxRateInput.value) > 0 ? parseFloat(fxRateInput.value) : 54.78;
   }
 
   function totalEur(offer) {
