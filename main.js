@@ -286,21 +286,21 @@
     };
 
     var FALLBACK = {
-      de: 'Das kann ich pauschal nicht beantworten – jeder Fall ist anders. Am besten schildern Sie uns Ihr Anliegen direkt: über das Kontaktformular, per WhatsApp oder E-Mail. Wir melden uns kurzfristig bei Ihnen.',
-      tr: 'Bunu genel olarak yanıtlayamam – her dosya farklıdır. En iyisi konunuzu doğrudan bize anlatın: iletişim formu, WhatsApp veya e-posta ile. Kısa sürede size döneriz.',
-      en: 'I can\'t answer that in general terms – every case is different. It\'s best to describe your matter directly: via the contact form, WhatsApp or e-mail. We\'ll get back to you shortly.'
+      de: 'Das kann ich pauschal nicht beantworten – jeder Fall ist anders. Am besten schildern Sie uns Ihr Anliegen direkt: per WhatsApp, E-Mail oder Telefon. Wir melden uns kurzfristig bei Ihnen.',
+      tr: 'Bunu genel olarak yanıtlayamam – her dosya farklıdır. En iyisi konunuzu doğrudan bize anlatın: WhatsApp, e-posta veya telefon ile. Kısa sürede size döneriz.',
+      en: 'I can\'t answer that in general terms – every case is different. It\'s best to describe your matter directly: via WhatsApp, e-mail or phone. We\'ll get back to you shortly.'
     };
 
     var KNOWLEDGE = [
       { keys: ['telefonieren','anrufen','anruf','rückruf','telefonat','telefonisch','sprechen','aramak','telefon','ara','call','phone','speak'], html: true, answer: {
-        de: 'Sehr gern – am schnellsten erreichen Sie uns direkt:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (antippen zum Anrufen)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">WhatsApp öffnen</a> – auch für Sprachanrufe.<br><br>Termine nach Vereinbarung – wir rufen Sie auch gern zurück: Hinterlassen Sie Ihre Nummer per WhatsApp oder Formular.',
-        tr: 'Memnuniyetle – bize en hızlı şöyle ulaşırsınız:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (aramak için dokunun)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">WhatsApp\'ı açın</a> – sesli aramalar için de.<br><br>Randevu ile görüşülür – sizi geri de ararız: numaranızı WhatsApp veya form ile bırakın.',
-        en: 'Gladly – the fastest way to reach us:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (tap to call)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">Open WhatsApp</a> – also for voice calls.<br><br>Appointments by arrangement – we\'ll gladly call you back: leave your number via WhatsApp or the form.'
+        de: 'Sehr gern – am schnellsten erreichen Sie uns direkt:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (antippen zum Anrufen)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">WhatsApp öffnen</a> – auch für Sprachanrufe.<br><br>Termine nach Vereinbarung – wir rufen Sie auch gern zurück: Hinterlassen Sie Ihre Nummer per WhatsApp oder E-Mail.',
+        tr: 'Memnuniyetle – bize en hızlı şöyle ulaşırsınız:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (aramak için dokunun)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">WhatsApp\'ı açın</a> – sesli aramalar için de.<br><br>Randevu ile görüşülür – sizi geri de ararız: numaranızı WhatsApp ya da e-posta ile bırakın.',
+        en: 'Gladly – the fastest way to reach us:<br><br><a href="tel:' + CONFIG.telRaw + '" style="font-weight:700">' + CONFIG.telefon + '</a> (tap to call)<br><a href="https://wa.me/' + CONFIG.whatsapp + '" target="_blank" rel="noopener" style="font-weight:700">Open WhatsApp</a> – also for voice calls.<br><br>Appointments by arrangement – we\'ll gladly call you back: leave your number via WhatsApp or e-mail.'
       }},
       { keys: ['unfall','verkehrsunfall','auto','crash','kollision','kaza','trafik kazası','accident','collision'], answer: {
-        de: 'Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen für Sie, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Für eine Ersteinschätzung schreiben Sie uns über das Kontaktformular oder per WhatsApp.',
-        tr: 'Kazadan sonra: sakin olun, kaza yerini güvene alın, yaralı varsa 112\'yi ve polisi (110) arayın. Her şeyi belgeleyin (fotoğraf, tanık, plaka) ve kusur kabul eden hiçbir belge imzalamayın. Size tazminat, manevi tazminat veya kendi bilirkişi hakkınız olup olmadığını inceleriz. Ön değerlendirme için bize iletişim formundan veya WhatsApp\'tan yazın.',
-        en: 'After an accident: stay calm, secure the scene, call 112 for injuries and the police (110). Document everything (photos, witnesses, plates) and sign no admission of fault. We check whether you are entitled to damages, compensation for pain and suffering, or your own expert. For an initial assessment, message us via the contact form or WhatsApp.'
+        de: 'Nach einem Unfall gilt: Ruhe bewahren, Unfallstelle sichern, bei Verletzten den Notruf 112 wählen und die Polizei (110) rufen. Dokumentieren Sie alles (Fotos, Zeugen, Kennzeichen) und unterschreiben Sie kein Schuldanerkenntnis. Wir prüfen für Sie, ob Ihnen Schadensersatz, Schmerzensgeld oder ein eigener Gutachter zusteht. Für eine Ersteinschätzung schreiben Sie uns per WhatsApp oder E-Mail.',
+        tr: 'Kazadan sonra: sakin olun, kaza yerini güvene alın, yaralı varsa 112\'yi ve polisi (110) arayın. Her şeyi belgeleyin (fotoğraf, tanık, plaka) ve kusur kabul eden hiçbir belge imzalamayın. Size tazminat, manevi tazminat veya kendi bilirkişi hakkınız olup olmadığını inceleriz. Ön değerlendirme için bize WhatsApp\'tan veya e-posta ile yazın.',
+        en: 'After an accident: stay calm, secure the scene, call 112 for injuries and the police (110). Document everything (photos, witnesses, plates) and sign no admission of fault. We check whether you are entitled to damages, compensation for pain and suffering, or your own expert. For an initial assessment, message us via WhatsApp or e-mail.'
       }},
       { keys: ['gutachter','sachverständige','sachverständiger','kooperation','gutachten','honorar durchsetzen','bilirkişi','ekspertiz','assessor','expert','cooperation'], answer: {
         de: 'Sie sind Kfz-Sachverständiger? Wir setzen gekürzte Gutachterhonorare gegenüber Versicherern durch – auf Basis der BGH-Rechtsprechung 2024 zum Sachverständigenrisiko. Ihre Neutralität bleibt gewahrt: Die Gutachterwahl liegt stets beim Mandanten, wir geben keine Vermittlungszusagen. Details und Anfrage: Menüpunkt „Für Gutachter“.',
@@ -328,9 +328,9 @@
         en: 'After a no-fault accident you may be entitled to repair costs, loss of value, loss of use, compensation for pain and suffering, loss of earnings and legal fees. We enforce your claims against the insurer.'
       }},
       { keys: ['termin','beratung','erstberatung','kontakt','erreichen','sprechzeiten','randevu','iletişim','appointment','contact','reach'], answer: {
-        de: 'Sie erreichen uns telefonisch, per E-Mail oder WhatsApp. Am schnellsten: der WhatsApp-Button. Alternativ nutzen Sie das Kontaktformular – wir melden uns kurzfristig zurück.',
-        tr: 'Bize telefon, e-posta veya WhatsApp ile ulaşabilirsiniz. En hızlısı: WhatsApp düğmesi. Alternatif olarak iletişim formunu kullanın – kısa sürede size döneriz.',
-        en: 'You can reach us by phone, e-mail or WhatsApp. Fastest: the WhatsApp button. Alternatively use the contact form – we\'ll get back to you shortly.'
+        de: 'Sie erreichen uns telefonisch, per E-Mail oder WhatsApp. Am schnellsten: der WhatsApp-Button. Alternativ schreiben Sie uns per E-Mail – wir melden uns kurzfristig zurück.',
+        tr: 'Bize telefon, e-posta veya WhatsApp ile ulaşabilirsiniz. En hızlısı: WhatsApp düğmesi. Alternatif olarak e-posta yazın – kısa sürede size döneriz.',
+        en: 'You can reach us by phone, e-mail or WhatsApp. Fastest: the WhatsApp button. Alternatively write to us by e-mail – we\'ll get back to you shortly.'
       }},
       { keys: ['rechtsgebiet','familienrecht','arbeitsrecht','mietrecht','strafrecht','spezialisiert','alan','uzman','practice area','specialised','specialized'], answer: {
         de: 'Der Schwerpunkt der Kanzlei liegt im Verkehrsrecht; daneben betreue ich auch weitere Rechtsgebiete (u.a. Zivil-, Vertrags-, Straf- und Versicherungsrecht). Schildern Sie uns Ihr Anliegen – wir sagen Ihnen klar, ob wir helfen können.',
@@ -414,6 +414,36 @@
     });
   }
 
+  /* ----------------------------------------------------------------------
+     9 · Justitia-Medaillon im Header — reagiert auf die Mausposition
+     Prinzip aus einer Wettbewerbs-Recherche übernommen (ein reaktives
+     Goldobjekt im Kopfbereich wirkt lebendig/premium) — NICHT die Gestaltung
+     kopiert: eigenes Motiv (Marken-Medaillon, Emblem_SERPIL_SAHIN_Marke_v4),
+     eigene Mechanik (leichtes 3D-Kippen statt Lichtschein-Effekt).
+     Nur mit echter Maus (kein Touch/Tastatur-Fokus nötig) und nur ohne
+     reduzierte Bewegung — ohne JavaScript bleibt es ein ruhiges Icon.
+     ---------------------------------------------------------------------- */
+  (function () {
+    var medaillon = $('.brand__mark img');
+    if (!medaillon || reduceMotion) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var MAX_DEG = 10;
+    /* Direktes Setzen statt rAF-Drosselung: eine Style-Zuweisung pro
+       Mausereignis ist so billig, dass eine zusaetzliche Frame-Warteschlange
+       nur Verzoegerung bringt, aber keinen Performance-Vorteil. Das weiche
+       "Nachziehen" uebernimmt die CSS-Transition auf .brand__mark img. */
+    on(document, 'pointermove', function (e) {
+      var dx = (e.clientX / window.innerWidth - 0.5) * 2;  // -1 .. 1
+      var dy = (e.clientY / window.innerHeight - 0.5) * 2;
+      medaillon.style.transform =
+        'rotateY(' + (dx * MAX_DEG).toFixed(2) + 'deg) ' +
+        'rotateX(' + (-dy * MAX_DEG).toFixed(2) + 'deg)';
+    });
+    on(document, 'pointerleave', function () { medaillon.style.transform = ''; });
+  })();
+
+
   /* ------------------------------------------------------------------
      Feste Kontaktleiste zurückziehen, solange die Hero-Knöpfe sichtbar sind.
      Gemessen bei 375x667: die Leiste nimmt 58px von 667px — auf genau dem
@@ -439,4 +469,100 @@
       });
     }, { rootMargin: '0px 0px -58px 0px', threshold: [0, 0.99, 1] }).observe(anker);
   })();
+})();
+
+/* ==========================================================================
+   18 · MOTION-PATCH (07.08.2026) — weiches Scrollen + Kreis-Zeiger
+   --------------------------------------------------------------------------
+   Prinzip-Übernahme nach CI-Analyse (Brand_2.0/Analysen), keine Kopie.
+   Bewusst als eigener, in sich geschlossener Block: greift in nichts
+   Bestehendes ein und schaltet sich selbst ab bei
+     – reduzierter Bewegung (Systemeinstellung),
+     – grobem Zeiger (Touch-Geräte),
+     – fehlendem lenis.min.js (Rückfallebene: normales Scrollen).
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var reduziert = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var feinerZeiger = window.matchMedia('(pointer: fine) and (hover: hover)').matches;
+  if (reduziert || !feinerZeiger) return;
+
+  /* --- 18a · Weiches Scrollen (Lenis, selbst gehostet) ------------------ */
+  if (typeof window.Lenis === 'function') {
+    var lenis = new window.Lenis({
+      duration: 1.0,
+      easing: function (t) { return 1 - Math.pow(1 - t, 3); }, /* eigenes Aus-Gleiten */
+      smoothWheel: true
+    });
+    (function schleife(zeit) {
+      lenis.raf(zeit);
+      window.requestAnimationFrame(schleife);
+    })(0);
+
+    /* Anker-Sprünge gleiten mit — Ziel unter dem festen Kopf ausrichten. */
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var ziel = document.getElementById(a.getAttribute('href').slice(1));
+      if (!ziel) return;
+      ev.preventDefault();
+      lenis.scrollTo(ziel, { offset: -84 });
+    });
+  }
+
+  /* --- 18b · Kreis-Zeiger in Warmgold ----------------------------------- */
+  var punkt = document.createElement('div');
+  var ring = document.createElement('div');
+  punkt.className = 'zeiger-punkt ist-versteckt';
+  ring.className = 'zeiger-ring ist-versteckt';
+  punkt.setAttribute('aria-hidden', 'true');
+  ring.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(punkt);
+  document.body.appendChild(ring);
+  document.documentElement.classList.add('hat-zeiger');
+
+  var mx = -100, my = -100;   /* Maus */
+  var rx = -100, ry = -100;   /* Ring (gleitet nach) */
+  var sichtbar = false;
+
+  document.addEventListener('mousemove', function (ev) {
+    mx = ev.clientX; my = ev.clientY;
+    if (!sichtbar) {
+      sichtbar = true; rx = mx; ry = my;
+      punkt.classList.remove('ist-versteckt');
+      ring.classList.remove('ist-versteckt');
+    }
+    punkt.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+  });
+
+  (function gleiten() {
+    rx += (mx - rx) * 0.16;
+    ry += (my - ry) * 0.16;
+    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+    window.requestAnimationFrame(gleiten);
+  })();
+
+  document.addEventListener('mouseleave', function () {
+    sichtbar = false;
+    punkt.classList.add('ist-versteckt');
+    ring.classList.add('ist-versteckt');
+  });
+
+  /* Ring wächst über allem Anklickbaren; über Textfeldern weicht der Kreis
+     der nativen I-Marke. */
+  var AKTIV = 'a, button, [role="button"], summary, label';
+  var TEXTFELD = 'input, textarea, select';
+  document.addEventListener('mouseover', function (ev) {
+    var el = ev.target;
+    if (!el.closest) return;
+    if (el.closest(TEXTFELD)) {
+      punkt.classList.add('ist-versteckt');
+      ring.classList.add('ist-versteckt');
+    } else if (sichtbar) {
+      punkt.classList.remove('ist-versteckt');
+      ring.classList.remove('ist-versteckt');
+    }
+    ring.classList.toggle('ist-aktiv', !!el.closest(AKTIV));
+  });
 })();

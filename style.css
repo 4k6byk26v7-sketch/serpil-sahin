@@ -276,6 +276,9 @@ strong,b{font-weight:600;color:var(--ink)}
 .grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .grid--center{align-items:center}
+/* Symmetrie-Korrektur: letzte Karte einer angebrochenen Reihe ueber die
+   volle Breite, statt als einzelne Waise unter geraden Reihen zu stehen. */
+.zelle--voll{grid-column:1/-1}
 .grid--start{align-items:start}
 
 /* Hilfsklassen — ersetzen wiederkehrende Inline-Styles */
@@ -295,6 +298,10 @@ strong,b{font-weight:600;color:var(--ink)}
 }
 
 @media (max-width:920px){.grid--3,.grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Dreiergruppen brechen am Tablet auf 2 Spalten um und liessen eine Waise
+   stehen — die dritte Karte einer exakten Dreiergruppe nimmt dann die volle
+   Reihe. :nth-child(3):last-child trifft nur Raster mit genau 3 Kindern. */
+@media (max-width:920px) and (min-width:621px){.grid--3 > :nth-child(3):last-child,.q3-grid > :nth-child(3):last-child,.benefit-grid > :nth-child(3):last-child{grid-column:1/-1}}
 @media (max-width:620px){.grid--2,.grid--3,.grid--4{grid-template-columns:minmax(0,1fr)}}
 
 
@@ -337,6 +344,11 @@ strong,b{font-weight:600;color:var(--ink)}
 .btn--wa:hover{--btn-bg:var(--wa-deep);--btn-bd:var(--wa-deep)}
 
 .btn-row,.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s-3);align-items:center}
+/* Zentrierte Knopfreihe (Abschluss-CTA): mittig statt linksbuendig, und beide
+   Knoepfe gleich breit — der WhatsApp-Knopf stand deutlich kleiner neben dem
+   roten Hauptknopf (Befund Ercan 07.08.2026). */
+.btn-row.center{justify-content:center}
+.btn-row.center .btn{flex:1 1 0;max-width:300px;min-width:0}
 
 /* Dunkler Zwischen-CTA (Ratgeber-Artikel) */
 .cta-inline{
@@ -406,9 +418,20 @@ strong,b{font-weight:600;color:var(--ink)}
   background:var(--ivory);border:1px solid var(--ivory-deep);
   overflow:hidden;
   transition:border-color var(--dur) var(--ease);
+  perspective:280px;
 }
 .brand:hover .brand__mark{border-color:var(--accent)}
-.brand__mark img{width:40px;height:40px;border-radius:50%}
+/* Medaillon reagiert leicht auf die Mausposition (main.js, Abschnitt 9) --
+   eigene Mechanik/eigenes Motiv, nur das Prinzip "reaktives Goldobjekt"
+   uebernommen. Ohne JavaScript bleibt es ein ruhiges, statisches Icon. */
+.brand__mark img{
+  width:40px;height:40px;border-radius:50%;
+  transform-style:preserve-3d;will-change:transform;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+@media (prefers-reduced-motion:reduce){
+  .brand__mark img{transition:none}
+}
 .brand__text{display:flex;flex-direction:column;line-height:1.1}
 .brand__name{
   font-family:var(--font-display);
@@ -860,6 +883,20 @@ a.card:hover .card__more::after{width:28px}
 .choice__t{font-weight:600;font-size:.95rem;color:var(--ink)}
 .choice__s{font-size:var(--fs-xs);color:var(--muted);line-height:1.45}
 
+/* Kontaktwege in einer schmalen Spalte (neben der Infospalte): dieselbe
+   Anordnung wie im Mobilbild — Symbol links, Titel und Zusatz rechts.
+   Drei Karten nebeneinander waeren dort nur rund 130 px breit. */
+.choice-row--stack{grid-template-columns:minmax(0,1fr)}
+.choice-row--stack .choice{
+  display:grid;grid-template-columns:42px minmax(0,1fr);
+  align-items:center;column-gap:14px;row-gap:2px;
+  text-align:left;padding:var(--s-4);
+}
+.choice-row--stack .choice__ico{grid-row:1 / span 2;margin-bottom:0}
+/* Die Zusicherung gehoert linksbuendig unter die Karten — .contact-choice > p
+   zentriert sonst auch diesen Absatz. */
+.contact-choice .form-assurance{text-align:left}
+
 /* Kontaktseite */
 .contact-grid{
   display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
@@ -1286,7 +1323,7 @@ a.ci-value:hover{color:var(--accent)}
   .nav__cta{display:none}
 }
 
-@media (max-width:1080px){
+@media (max-width:1280px){
   .nav__toggle{display:grid}
   .nav__cta{display:none}
 
@@ -1670,6 +1707,20 @@ a.ci-value:hover{color:var(--accent)}
   .nav__links{flex-wrap:wrap}
 }
 
+/* Sieben Menuepunkte passen im Band 1181-1366px nicht in eine Zeile — die
+   Navigation brach zweizeilig um (Befund Ercan 07.08.2026). Im engen Band
+   werden Abstand und Schriftgrad der Menuezeile leicht verdichtet; die
+   WCAG-Umbruch-Rueckfallebene oben bleibt fuer erhoehte Textabstaende
+   erhalten, greift im Normalfall aber nicht mehr. Die Startseite (vx-a)
+   hat eine eigene Navigation und bleibt ausgenommen. */
+@media (min-width:1281px){
+  body:not(.vx-a) .container.nav{gap:10px}
+  body:not(.vx-a) .nav__links{gap:8px}
+  body:not(.vx-a) .nav__links a{font-size:.85rem}
+  body:not(.vx-a) .nav__cta{padding:14px 14px}
+  body:not(.vx-a) .lang-btn{padding:0 8px}
+}
+
 /* ==========================================================================
    26 · DUNKLER HERO — Redesign 04.08.2026
    Richtung „Editorial dunkel" (Referenzen von Ercan, Conversion-Kritik
@@ -1705,3 +1756,1264 @@ a.ci-value:hover{color:var(--accent)}
    keine Transparenz-/Verkleinerungs-Kompromisse. Die zugehoerige
    .hero-justitia SVG-Markup wurde aus index.html / tr/index.html /
    en/index.html entfernt. */
+
+/* Fix-Vorschlag 04.08.2026 (Audit-Fund 6.1, Task #17): Hinweis auf
+   Impressum/Datenschutz, dass diese Seiten nur auf Deutsch verfuegbar
+   sind, mit Rueckkehr-Link in die jeweilige Sprachversion der Startseite. */
+.lang-notice{
+  background:var(--paper);border:1px solid var(--line);border-radius:8px;
+  padding:12px 16px;margin:16px auto 0;max-width:640px;
+  font-size:.85rem;line-height:1.5;
+}
+.lang-notice p{margin:0 0 6px}
+.lang-notice p:last-child{margin-bottom:0}
+.lang-notice a{color:inherit;text-decoration:underline}
+
+
+/* ==========================================================================
+   18 · MOTION-PATCH (07.08.2026) — weiches Scrollen + Kreis-Zeiger
+   --------------------------------------------------------------------------
+   Prinzip-Übernahme nach CI-Analyse (Brand_2.0/Analysen), KEINE Kopie:
+   eigene Werte, eigene Farben (Warmgold), eigene Klassennamen.
+   Beides nur am feinen Zeiger (Desktop) und nie bei reduzierter Bewegung —
+   siehe zugehöriger Abschnitt 18 in main.js.
+   ========================================================================== */
+
+/* Lenis-Grundregeln: solange Lenis scrollt, darf CSS nicht dazwischenfunken. */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* Kreis-Zeiger: Punkt (folgt sofort) + Ring (gleitet nach). */
+.zeiger-punkt,.zeiger-ring{
+  position:fixed;top:0;left:0;border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+}
+.zeiger-punkt{width:5px;height:5px;background:#A8863D} /* Warmgold als Literal: die --vx-Token existieren nur auf der Startseite */
+.zeiger-ring{
+  width:36px;height:36px;
+  border:1px solid rgba(168,134,61,.5);
+  transition:width .3s var(--ease-out),height .3s var(--ease-out),
+             opacity .3s,background-color .3s;
+}
+.zeiger-ring.ist-aktiv{width:58px;height:58px;background:rgba(168,134,61,.10)}
+.zeiger-punkt.ist-versteckt,.zeiger-ring.ist-versteckt{opacity:0}
+
+/* Der native Pfeil weicht dem Kreis — Textfelder behalten ihre I-Marke. */
+html.hat-zeiger,html.hat-zeiger *{cursor:none!important}
+html.hat-zeiger input,html.hat-zeiger textarea,html.hat-zeiger select{cursor:auto!important}
+
+/* Reduzierte Bewegung: alles davon aus (Sicherheitsnetz zu Abschnitt oben). */
+@media (prefers-reduced-motion:reduce){
+  .zeiger-punkt,.zeiger-ring{display:none!important}
+  html.hat-zeiger,html.hat-zeiger *{cursor:auto!important}
+}
+
+/* ============================================================
+   MASTERFORMAT HEADER & FOOTER — sitweite Ausweitung 07.08.2026
+   Herkunft: Startseiten-Feinschliff des heutigen Tages, ueber die
+   CSSOM des Browsers extrahiert (nicht per Hand abgeschrieben --
+   das garantiert korrekte @media-Zuordnung). Gilt fuer jede Seite
+   mit <body class="vx-a">. TR/EN bewusst nicht auf vx-a
+   umgestellt (Auftrag: nur deutsche Seiten). Nur Kopf- und
+   Fussbereich befoerdert; Hero/Fakten-Band/Anwaeltin-Block etc.
+   bleiben ausschliesslich auf der Startseite wirksam.
+   ============================================================ */
+body.vx-a .emergency-bar{font-size: 0.775rem; letter-spacing: 0.045em;}
+body.vx-a .emergency-bar > span::before{background: var(--vx-gold); animation: auto ease 0s 1 normal none running none;}
+body.vx-a .emergency-bar a{border-bottom-color: rgba(192, 164, 104, 0.5);}
+body.vx-a .emergency-bar a:hover{border-bottom-color: var(--vx-gold);}
+body.vx-a .site-header{background: rgba(252, 251, 248, 0.94); border-bottom: 1px solid var(--vx-gold-line);}
+body.vx-a .site-header.is-stuck{background: rgba(252, 251, 248, 0.984);}
+body.vx-a .brand{gap: 14px;}
+body.vx-a .brand__mark{width: auto; height: 48px; padding: 0px; background: transparent; border: 0px; border-radius: 0px; box-shadow: none;}
+body.vx-a .brand__text{align-items: center; text-align: center;}
+body.vx-a .brand .brand__text .brand__sub{font-size: 0.82rem; letter-spacing: 0.24em;}
+body.vx-a .brand .brand__text .brand__name{font-size: 1.5rem; letter-spacing: 0.22em; margin-right: -0.22em;}
+@media (min-width: 1181px){
+  body.vx-a .nav__links{gap: 21px;}
+  body.vx-a .site-header .container{padding-left: 32px; padding-right: 32px;}
+}
+@media (max-width: 760px){
+  body.vx-a .brand .brand__text .brand__sub{font-size: 0.6rem; letter-spacing: 0.12em;}
+  body.vx-a .brand .brand__text .brand__name{font-size: 1.02rem; letter-spacing: 0.14em; margin-right: -0.14em;}
+  body.vx-a .brand__mark{height: 36px;}
+  body.vx-a .brand__mark img{height: 34px;}
+}
+body.vx-a .brand__mark img{width: auto; height: 46px; border-radius: 0px;}
+body.vx-a .brand__name{font-size: 1.3rem; letter-spacing: -0.005em;}
+body.vx-a .brand__sub{color: var(--vx-gold-deep); letter-spacing: 0.24em; font-size: 0.6rem;}
+@media (min-width: 1181px){
+  body.vx-a .nav__links{flex-wrap: nowrap;}
+  body.vx-a .nav__links{transform: translateY(7px);}
+}
+body.vx-a .nav__links a{font-size: 0.89rem;}
+body.vx-a .nav__links a::after{background: var(--vx-gold); height: 1px;}
+body.vx-a .lang-switch{border: 0px; border-radius: 0px; overflow: visible; margin-right: 6px;}
+body.vx-a .lang-btn{padding: 6px 8px; font-size: 0.72rem; letter-spacing: 0.09em; color: var(--muted);}
+body.vx-a .lang-btn + .lang-btn{border-left: 1px solid var(--vx-gold-soft);}
+body.vx-a .lang-btn:hover{background: transparent; color: var(--ink);}
+body.vx-a .lang-btn.active, body.vx-a .lang-btn[aria-current="true"]{background: transparent; color: var(--ink); box-shadow: inset 0 -2px 0 var(--vx-gold);}
+@media (max-width: 640px){
+  body.vx-a .emergency-bar{flex-wrap: nowrap; gap: 12px; padding: 7px 10px; font-size: 0.72rem; letter-spacing: 0.02em;}
+  body.vx-a .emergency-bar .vx-eb-long{display: none;}
+  body.vx-a .emergency-bar > span{gap: 7px;}
+  body.vx-a .emergency-bar a{padding: 2px 0px; white-space: nowrap;}
+  body.vx-a .brand__mark{height: 38px;}
+  body.vx-a .brand__mark img{height: 36px;}
+  body.vx-a .lang-switch{margin-right: 8px;}
+  body.vx-a .lang-btn{padding: 6px;}
+}
+@media (max-width: 1180px) and (min-width: 1081px){
+  body.vx-a .nav__toggle{display: grid;}
+  body.vx-a .nav__links{position: absolute; top: 100%; left: 0px; right: 0px; flex-flow: column; align-items: stretch; gap: 0px; padding: var(--s-3) var(--gutter) var(--s-5); background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-3); max-height: 0px; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height .34s var(--ease),opacity .22s var(--ease),visibility .34s;}
+  body.vx-a .nav__links.open{max-height: min(74vh, 640px); overflow-y: auto; opacity: 1; visibility: visible;}
+  body.vx-a .nav__links a{padding: 14px 0px; font-size: 1rem; border-bottom: 1px solid var(--line);}
+  body.vx-a .nav__links a::after{display: none;}
+  body.vx-a .nav__links > li:last-child a{border-bottom: 0px;}
+}
+@media (max-width: 1180px){
+  body.vx-a .nav__links a.active, body.vx-a .nav__links a[aria-current="page"]{color: var(--vx-gold-deep);}
+}
+body.vx-a .site-footer{position: relative; overflow: hidden; padding-block: clamp(88px,10vw,150px) var(--s-7);}
+body.vx-a .site-footer::before{content: ""; position: absolute; top: 50%; right: clamp(-150px, -9vw, -60px); transform: translateY(-52%); width: clamp(380px, 38vw, 600px); aspect-ratio: 755 / 890; background: url("Bilder/justitia-figur-freisteller.png") center center / contain no-repeat; opacity: 0.06; filter: brightness(1.55) saturate(0.8); mask-image: radial-gradient(75% 72% at 58% 48%, rgb(0, 0, 0) 34%, transparent 96%); pointer-events: none;}
+body.vx-a .site-footer .container{position: relative; z-index: 1;}
+body.vx-a .footer-grid{gap: var(--s-8) clamp(36px,4.5vw,72px); padding-bottom: clamp(56px, 7vw, 92px); border-bottom-color: var(--vx-gold-dark-line);}
+body.vx-a .footer-brand .brand__name{font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.9rem); font-weight: 500; letter-spacing: -0.012em; margin-bottom: 18px; line-height: 1.28;}
+body.vx-a .footer-brand p{line-height: 1.8; font-size: 0.95rem; max-width: 36ch;}
+body.vx-a .site-footer h2{color: var(--vx-gold-dark); font-size: 0.78rem; letter-spacing: 0.2em; margin-bottom: 20px;}
+body.vx-a .site-footer h2::after{content: ""; display: block; width: 26px; height: 1px; background: var(--vx-gold-dark-line); margin-top: 12px;}
+body.vx-a .site-footer a:not(.btn){padding: 8px 0px; font-size: 0.95rem; color: rgb(180, 176, 167);}
+body.vx-a .site-footer a:not(.btn):hover{color: rgb(255, 255, 255);}
+body.vx-a .footer-note{padding-top: 14px; line-height: 1.6;}
+body.vx-a .footer-cta{padding-block: clamp(44px, 5vw, 68px); border-bottom-color: var(--vx-gold-dark-line); gap: var(--s-6);}
+body.vx-a .footer-cta strong{font-size: clamp(1.35rem, 1.15rem + 0.85vw, 1.85rem); font-weight: 500; letter-spacing: -0.014em; line-height: 1.35; max-width: 34ch;}
+body.vx-a .footer-cta .btn--primary{--btn-bg: #FCFBF8; --btn-fg: var(--ink); --btn-bd: #FCFBF8;}
+body.vx-a .footer-cta .btn--primary:hover{--btn-bg: var(--vx-gold-dark); --btn-fg: var(--ink); --btn-bd: var(--vx-gold-dark);}
+body.vx-a .footer-cta .btn--light{--btn-bg: transparent; --btn-fg: #FCFBF8; --btn-bd: rgba(201,172,106,.55);}
+body.vx-a .footer-cta .btn--light:hover{--btn-bg: var(--vx-gold-dark); --btn-fg: var(--ink); --btn-bd: var(--vx-gold-dark);}
+body.vx-a .footer-bottom{padding-top: var(--s-6); gap: var(--s-3) var(--s-6);}
+@media (max-width: 860px){
+  body.vx-a .site-footer::before{width: 340px; right: -140px; opacity: 0.055;}
+}
+@media (min-width: 1281px) and (max-width: 1366px){
+  body.vx-a .container.nav{gap: 10px;}
+  body.vx-a .nav__links{gap: 12px;}
+  body.vx-a .nav__links a{font-size: 0.85rem;}
+  body.vx-a .lang-btn{padding: 0px 8px;}
+}
+body.vx-a .brand .brand__text .brand__name{font-size: 1.15rem;}
+body.vx-a .brand .brand__text .brand__sub{font-size: 0.98rem; letter-spacing: 0.28em;}
+body.vx-a .brand .brand__text .brand__name{font-size: 1.38rem; letter-spacing: 0.26em; margin-right: -0.26em;}
+body.vx-a .site-header{border-bottom: 0px;}
+body.vx-a .nav__links a{font-size: 1.04rem;}
+body.vx-a .nav__links{gap: 30px;}
+@media (min-width: 960px){
+  body.vx-a .nav__toggle{display: none;}
+  body.vx-a .nav__links{position: static; display: flex; flex-direction: row; align-items: center; max-height: none; overflow: visible; opacity: 1; visibility: visible; padding: 0px; margin: 0px; background: transparent; border-bottom: 0px; box-shadow: none; transition: none;}
+  body.vx-a .nav__links a{padding: 8px 0px; font-size: 1.04rem; border-bottom: 0px;}
+  body.vx-a .nav__links a::after{display: block;}
+}
+@media (min-width: 1181px){
+  body.vx-a{--header-h: 80px;}
+}
+body.vx-a{--header-h: 96px;}
+
+/* Fehler behoben (Ercan-Befund 07.08.2026): siehe Kommentar in index.html. */
+@media (max-width:640px){
+  body.vx-a .brand .brand__text .brand__sub{font-size: .5rem;letter-spacing: .06em;}
+  body.vx-a .brand .brand__text .brand__name{font-size: .92rem;letter-spacing: .02em;margin-right: -.02em;}
+}
+
+@media (max-width:360px){
+  body.vx-a .container.nav{padding-left:10px;padding-right:10px;gap:4px}
+  body.vx-a .lang-btn{padding:6px 5px}
+}
+
+/* ==========================================================================
+   STARTSEITE (VX-A) — aus index.html hierher verschoben (09.08.2026),
+   damit index.html, tr/index.html und en/index.html dieselbe Datei nutzen
+   statt das Startseiten-CSS drei Mal zu duplizieren. Inhaltlich unveraendert.
+   ========================================================================== */
+
+/* ==========================================================================
+   VARIANTE A · „GALERIE" — helles Editorial, Runde 2
+   Key-Visual `justitia-hero-hell.jpg` als Bühne (Text im Negativraum links),
+   mobil eigene Stapel-Komposition mit dem Freisteller. Präfix vx-.
+   ========================================================================== */
+:root{
+  --vx-gold:       #A8863D;               /* Kernton Warmgold — Linien, Ringe   */
+  --vx-gold-deep:  #8A6C33;               /* textfähiges Gold: 4,8:1 auf Papier */
+  --vx-gold-line:  rgba(168,134,61,.42);  /* Haarlinie                          */
+  --vx-gold-soft:  rgba(168,134,61,.20);  /* zarteste Linie / Ringe             */
+}
+@media (min-width:1181px){ body.vx-a{--header-h:80px} }
+
+/* ---- Sofort-Kontakt-Streifen: ruhig, Goldpunkt statt Pulsieren ----------- */
+body.vx-a .emergency-bar{font-size:.775rem;letter-spacing:.045em}
+body.vx-a .emergency-bar > span::before{background:var(--vx-gold);animation:none}
+body.vx-a .emergency-bar a{border-bottom-color:rgba(192,164,104,.5)}
+body.vx-a .emergency-bar a:hover{border-bottom-color:var(--vx-gold)}
+
+/* ---- Header: heller Präzisionsbalken mit feiner Goldlinie ---------------- */
+body.vx-a .site-header{
+  background:rgba(252,251,248,.94);
+  border-bottom:1px solid var(--vx-gold-line);
+}
+body.vx-a .site-header.is-stuck{background:rgba(252,251,248,.985)}
+body.vx-a .brand{gap:14px}
+body.vx-a .brand__mark{
+  width:auto;height:48px;padding:0;
+  background:transparent;border:0;border-radius:0;box-shadow:none;
+}
+body.vx-a .brand__text{align-items:center;text-align:center}
+body.vx-a .brand .brand__text .brand__sub{font-size:.82rem;letter-spacing:.24em}
+body.vx-a .brand .brand__text .brand__name{font-size:1.5rem;letter-spacing:.22em;margin-right:-.22em}
+@media (min-width:1181px){
+  body.vx-a .nav__links{gap:21px}
+  body.vx-a .nav__cta{padding:8px 14px}
+  body.vx-a .site-header .container{padding-left:32px;padding-right:32px}
+}
+@media (max-width:760px){
+  body.vx-a .brand .brand__text .brand__sub{font-size:.6rem;letter-spacing:.12em}
+  body.vx-a .brand .brand__text .brand__name{font-size:1.02rem;letter-spacing:.14em;margin-right:-.14em}
+  body.vx-a .brand__mark{height:36px}
+  body.vx-a .brand__mark img{height:34px}
+}
+
+body.vx-a .brand__mark img{width:auto;height:46px;border-radius:0}
+body.vx-a .brand__name{font-size:1.3rem;letter-spacing:-.005em}
+body.vx-a .brand__sub{color:var(--vx-gold-deep);letter-spacing:.24em;font-size:.6rem}
+
+/* Harte Anforderung: einzeilig zwischen 1181 und 1440 px — nie umbrechen */
+@media (min-width:1181px){ body.vx-a .nav__links{flex-wrap:nowrap}
+/* Versuch (Ercan 07.08.2026): Menuezeile auf die Zeilenhoehe der Namenszeile
+   SERPIL SAHIN ausgerichtet — vorher sass die Menuemitte 7px hoeher. */
+body.vx-a .nav__links{transform:translateY(7px)}
+ }
+body.vx-a .nav__links a{font-size:.89rem}
+body.vx-a .nav__links a::after{background:var(--vx-gold);height:1px}
+
+/* „Mehr"-Auslöser (Reihenfolge der Punkte bleibt erhalten, nur eingeklappt) */
+.vx-more-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:0;padding:8px 0;
+  color:var(--body);font-size:.89rem;font-weight:500;white-space:nowrap;
+  transition:color var(--dur) var(--ease);
+}
+.vx-more-btn .icon{width:11px;height:11px;transition:transform .2s var(--ease)}
+.has-dd:hover .vx-more-btn,.has-dd:focus-within .vx-more-btn{color:var(--ink)}
+.has-dd:hover .vx-more-btn .icon,.has-dd:focus-within .vx-more-btn .icon{transform:rotate(180deg)}
+@media (max-width:1320px){ .vx-more-btn{font-size:.885rem} }
+
+.vx-more .nav-dd.vx-dd{left:auto;right:-16px;min-width:540px;padding:14px}
+.vx-dd-top{display:flex;gap:6px;border-bottom:1px solid var(--vx-gold-soft);padding-bottom:8px;margin-bottom:8px}
+.vx-dd-top a{flex:1;font-weight:600;color:var(--ink)}
+.vx-dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.vx-dd-grid a{font-size:.85rem}
+
+/* Sprachwahl: reduziert auf Typografie, Aktiv-Zustand als Goldunterstrich,
+   bewusst mit Luft zum Rand */
+body.vx-a .lang-switch{border:0;border-radius:0;overflow:visible;margin-right:6px}
+body.vx-a .lang-btn{padding:6px 8px;font-size:.72rem;letter-spacing:.09em;color:var(--muted)}
+body.vx-a .lang-btn + .lang-btn{border-left:1px solid var(--vx-gold-soft)}
+body.vx-a .lang-btn:hover{background:transparent;color:var(--ink)}
+body.vx-a .lang-btn.active,body.vx-a .lang-btn[aria-current="true"]{
+  background:transparent;color:var(--ink);
+  box-shadow:inset 0 -2px 0 var(--vx-gold);
+}
+
+/* Header-CTA: schmale Goldkontur, Versalien mit Buchstabenabstand */
+body.vx-a .nav__cta{
+  --btn-bg:transparent;--btn-fg:var(--ink);--btn-bd:var(--vx-gold);
+  min-height:40px;padding:8px 18px;
+  font-size:.78rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  border-radius:2px;
+}
+body.vx-a .nav__cta:hover{--btn-bg:var(--ink);--btn-fg:#fff;--btn-bd:var(--ink);box-shadow:none}
+
+/* ---- HERO „Galerie": Justitia-Figur als Teil der Bühne ------------------ */
+.vx-hero{position:relative;overflow:hidden;background:var(--paper)}
+.vx-stage{
+  position:absolute;inset:0;
+  background:url("Bilder/justitia-hero-galerie.jpg") no-repeat;
+  filter:contrast(1.05) saturate(1.04);
+  /* Bühne leicht vergrößert und links verankert: schiebt die Figur aus der
+     Textspalte nach rechts, ohne den Kopf zu beschneiden */
+  background-size:auto 108%;background-position:94% 11%;
+}
+/* Nahtstelle Bühne ↔ Seite: weiche Blenden an allen Rändern (kein
+   sichtbares Bildrechteck) + sehr dezente Lichtführung um die Figur */
+.vx-stage::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(58% 64% at 63% 40%, rgba(255,252,243,.22), rgba(255,252,243,0) 62%),
+    radial-gradient(130% 130% at 62% 45%, rgba(27,29,31,0) 58%, rgba(27,29,31,.05) 100%),
+    linear-gradient(180deg, var(--paper), rgba(252,251,248,0) 11%),
+    linear-gradient(0deg, #F4F1EA, rgba(244,241,234,0) 22%),
+    linear-gradient(270deg, rgba(252,251,248,.85), rgba(252,251,248,0) 9%);
+}
+/* Legibilitäts-Verlauf: läuft nach rechts in die Bühne aus */
+.vx-stage::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, var(--paper) 0%,var(--paper) 36%,rgba(252,251,248,.94) 48%, rgba(252,251,248,.55) 62%,rgba(252,251,248,0) 80%);
+}
+.vx-hero-grid{
+  position:relative;
+  display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  align-items:center;
+  min-height:clamp(660px,calc(100vh - 20px),880px);
+  padding-top:clamp(6px,1vh,14px);padding-bottom:clamp(28px,4vh,44px);
+}
+.vx-hero-copy{max-width:640px;text-align:left}
+
+.vx-eyebrow{
+  max-width:none;margin:0 0 clamp(16px,2.2vw,22px);
+  font-size:clamp(.78rem,.7rem + .2vw,.9rem);font-weight:500;
+  letter-spacing:.06em;text-transform:none;
+  white-space:nowrap;
+  color:var(--vx-gold-deep);
+}
+
+.vx-h1{
+  margin:0;
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(2.7rem,1.1rem + 4vw,4.55rem);
+  line-height:1.06;letter-spacing:-.02em;
+  color:var(--ink);text-wrap:balance;
+}
+.vx-h1-l1{display:block}
+.vx-h1-em{
+  display:block;margin-top:.12em;
+  font-style:italic;font-weight:500;letter-spacing:-.01em;
+  color:var(--vx-gold-deep);
+}
+
+/* Signatur: typografische Unterschrift der Anwältin — EB Garamond Italic,
+   deutlich kleiner als die Headline, mit Gold-Haarlinie als Absetzung.
+   Bewusst KEINE Versalien/Sperrung (kein Label-, kein Logo-Charakter). */
+.vx-sign{margin:clamp(34px,4.4vw,54px) 0 0}
+.vx-sign::before{
+  content:"";display:block;width:46px;height:1px;
+  background:var(--vx-gold);opacity:.6;margin:0 0 17px;
+}
+.vx-sign-role{
+  display:block;
+  font-family:var(--font-display);font-style:italic;
+  font-size:1.28rem;line-height:1.45;
+  color:var(--muted);letter-spacing:.015em;
+}
+.vx-sign-name{
+  display:block;
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(1.7rem,1.4rem + .8vw,2.2rem);line-height:1.3;
+  color:var(--ink);letter-spacing:.01em;
+}
+
+/* Bewusst viel Luft zwischen Textblock und Handlungsaufruf */
+.vx-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:clamp(30px,3.6vw,44px)}
+.vx-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:11px;
+  min-height:50px;padding:13px 27px;
+  border-radius:2px;
+  font-family:var(--font-text);font-size:.93rem;font-weight:500;
+  letter-spacing:.02em;line-height:1.2;text-decoration:none;
+  transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),
+             border-color var(--dur) var(--ease),transform .18s var(--ease),
+             box-shadow var(--dur) var(--ease);
+}
+.vx-btn:hover{transform:translateY(-1px)}
+.vx-btn:active{transform:translateY(0)}
+.vx-btn--primary{background:#26282B;color:#FCFBF8;border:1px solid var(--vx-gold-line)}
+.vx-btn--primary:hover{background:#2B2E31;border-color:#2B2E31;color:#FCFBF8;box-shadow:var(--shadow-2)}
+.vx-btn--primary .icon{width:19px;height:19px;color:#FCFBF8}
+/* WhatsApp-Grün ausschließlich als kleines Funktionsdetail am Icon */
+.vx-wa-dot{
+  width:8px;height:8px;flex:none;border-radius:50%;
+  background:#3DA871;box-shadow:0 0 0 3px rgba(61,168,113,.22);
+  margin-left:-4px;
+}
+.vx-btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--vx-gold)}
+.vx-btn--ghost:hover{background:var(--ink);color:#FCFBF8;border-color:var(--ink)}
+
+.vx-promise{
+  display:flex;align-items:center;gap:8px;
+  margin:clamp(16px,2.2vw,22px) 0 0;
+  font-size:.875rem;color:var(--muted);
+}
+.vx-promise .icon{width:15px;height:15px;flex:none;color:var(--vx-gold-deep)}
+
+/* Mobile Figur-Einbettung — nur in der Stapel-Komposition sichtbar.
+   Die Figur steht in einem warmen Lichthof, der breiter ist als sie
+   selbst: eingebettet in die Szene, nicht aufgeklebt. */
+.vx-key-wrap{display:none}
+
+/* Galerie-Beschriftungsband: eigene schmale Sektion NACH dem Hero */
+.vx-facts{
+  border-bottom:1px solid var(--vx-gold-soft);
+  background:rgba(244,241,234,.55);
+}
+.vx-facts .container{max-width:1180px}
+.vx-facts-row{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:10px clamp(12px,1.4vw,17px);
+  padding-top:15px;padding-bottom:15px;
+}
+.vx-fact{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.775rem;font-weight:500;letter-spacing:.04em;
+  color:var(--muted);white-space:nowrap;
+}
+.vx-fact--person{color:var(--ink);gap:14px}
+.vx-fact--person strong{font-weight:600}
+.vx-fact-img{
+  width:130px;height:130px;flex:none;border-radius:50%;object-fit:cover;
+  filter:grayscale(.25) sepia(.14) saturate(.92);
+  box-shadow:0 0 0 1px var(--vx-gold-line);
+}
+.vx-sep{
+  width:4px;height:4px;flex:none;transform:rotate(45deg);
+  background:var(--vx-gold-line);
+}
+
+/* ---- Responsiv ----------------------------------------------------------- */
+@media (max-width:1180px){
+  .vx-more-btn{display:none}
+  body.vx-a .nav__links .nav-dd.vx-dd{
+    display:block;position:static;min-width:0;padding:0;
+    background:transparent;border:0;box-shadow:none;
+    opacity:1;visibility:visible;transform:none;
+  }
+  .vx-dd-top{display:block;border-bottom:0;padding-bottom:0;margin-bottom:0}
+  .vx-dd-grid{display:block}
+  body.vx-a .nav__links .vx-dd a{padding:14px 0;font-size:1rem;border-bottom:1px solid var(--line);border-radius:0;font-weight:500;color:var(--body)}
+  body.vx-a .nav__links .vx-dd .vx-dd-top a{font-weight:600;color:var(--ink)}
+}
+
+/* Stapel-Komposition (Tablet schmal + Mobil): eigenständig gedacht,
+   kein zusammengeschobener Desktop. Reihenfolge:
+   Logo (Header) → Eyebrow → Headline → Justitia → Text → CTAs. */
+@media (max-width:860px){
+  .vx-stage{display:none}
+  /* leiser Tiefenverlauf statt flacher Fläche */
+  .vx-hero{background:linear-gradient(180deg,var(--paper) 0%,#F1EDE3 55%,#F4F1EA 100%)}
+  .vx-hero-grid{display:block;min-height:0;padding-top:clamp(22px,4vw,36px);padding-bottom:clamp(38px,6vw,56px)}
+  .vx-hero-copy{max-width:34rem}
+  .vx-key-wrap{display:flex;justify-content:flex-end;margin:0 0 4px}
+  /* Ausschnitt der KOMPONIERTEN Bühne (kein nackter Freisteller): die
+     radiale Maske löst alle vier Kanten weich in den Seitenverlauf auf —
+     nirgends eine Schnittkante, nirgends ein Bildrechteck. */
+  .vx-key-stage{
+    width:min(48vw,370px);aspect-ratio:1/1;
+    background:url("Bilder/justitia-hero-galerie.jpg") no-repeat;
+    background-size:240% auto;background-position:70% 26%;
+    -webkit-mask-image:radial-gradient(74% 64% at 54% 44%,#000 46%,transparent 90%);
+    mask-image:radial-gradient(74% 64% at 54% 44%,#000 46%,transparent 90%);
+    margin-right:calc(var(--gutter)*-.4);
+  }
+  /* Ohne Mask-Unterstützung würde ein hartes Bildrechteck sichtbar —
+     dann lieber die ruhige Bühne ohne Bildausschnitt. */
+  @supports not ((mask-image:radial-gradient(#000,#0000)) or (-webkit-mask-image:radial-gradient(#000,#0000))){
+    .vx-key-wrap{display:none}
+  }
+  /* Stapel-Rhythmus: Headline → Signatur → Figur → CTAs */
+  .vx-sign{margin-top:22px}
+  .vx-key-wrap{margin-top:6px}
+  .vx-cta{margin-top:30px}
+}
+@media (max-width:640px){
+  /* Sofort-Kontakt: eine kompakte Zeile */
+  body.vx-a .emergency-bar{flex-wrap:nowrap;gap:12px;padding:7px 10px;font-size:.72rem;letter-spacing:.02em}
+  body.vx-a .emergency-bar .vx-eb-long{display:none}
+  body.vx-a .emergency-bar > span{gap:7px}
+  body.vx-a .emergency-bar a{padding:2px 0;white-space:nowrap}
+  /* Header ausbalanciert: Marke präsent, Sprachwahl mit Luft */
+  body.vx-a .brand__mark{height:38px}
+  body.vx-a .brand__mark img{height:36px}
+  body.vx-a .lang-switch{margin-right:8px}
+  body.vx-a .lang-btn{padding:6px 6px}
+  /* Eyebrow: Sperrung raus, fester zweizeiliger Umbruch */
+  .vx-eyebrow{margin-bottom:12px}
+  
+  
+  .vx-h1{font-size:clamp(2.2rem,9vw,2.6rem);line-height:1.08}
+  /* Figur kompakter, Rhythmus enger: beide CTAs müssen über der Falz stehen */
+  .vx-key-stage{width:min(64vw,245px)}
+  .vx-key-wrap{margin-top:2px}
+  .vx-sign{margin-top:15px}
+  .vx-sign::before{width:38px;margin-bottom:10px}
+  .vx-sign-role{font-size:1.18rem}
+  .vx-cta{margin-top:22px}
+  /* CTAs: seitlicher Randabstand, gestapelt, spürbare Luft davor */
+  .vx-cta{flex-direction:column;align-items:stretch;gap:12px;margin-top:28px;padding:0 6px}
+  .vx-cta .vx-btn{width:100%}
+  .vx-promise{margin-top:16px;padding:0 6px}
+  /* Faktenband: ruhig gestapelt */
+  .vx-sep{display:none}
+  .vx-facts-row{flex-direction:column;gap:9px;padding-top:16px;padding-bottom:16px}
+  .vx-fact{white-space:normal;text-align:center;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .vx-btn,.vx-more-btn .icon{transition:none}
+}
+
+/* ==========================================================================
+   KOMPATIBILITÄT TESTUMGEBUNG (älterer style.css-Stand v124) — vx-Zusatz.
+   Der A-Stand erwartet den Nav-Umbruch bei 1180px; der alte Stand klappt
+   erst bei 1080px um. Die Lücke 1081–1180px wird hier geschlossen
+   (Regeln aus dem alten 1080er-Block dupliziert, auf body.vx-a begrenzt).
+   ========================================================================== */
+@media (max-width:1180px) and (min-width:1081px){
+  body.vx-a .nav__toggle{display:grid}
+  body.vx-a .nav__links{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:0;
+    padding:var(--s-3) var(--gutter) var(--s-5);
+    background:var(--paper);border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-3);
+    max-height:0;overflow:hidden;opacity:0;visibility:hidden;
+    transition:max-height .34s var(--ease),opacity .22s var(--ease),visibility .34s;
+  }
+  body.vx-a .nav__links.open{max-height:min(74vh,640px);overflow-y:auto;opacity:1;visibility:visible}
+  body.vx-a .nav__links a{padding:14px 0;font-size:1rem;border-bottom:1px solid var(--line)}
+  body.vx-a .nav__links a::after{display:none}
+  body.vx-a .nav__links > li:last-child a{border-bottom:0}
+}
+/* Aktiver Menüpunkt im Klappmenü: Gold statt des alten Klaret-Akzents */
+@media (max-width:1180px){
+  body.vx-a .nav__links a.active,
+  body.vx-a .nav__links a[aria-current="page"]{color:var(--vx-gold-deep)}
+}
+
+/* ==========================================================================
+   SEKTIONEN UNTER DEM FAKTENBAND — Editorial-Veredelung (Runde 3).
+   Ziel: die Ruhe des Heros nach unten fortsetzen. Ein roter Faden:
+   Gold-Haarlinie + Garamond-Ziffer. Hero, vx-facts und FAQ bleiben
+   unangetastet (Selektoren treffen nur Sektionen mit den genannten
+   Inhalts-Klassen; die FAQ-Sektion enthält keine davon).
+   ========================================================================== */
+:root{
+  --vx-gold-dark:      #C9AC6A;              /* Gold auf Anthrazit (Footer)   */
+  --vx-gold-dark-line: rgba(201,172,106,.26);/* Haarlinie auf Anthrazit       */
+}
+
+/* ---- Gemeinsamer Rhythmus der Ziel-Sektionen ----------------------------- */
+body.vx-a .section:has(.claim-list),
+body.vx-a .section:has(.steps),
+body.vx-a .section:has(.q-grid),
+body.vx-a .section:has(.benefit-grid),
+body.vx-a .section:has(.contact-slim),
+body.vx-a .section:has(.vx-aud-grid),
+body.vx-a #anwaeltin{padding-block:clamp(76px,9.5vw,148px)}
+body.vx-a .section:has(.claim-list) .section-head,
+body.vx-a .section:has(.steps) .section-head,
+body.vx-a .section:has(.q-grid) .section-head,
+body.vx-a .section:has(.benefit-grid) .section-head,
+body.vx-a .section:has(.contact-slim) .section-head,
+body.vx-a .section:has(.vx-aud-grid) .section-head{margin-bottom:clamp(48px,6vw,80px)}
+
+/* Eyebrow-Faden: Gold statt Klaret — nur unterhalb des Heros, FAQ bleibt */
+body.vx-a .section:has(.claim-list) .eyebrow,
+body.vx-a .section:has(.steps) .eyebrow,
+body.vx-a .section:has(.q-grid) .eyebrow,
+body.vx-a .section:has(.benefit-grid) .eyebrow,
+body.vx-a .section:has(.contact-slim) .eyebrow,
+body.vx-a .section:has(.vx-aud-grid) .eyebrow,
+body.vx-a #anwaeltin .eyebrow{color:var(--vx-gold-deep);letter-spacing:.17em}
+body.vx-a .section:has(.claim-list) .eyebrow::before,
+body.vx-a .section:has(.steps) .eyebrow::before,
+body.vx-a .section:has(.q-grid) .eyebrow::before,
+body.vx-a .section:has(.benefit-grid) .eyebrow::before,
+body.vx-a .section:has(.contact-slim) .eyebrow::before,
+body.vx-a .section:has(.vx-aud-grid) .eyebrow::before,
+body.vx-a #anwaeltin .eyebrow::before{background:var(--vx-gold)}
+
+/* Überschriften eine Stufe großzügiger — gleiche Stimme wie der Hero */
+body.vx-a .section:has(.claim-list) h2,
+body.vx-a .section:has(.steps) h2,
+body.vx-a .section:has(.q-grid) h2,
+body.vx-a .section:has(.benefit-grid) h2,
+body.vx-a .section:has(.contact-slim) h2,
+body.vx-a .section:has(.vx-aud-grid) h2,
+body.vx-a #anwaeltin h2{
+  font-weight:500;
+  font-size:clamp(1.9rem,1.45rem + 1.85vw,2.9rem);
+  letter-spacing:-.018em;
+}
+
+/* ---- NEU · Audience-Fork "Wofür Sie uns brauchen" (Ercan 08.08.2026)
+   Prinzip aus Referenz-Layout uebernommen: frueher Fork Unfallgeschaedigte/
+   Gutachter direkt nach dem Facts-Band. Bildsprache, Farben, Kartensystem
+   eigenstaendig nach unserem Designsystem (Kartengrammatik wie .q-card:
+   Gold-Haarlinie, CTA mit wachsender Linie) -- keine Uebernahme von Layout,
+   Fotos oder Textformulierungen der Referenz. Fotos: vorhandene, bereits
+   freigegebene Bilder (unfall.jpg, gutachter.jpg). */
+body.vx-a .vx-aud-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(20px,3vw,32px);
+}
+body.vx-a .vx-aud-card{
+  display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;text-decoration:none;color:inherit;
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+body.vx-a .vx-aud-card:hover{
+  transform:translateY(-4px);border-color:var(--vx-gold-line);
+  box-shadow:0 6px 12px rgba(27,29,31,.05),0 28px 56px -28px rgba(27,29,31,.28);
+}
+body.vx-a .vx-aud-media{display:block;aspect-ratio:16/10;overflow:hidden}
+body.vx-a .vx-aud-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease-out)}
+body.vx-a .vx-aud-card:hover .vx-aud-media img{transform:scale(1.04)}
+body.vx-a .vx-aud-body{display:flex;flex-direction:column;padding:clamp(24px,2.8vw,36px)}
+body.vx-a .vx-aud-body::before{
+  content:"";display:block;width:32px;height:1px;
+  background:var(--vx-gold);opacity:.62;margin-bottom:16px;
+  transition:width var(--dur) var(--ease-out);
+}
+body.vx-a .vx-aud-card:hover .vx-aud-body::before{width:56px}
+body.vx-a .vx-aud-tag{display:block;font-size:.775rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+body.vx-a .vx-aud-q{display:block;font-family:var(--font-display);font-size:clamp(1.3rem,1.15rem + .5vw,1.55rem);font-weight:500;letter-spacing:-.012em;color:var(--ink);margin-bottom:10px}
+body.vx-a .vx-aud-txt{display:block;font-size:.96rem;line-height:1.65;color:var(--muted);margin-bottom:18px}
+body.vx-a .vx-aud-cta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-size:.875rem;font-weight:600;color:var(--vx-gold-deep)}
+body.vx-a .vx-aud-cta::after{content:"";width:16px;height:1px;background:currentColor;transition:width var(--dur) var(--ease-out)}
+body.vx-a .vx-aud-card:hover .vx-aud-cta::after{width:28px}
+@media (max-width:820px){
+  body.vx-a .vx-aud-grid{grid-template-columns:1fr}
+}
+
+/* ---- 1+2 · „Was Ihnen zusteht": Hierarchie statt Checkliste ------------- */
+/* Vier Kernpositionen groß (2×2), vier weitere kompakt nachgeordnet.
+   Häkchen entfallen; römische Ziffer + Gold-Haarlinie übernehmen. */
+body.vx-a .section:has(.claim-list) .lead{max-width:50ch}
+body.vx-a .claim-list{
+  counter-reset:vxclaim;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(40px,5vw,60px) clamp(36px,4.5vw,64px);
+}
+body.vx-a .claim-list li{
+  display:block;padding:24px 0 0;
+  border-top:1px solid var(--vx-gold-line);
+  counter-increment:vxclaim;
+}
+body.vx-a .claim-list li > .icon{display:none}
+body.vx-a .claim-list li::before{
+  content:counter(vxclaim,upper-roman);
+  display:block;margin-bottom:14px;
+  font-family:var(--font-display);
+  font-size:.86rem;font-weight:500;letter-spacing:.24em;
+  color:var(--vx-gold-deep);
+}
+body.vx-a .claim-list li{grid-column:span 6}
+body.vx-a .claim-list li strong{
+  font-size:clamp(1.28rem,1.1rem + .6vw,1.5rem);font-weight:500;
+  letter-spacing:-.012em;margin-bottom:10px;
+}
+body.vx-a .claim-list li span{font-size:.96rem;line-height:1.7;max-width:48ch;display:block}
+
+
+
+
+@media (max-width:1023px){
+  body.vx-a .claim-list li:nth-child(n+5){grid-column:span 6}
+}
+@media (max-width:640px){
+  /* 08.08.2026: column-gap:30px auf 12 Spalten ergab 11x30=330px reine
+     Luecken-Breite -- bei 320px Containerinhalt (292px) allein schon ein
+     Ueberlauf, bei 375px (347px) nur knapp vermieden. Jede Karte spannt
+     hier ohnehin die volle Breite (span 12), column-gap wird nicht
+     gebraucht. */
+  body.vx-a .claim-list{row-gap:30px;column-gap:0}
+  body.vx-a .claim-list li:nth-child(-n+4),
+  body.vx-a .claim-list li:nth-child(n+5){grid-column:span 12}
+}
+
+/* ---- 3 · „So läuft es ab": große Garamond-Ziffern in Gold ---------------- */
+body.vx-a .steps{gap:clamp(40px,5vw,72px)}
+body.vx-a .steps li{padding-top:26px;border-top:1px solid var(--vx-gold-line)}
+body.vx-a .steps li::before{display:none}
+body.vx-a li:has(.step__no){position:relative;padding-left:44px}
+body.vx-a .step__no{
+  position:absolute;left:0;top:-2px;
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;margin:0;
+  background:transparent;border:1px solid rgba(168,134,61,.42);border-radius:50%;
+  font-family:var(--font-display);font-size:15px;font-weight:500;line-height:1;
+  color:var(--vx-gold-deep);
+}
+body.vx-a .steps h3{
+  margin:0 0 .45em;
+  font-family:var(--font-display);
+  font-size:clamp(1.24rem,1.1rem + .5vw,1.46rem);font-weight:600;letter-spacing:-.01em;
+}
+body.vx-a .steps p{font-size:.95rem;line-height:1.68}
+@media (max-width:860px){
+  body.vx-a .steps{gap:0}
+  body.vx-a .steps li{padding:26px 0 28px 44px;min-height:0;border-top:1px solid var(--vx-gold-soft)}
+  body.vx-a .steps li:first-child{border-top:1px solid var(--vx-gold-line)}
+  body.vx-a .steps li + li{border-top:1px solid var(--vx-gold-soft);padding-top:26px}
+  body.vx-a .step__no{font-size:15px;top:auto}
+}
+
+/* ---- 4 · „Womit wir Sie unterstützen": Karten statt Rasterteppich -------- */
+body.vx-a .q-grid{
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(18px,2.2vw,28px);
+  background:transparent;border:0;border-radius:0;overflow:visible;
+}
+body.vx-a .q-card{
+  grid-column:span 4;justify-content:flex-start;
+  min-height:196px;padding:clamp(30px,3.2vw,44px);
+  background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-xs);
+  box-shadow:0 1px 2px rgba(27,29,31,.04);
+  transition:transform var(--dur) var(--ease),
+             box-shadow var(--dur) var(--ease),
+             border-color var(--dur) var(--ease),
+             background-color var(--dur) var(--ease);
+}
+/* Gold-Haarlinie als stilles Kartendetail — wächst bei Interaktion */
+body.vx-a .q-card::before{
+  content:"";display:block;width:32px;height:1px;
+  background:var(--vx-gold);opacity:.62;
+  margin-bottom:20px;
+  transition:width var(--dur) var(--ease-out);
+}
+body.vx-a .q-card:hover{
+  background:var(--surface);
+  transform:translateY(-4px);
+  border-color:var(--vx-gold-line);
+  box-shadow:0 6px 12px rgba(27,29,31,.05),0 28px 56px -28px rgba(27,29,31,.28);
+}
+body.vx-a .q-card:hover::before{width:56px}
+body.vx-a .q-card__q{font-size:clamp(1.22rem,1.1rem + .4vw,1.36rem);font-weight:500;letter-spacing:-.012em}
+/* CTA-Zeile immer am Kartenfuß; die Goldlinie folgt dem letzten Wort,
+   auch wenn der Text umbricht */
+body.vx-a .q-card__b{
+  display:inline;margin-top:auto;
+  padding-right:38px;
+  color:var(--vx-gold-deep);letter-spacing:.01em;line-height:1.5;
+}
+body.vx-a .q-card__b::after{
+  display:inline-block;vertical-align:middle;
+  margin-left:8px;margin-right:-38px;
+}
+/* 7. Karte: bewusst mittig gesetzt statt verwaister Rasterzelle */
+body.vx-a .q-card:last-child{grid-column:5/9}
+@media (max-width:1023px){
+  body.vx-a .q-card{grid-column:span 6;min-height:170px}
+  body.vx-a .q-card:last-child{grid-column:4/10}
+}
+@media (max-width:640px){
+  body.vx-a .q-card{grid-column:span 12;min-height:0}
+  body.vx-a .q-card:last-child{grid-column:span 12}
+}
+
+/* ---- 5 · „Warum Mandanten …": große Ziffern, 2×2, viel Luft -------------- */
+body.vx-a .benefit-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(44px,5.5vw,72px) clamp(48px,6vw,96px);
+  counter-reset:vxben;
+}
+body.vx-a .benefit{
+  padding-top:24px;border-top:1px solid var(--vx-gold-line);
+  counter-increment:vxben;
+}
+body.vx-a .benefit__ic{display:none}
+body.vx-a .benefit::before{
+  content:"";display:block;width:28px;height:1px;
+  margin-bottom:16px;background:var(--vx-gold);
+}
+body.vx-a .benefit h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.24rem,1.1rem + .5vw,1.46rem);font-weight:600;letter-spacing:-.01em;
+  margin-bottom:.5em;
+}
+body.vx-a .benefit p{font-size:.95rem;line-height:1.68;max-width:52ch}
+@media (max-width:760px){
+  body.vx-a .benefit-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  
+}
+
+/* ---- Anwältin: Zitat/Fakten — Regeln 08.08.2026 abgeloest, siehe Block
+       „ANWAELTIN-BLOCK · Vertikale Dramaturgie" am Ende dieser Datei. ------- */
+
+/* ---- 6 · Zahlenblock: gelobt — also größer und mit mehr Bühne ------------ */
+body.vx-a .section--navy:has(.stats){padding-block:clamp(88px,10.5vw,164px)}
+body.vx-a .stats{gap:var(--s-6)}
+body.vx-a .stats > div{padding:var(--s-3) var(--s-6);border-left-color:var(--vx-gold-dark-line)}
+body.vx-a .stats > div:first-child{padding-left:0}
+body.vx-a .stat__num{
+  font-size:clamp(3.3rem,2.3rem + 3.6vw,5.6rem);
+  font-weight:500;margin-bottom:16px;
+}
+body.vx-a .stat__num--word{font-size:clamp(2.6rem,1.9rem + 2.6vw,4.1rem)}
+body.vx-a .stat__label{font-size:.95rem;line-height:1.55}
+body.vx-a .stats-note{margin-top:var(--s-7)}
+@media (max-width:860px){
+  body.vx-a .stats > div{border-top-color:var(--vx-gold-dark-line)}
+}
+
+/* ---- 7 · Kontakt: nur mehr Weißraum, sonst unverändert ------------------- */
+body.vx-a .contact-choice{padding:clamp(40px,4.5vw,64px)}
+/* Die Karte enthält hier nur die drei Wege — Innenraum symmetrisch halten */
+body.vx-a .contact-choice .choice-row{margin-top:0}
+body.vx-a .choice-row{gap:var(--s-5)}
+body.vx-a .choice{padding:var(--s-6) var(--s-5);gap:9px}
+
+/* ---- 8 · Footer: Bühne statt Anhang -------------------------------------- */
+body.vx-a .site-footer{
+  position:relative;overflow:hidden;
+  padding-block:clamp(88px,10vw,150px) var(--s-7);
+}
+/* Justitia als Wasserzeichen: groß, stark aufgelöst, weich in die Fläche
+   maskiert — Lichtspur am rechten Rand, nie unter dem Textblock links */
+body.vx-a .site-footer::before{
+  content:"";position:absolute;top:50%;right:clamp(-150px,-9vw,-60px);
+  transform:translateY(-52%);
+  width:clamp(380px,38vw,600px);aspect-ratio:755/890;
+  background:url("Bilder/justitia-figur-freisteller.png") center/contain no-repeat;
+  opacity:.06;filter:brightness(1.55) saturate(.8);
+  -webkit-mask-image:radial-gradient(75% 72% at 58% 48%,#000 34%,transparent 96%);
+  mask-image:radial-gradient(75% 72% at 58% 48%,#000 34%,transparent 96%);
+  pointer-events:none;
+}
+body.vx-a .site-footer .container{position:relative;z-index:1}
+body.vx-a .footer-grid{
+  gap:var(--s-8) clamp(36px,4.5vw,72px);
+  padding-bottom:clamp(56px,7vw,92px);
+  border-bottom-color:var(--vx-gold-dark-line);
+}
+body.vx-a .footer-brand .brand__name{
+  font-size:clamp(1.5rem,1.3rem + .8vw,1.9rem);font-weight:500;
+  letter-spacing:-.012em;margin-bottom:18px;line-height:1.28;
+}
+body.vx-a .footer-brand p{line-height:1.8;font-size:.95rem;max-width:36ch}
+body.vx-a .site-footer h2{
+  color:var(--vx-gold-dark);
+  font-size:.78rem;letter-spacing:.2em;margin-bottom:20px;
+}
+body.vx-a .site-footer h2::after{
+  content:"";display:block;width:26px;height:1px;
+  background:var(--vx-gold-dark-line);margin-top:12px;
+}
+body.vx-a .site-footer a:not(.btn){padding:8px 0;font-size:.95rem;color:#B4B0A7}
+body.vx-a .site-footer a:not(.btn):hover{color:#fff}
+body.vx-a .footer-note{padding-top:14px;line-height:1.6}
+body.vx-a .footer-cta{
+  padding-block:clamp(44px,5vw,68px);
+  border-bottom-color:var(--vx-gold-dark-line);
+  gap:var(--s-6);
+}
+body.vx-a .footer-cta strong{
+  font-size:clamp(1.35rem,1.15rem + .85vw,1.85rem);
+  font-weight:500;letter-spacing:-.014em;line-height:1.35;max-width:34ch;
+}
+/* Footer-CTAs in der Markenwelt: Weiß führt, Goldkontur begleitet —
+   statt des generischen Klaret-Blocks */
+body.vx-a .footer-cta .btn--primary{
+  --btn-bg:#FCFBF8;--btn-fg:var(--ink);--btn-bd:#FCFBF8;
+}
+body.vx-a .footer-cta .btn--primary:hover{
+  --btn-bg:var(--vx-gold-dark);--btn-fg:var(--ink);--btn-bd:var(--vx-gold-dark);
+}
+body.vx-a .footer-cta .btn--light{
+  --btn-bg:transparent;--btn-fg:#FCFBF8;--btn-bd:rgba(201,172,106,.55);
+}
+body.vx-a .footer-cta .btn--light:hover{
+  --btn-bg:var(--vx-gold-dark);--btn-fg:var(--ink);--btn-bd:var(--vx-gold-dark);
+}
+body.vx-a .footer-bottom{padding-top:var(--s-6);gap:var(--s-3) var(--s-6)}
+@media (max-width:860px){
+  body.vx-a .site-footer::before{
+    width:340px;right:-140px;opacity:.055;
+  }
+}
+
+/* ---- Neue Übergänge: Bewegung nur, wenn erwünscht ------------------------ */
+@media (prefers-reduced-motion:reduce){
+  body.vx-a .q-card{transition:none}
+  body.vx-a .q-card:hover{transform:none}
+  body.vx-a .q-card::before{transition:none}
+  body.vx-a .vx-aud-card,
+  body.vx-a .vx-aud-media img,
+  body.vx-a .vx-aud-body::before,
+  body.vx-a .vx-aud-cta::after{transition:none}
+  body.vx-a .vx-aud-card:hover{transform:none}
+  body.vx-a .vx-aud-card:hover .vx-aud-media img{transform:none}
+}
+
+/* ==========================================================================
+   V1.1 · LEITMOTIV 2 „Die Waage als Goldgravur" — Kapiteltrenner.
+   Volle Viewportbreite (die Haarlinien laufen bis an beide Ränder),
+   Transparenz steckt im Asset, deshalb hier KEINE zusätzliche Opazität
+   auf der hellen Fassung. Rein dekorativ (aria-hidden am Wrapper).
+   ========================================================================== */
+.vx-motiv{margin:clamp(4rem,4.5vw,5rem) 0;overflow:hidden}
+.vx-motiv img{display:block;width:100%;height:auto}
+/* Dunkle Fassung im Zahlenblock: sitzt oberhalb der Zahlen im Anthrazit;
+   der Block bringt eigenes padding-block mit — Abstand nur nach unten. */
+.vx-motiv--dark{margin:0 0 clamp(2.5rem,4vw,4rem)}
+.vx-motiv--dark img{opacity:.85}
+body.vx-a .section--navy:has(.vx-motiv--dark){padding-top:clamp(48px,5.5vw,80px)}
+/* Kapitelanschluss: Die Sektion nach der Zäsur rückt näher an ihr Motiv,
+   sonst hängt der Trenner optisch am vorigen Kapitel (oben 5rem Luft,
+   unten 5rem + volles Sektions-Padding). */
+body.vx-a .vx-motiv + .section:has(.benefit-grid){padding-top:clamp(40px,5vw,76px)}
+/* Mobil: 140 % Breite mit zentriertem Überstand — die Silhouette bleibt
+   groß genug, der Überstand verschwindet im overflow:hidden des Wrappers,
+   kein horizontales Scrollen. */
+@media (max-width:480px){
+  .vx-motiv{margin:2.75rem 0}
+  /* max-width:none: style.css klemmt Bilder sonst auf 100 % — der
+     Überstand würde einseitig (nur links) wirken und rechts eine Lücke reißen */
+  .vx-motiv img{width:140%;max-width:none;margin-left:-20%}
+  .vx-motiv--dark{margin:0 0 2rem}
+}
+
+/* Zitat-Grad wird jetzt am <p> gesetzt (siehe Anwaeltin-Block am Dateiende);
+   die alten blockquote-Regeln vom 07.08.2026 sind entfallen. */
+/* Fakten-Band vom 07.08.2026 (zentrierter Stapel) und die toten
+   .vx-fakten-zeile-Regeln (kein Element mehr im Markup) entfernt am
+   08.08.2026 — abgeloest durch den Anwaeltin-Block am Dateiende. */
+/* Tiefenlinks in der Anspruchsliste: Begriff verlinkt auf den Ratgeber-
+   Artikel — Farbe erbt, feine Unterstreichung, kein neuer Look. */
+body.vx-a .claim-list strong a{color:var(--ink)!important;text-decoration:none}
+body.vx-a .claim-list strong a:hover{color:var(--vx-gold-deep)!important}
+/* Die Masterformat-Marke (07.08.2026) ist ~115px breiter als der fruehere
+   Medaillon-Block. Im Band 1281-1366px wird der Rest der Kopfzeile verdichtet,
+   damit nichts ueberlaeuft — die Marke selbst bleibt unveraendert. */
+@media (min-width:1281px) and (max-width:1366px){
+  body.vx-a .container.nav{gap:10px}
+  body.vx-a .nav__links{gap:12px}
+  body.vx-a .nav__links a{font-size:.85rem}
+  body.vx-a .vx-more-btn{font-size:.85rem}
+  body.vx-a .nav__cta{padding:12px 14px}
+  body.vx-a .lang-btn{padding:0 8px}
+}
+
+/* Namenszug: erst -15 % (24 -> 20.4px), dann weitere ~10 % flacher
+   (Anordnung Ercan 07.08.2026): 20.4 -> 18.4px = 1.15rem */
+body.vx-a .brand .brand__text .brand__name{font-size:1.15rem}
+
+
+/* Startseite: schwebende Kontaktpunkte entfernt (Ercan 07.08.2026) */
+body.vx-a .float-actions{display:none}
+/* Der Zweispalter vom 07./08.08.2026 (Portraet links, Text rechts) ist am
+   08.08.2026 vollstaendig entfernt worden — abgeloest durch den
+   Anwaeltin-Block „Vertikale Dramaturgie" am Ende dieser Datei.
+   WICHTIG: Die alte Bildregel hatte dieselbe Spezifitaet wie die neue und
+   stand spaeter in der Datei; haette man sie nur ueberschrieben, waere das
+   Portraet auf 420px zurueckgesprungen. Deshalb geloescht, nicht ueberschrieben. */
+
+/* Kopfzeilen-Logo: beide Zeilen +20% und weiter auseinandergezogen
+   (Ercan-Anordnung 07.08.2026). RECHTSANWALTSKANZLEI 0.82->0.98rem,
+   SERPIL SAHIN 1.15->1.38rem; Sperrung beider Zeilen erhoeht, negativer
+   Randausgleich an die neue Sperrung angepasst (sonst zu viel Luft rechts). */
+body.vx-a .brand .brand__text .brand__sub{font-size:.98rem;letter-spacing:.28em}
+body.vx-a .brand .brand__text .brand__name{font-size:1.38rem;letter-spacing:.26em;margin-right:-.26em}
+
+
+/* Kanzlei-Motto Latein + Deutsch als Paar (Ercan 07.08.2026): die Goldzeile
+   steht direkt ueber der deutschen Headline, die sie uebersetzt. */
+.vx-motto{
+  margin:0 0 12px;
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.52rem,1.05rem + 1.3vw,2.12rem);
+  letter-spacing:.12em;text-transform:uppercase;
+  white-space:nowrap;
+  color:var(--vx-gold-deep);
+}
+
+/* Kopf minimalistisch (Ercan 07.08.2026): mehr Hoehe, keine Unterkante,
+   Menuetext eine Stufe groesser — vier Punkte brauchen keine Verdichtung. */
+body.vx-a{--header-h:96px}
+body.vx-a .site-header{border-bottom:0}
+body.vx-a .nav__links a{font-size:1.04rem}
+body.vx-a .nav__links{gap:30px}
+
+/* Grafische Ueberarbeitung Hero-Stack (Design-Direktor, 07.08.2026):
+   Ortszeile schwebt oben als Etikett, Motto in Garamond-Versalien im
+   Verhaeltnis ~0.42:1 zur Headline, Sperrung .14em (grad-angepasst). */
+body.vx-a .vx-hero-copy .vx-eyebrow{margin:0 0 clamp(32px,5.5vh,60px)}
+@media (max-width:640px){
+  body.vx-a .vx-hero-copy .vx-eyebrow{margin-bottom:24px}
+}
+@media (max-width:760px){.vx-motto{white-space:normal}}
+
+/* Textblock beginnt auf Augenhoehe der Justitia statt in der Mitte
+   (Ercan 07.08.2026); der Freiraum wandert nach unten. */
+@media (min-width:861px){
+  body.vx-a .vx-hero-grid{align-items:start}
+  body.vx-a .vx-hero-copy{padding-top:clamp(96px,15vh,150px)}
+}
+
+/* Feinschliff 1/3: Ortszeile im Hero +25% (Ercan-Freigabe 07.08.2026) —
+   stellt die Groessentreppe Ortszeile->Motto->Headline wieder her. */
+body.vx-a .vx-hero-copy .vx-eyebrow{font-size:clamp(1.18rem,1.06rem + .3vw,1.36rem);letter-spacing:.09em}
+
+/* Echter Fehler behoben (Ercan-Befund 07.08.2026): Der globale Klappmenue-
+   Schwellenwert (1280px) stammt noch von der alten 7-Punkte-Navigation mit
+   Fall-schildern-Knopf. Die verschlankte Startseiten-Navigation (4 Punkte,
+   kein Knopf) braucht nur ~885px und wurde bis 1280px unnoetig als Hamburger
+   angezeigt. Eigener, niedrigerer Schwellenwert nur fuer die Startseite. */
+@media (min-width:960px){
+  body.vx-a .nav__toggle{display:none}
+  body.vx-a .nav__links{
+    position:static;display:flex;flex-direction:row;align-items:center;
+    max-height:none;overflow:visible;opacity:1;visibility:visible;
+    padding:0;margin:0;background:transparent;border-bottom:0;box-shadow:none;
+    transition:none;
+  }
+  body.vx-a .nav__links a{padding:8px 0;font-size:1.04rem;border-bottom:0}
+  body.vx-a .nav__links a::after{display:block}
+}
+
+/* Fehler behoben (Ercan-Befund 07.08.2026): Die Ortszeile im Hero erbte
+   white-space:nowrap von der Basisregel. Bei mittleren Breiten (~860-1100px)
+   war der Text laenger als die Spalte breit ist und wurde vom Hero
+   (overflow:hidden) abgeschnitten — "Bundesweit" endete als "Bund". Erlaubt
+   jetzt Umbruch, nur in diesem Kontext (andere Eyebrows unveraendert). */
+body.vx-a .vx-hero-copy .vx-eyebrow{white-space:normal}
+
+/* Fehler behoben (Ercan-Befund 07.08.2026): Bei schmalen Breiten (<=640px)
+   griff die mobile Verkleinerung von Marke/Namenszug nie, weil eine
+   SPAETERE, gleich spezifische Regel (die "+20%"-Anordnung weiter oben in
+   dieser Datei) sie unabhaengig von der Bildschirmbreite ueberstimmte —
+   CSS entscheidet bei gleicher Spezifitaet nach Position im Dokument, nicht
+   nach Media Query. Deshalb steht die Korrektur hier, nach jener Regel. */
+@media (max-width:640px){
+  body.vx-a .brand .brand__text .brand__sub{font-size:.5rem;letter-spacing:.06em}
+  body.vx-a .brand .brand__text .brand__name{font-size:.92rem;letter-spacing:.02em;margin-right:-.02em}
+}
+
+@media (max-width:360px){
+  body.vx-a .container.nav{padding-left:10px;padding-right:10px;gap:4px}
+  body.vx-a .lang-btn{padding:6px 5px}
+}
+
+/* ==========================================================================
+   ANWAELTIN-BLOCK · „Vertikale Dramaturgie"
+   Stand 08.08.2026 · Desktop-Revision (Ercan: „viel Platz nach links,
+   das ist schlecht ausgenutzt").
+   Bis 899px: unveraenderter Einspalter — vier Blickstufen auf EINER
+   Leseachse: 1 Person -> 2 Haltung (Zitat) -> 3 Merksatz -> 4 Belege.
+   Ab 900px: asymmetrischer Zweispalter, Portraet links in eigener Spalte
+   ueber die volle Texthoehe, Textstapel rechts in unveraenderter Reihenfolge.
+   Alles body.vx-a-gescopt; style.css bleibt unberuehrt (TR/EN unveraendert).
+   ========================================================================== */
+
+body.vx-a .vx-facts{
+  background:rgba(244,241,234,.55);
+  border-top:1px solid var(--vx-gold-soft);
+  border-bottom:1px solid var(--vx-gold-soft);
+}
+
+/* Zwei Masse steuern den Einspalter. Portraet: Quelldatei ist 800x800px,
+   deshalb sind 400px Anzeige exakt die doppelte Pixeldichte. */
+body.vx-a .vx-anw-flow{
+  --anw-col:680px;
+  --anw-portrait:clamp(220px,34vw,400px);
+  --anw-pad:clamp(56px,8vw,116px);
+
+  display:block;
+  text-align:left;          /* kein zentrierter Flattersatz, auch mobil nicht */
+  padding-block:var(--anw-pad);
+  position:relative;
+}
+body.vx-a .vx-anw-flow > *{
+  max-width:min(var(--anw-col),100%);
+  margin-inline:auto;
+}
+
+/* ---- Stufe 1 · Person ---------------------------------------------------- */
+body.vx-a .vx-anw-flow .vx-anw-media{
+  display:flex;justify-content:flex-start;   /* an die Leseachse, nicht mittig */
+}
+body.vx-a .vx-anw-flow .vx-anw-media .vx-fact-img{
+  width:var(--anw-portrait);max-width:100%;
+  height:auto;aspect-ratio:1/1;
+  border-radius:var(--r-lg);
+  box-shadow:0 18px 40px -22px rgba(27,29,31,.42),
+             0 0 0 1px var(--vx-gold-line);
+  filter:none;
+}
+body.vx-a .vx-anw-flow .vx-anwaeltin{display:block;text-align:left}
+
+/* Rollenzeile: Etikett, nicht Fliesstext. Gold nur ab 0.8rem aufwaerts —
+   --vx-gold-deep ergibt auf diesem Band gemessen 4,55:1, besteht knapp. */
+body.vx-a .vx-anw-flow .vx-anw-rolle{
+  margin:clamp(20px,2.6vw,28px) 0 0;max-width:none;
+  font-family:var(--font-text);font-style:normal;
+  font-size:.8rem;font-weight:600;
+  letter-spacing:.17em;text-transform:uppercase;
+  line-height:1.4;
+  color:var(--vx-gold-deep);
+}
+body.vx-a .vx-anw-flow .vx-anw-name{
+  margin:6px 0 0;max-width:none;
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(2.05rem,1.50rem + 2.10vw,3.15rem);
+  line-height:1.08;letter-spacing:-.018em;
+  color:var(--ink);
+  text-wrap:balance;
+  -webkit-hyphens:manual;hyphens:manual;     /* Eigenname nie trennen */
+}
+
+/* ---- Stufe 2 · Haltung: das Zitat ---------------------------------------- */
+body.vx-a .vx-anw-flow .anwaeltin-zitat{
+  border-left:0;padding:0;
+  margin:clamp(30px,4.4vw,52px) 0 0;
+  max-width:min(620px,100%);
+  position:static;
+  font-size:inherit;line-height:inherit;
+}
+/* Statt des 4,8rem-Anfuehrungszeichens dieselbe Goldhaarlinie wie die
+   Signatur im Hero — wiederholt ein bestehendes Markenmotiv. */
+body.vx-a .vx-anw-flow .anwaeltin-zitat::before{
+  content:"";position:static;
+  display:block;width:52px;height:1px;
+  margin:0 0 clamp(18px,2.2vw,26px);
+  background:var(--vx-gold);opacity:.75;
+  font-size:0;line-height:0;color:transparent;
+}
+body.vx-a .vx-anw-flow .anwaeltin-zitat p{
+  margin:0;max-width:none;
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(1.34rem,1.06rem + 1.25vw,2.02rem);
+  line-height:1.42;letter-spacing:-.004em;
+  color:var(--ink);
+  text-wrap:pretty;
+}
+body.vx-a .vx-anw-flow .anwaeltin-zitat p:last-child{color:var(--ink)}
+
+/* ---- Stufe 3 · Merksatz -------------------------------------------------- */
+/* Steht NACH dem Zitat und wirkt als dessen Verdichtung. Bewusst NICHT
+   in gesperrten Versalien — der Rangunterschied entsteht ueber die Groesse. */
+body.vx-a .vx-anw-flow .vx-anw-usp{
+  margin:clamp(20px,2.8vw,32px) 0 0;
+  max-width:min(560px,100%);
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(1.05rem,.97rem + .35vw,1.22rem);
+  line-height:1.5;letter-spacing:0;
+  color:var(--vx-gold-deep);
+  text-wrap:balance;
+}
+
+/* ---- Stufe 4 · Belege: die Fakten ---------------------------------------- */
+/* Haekchen entfallen: fuenfmal dasselbe Signal ist kein Signal mehr, und der
+   Flex-Vorbau schob den Text 29px von der Leseachse weg. */
+body.vx-a .vx-anw-flow .features{
+  margin:clamp(34px,5vw,64px) 0 0;
+  max-width:min(560px,100%);      /* 680px ergaeben ueber 80 Zeichen je Zeile */
+  text-align:left;
+}
+body.vx-a .vx-anw-flow .features li{
+  display:block;
+  padding:clamp(11px,1.3vw,15px) 0;
+  border-top:0;
+  border-bottom:1px solid var(--vx-gold-soft);
+  font-family:var(--font-text);font-weight:400;
+  font-size:clamp(.95rem,.92rem + .12vw,1.02rem);
+  line-height:1.5;
+  color:var(--body);
+}
+/* Leitzeile: die einzige quantifizierte Angabe bekommt eigenes Gewicht —
+   ein Belegblock mit Kopfzeile liest sich schneller als fuenf gleiche Zeilen. */
+body.vx-a .vx-anw-flow .features li:first-child{
+  padding:0 0 clamp(14px,1.7vw,19px);
+  border-top:0;
+  border-bottom:1px solid var(--vx-gold-line);
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.18rem,1.05rem + .55vw,1.50rem);
+  line-height:1.28;letter-spacing:-.012em;
+  color:var(--ink);
+}
+body.vx-a .vx-anw-flow .features li:last-child{border-bottom:0}
+body.vx-a .vx-anw-flow .tick{display:none}
+
+/* ==========================================================================
+   DESKTOP / TABLET ab 900px — asymmetrischer Zweispalter
+   Linke Spalte: Portraet, traegt die volle Hoehe der Textspalte.
+   Rechte Spalte: unveraenderter Textstapel, jetzt an einer echten
+   Spaltenkante statt in der Seitenmitte.
+   ========================================================================== */
+@media (min-width:900px){
+  body.vx-a .vx-anw-flow{
+    /* Bildspalte waechst mit der Breite bis zum Deckel des 1180er-Masses. */
+    --anw-media:clamp(300px,34.5vw,468px);
+    --anw-gap:clamp(40px,4.6vw,78px);
+    /* Zuschnitt-Untergrenze: Anteil der Quellbreite, der stehen bleiben MUSS.
+       Am Motiv gemessen (Person + Tablet: x 125…590 von 800). */
+    --anw-crop:.55;
+
+    display:grid;
+    grid-template-columns:var(--anw-media) minmax(0,1fr);
+    column-gap:var(--anw-gap);
+    align-items:start;
+  }
+  /* Der 680er-Deckel und die Auto-Raender des Einspalters gelten hier nicht. */
+  body.vx-a .vx-anw-flow > *{max-width:none;margin-inline:0}
+
+  /* ---- Bildspalte ---- */
+  body.vx-a .vx-anw-flow .vx-anw-media{
+    display:block;
+    align-self:stretch;        /* nimmt die Hoehe der Textspalte an */
+  }
+  body.vx-a .vx-anw-flow .vx-anw-media .vx-fact-img{
+    width:100%;height:100%;
+    aspect-ratio:auto;         /* hebt die 1:1-Regel des Einspalters auf */
+    min-height:calc(var(--anw-media) * 1.15);
+    max-height:calc(var(--anw-media) / var(--anw-crop));
+    object-fit:cover;
+    object-position:38% 50%;   /* haelt Person + Tablet im Ausschnitt */
+    display:block;
+    border-radius:var(--r-lg);
+  }
+
+  /* ---- Textspalte ---- */
+  body.vx-a .vx-anw-flow .vx-anwaeltin{position:relative}
+  /* Erstes Element der Spalte: kein Trennabstand mehr (der galt dem Bild
+     darueber), −.3em optischer Ausgleich auf die Bildoberkante. */
+  body.vx-a .vx-anw-flow .vx-anw-rolle{margin-top:-.3em}
+  /* Zeilenlaenge regelt jetzt die Spalte selbst (41–45 Zeichen, s. Kontrolle) */
+  body.vx-a .vx-anw-flow .anwaeltin-zitat{max-width:none}
+  body.vx-a .vx-anw-flow .anwaeltin-zitat p{line-height:1.30}
+  /* Trennlinien laufen ueber die volle Spalte und schliessen den Block unten;
+     die laengste Faktenzeile misst 56 Zeichen und bleibt weit darunter. */
+  body.vx-a .vx-anw-flow .features{max-width:none}
+}
+
+/* 900–1023px: Textspalte ist hier am knappsten, das Bild darf einen Grad
+   enger schneiden, damit Bild- und Textunterkante zusammenfallen. */
+@media (min-width:900px) and (max-width:1023px){
+  body.vx-a .vx-anw-flow{--anw-crop:.52}
+}
+
+/* Lesefaden: Goldhaarlinie im Steg zwischen Bild- und Textspalte, an der
+   echten Spaltenkante. Erst ab 1080px, weil der Steg vorher zu schmal ist. */
+@media (min-width:1080px){
+  body.vx-a .vx-anw-flow .vx-anwaeltin::before{
+    content:"";position:absolute;
+    left:calc(-1 * clamp(24px,2.6vw,38px));
+    top:0;bottom:0;
+    width:1px;pointer-events:none;
+    background:linear-gradient(180deg,
+      rgba(168,134,61,0) 0%,
+      var(--vx-gold-line) 13%,
+      var(--vx-gold-line) 78%,
+      rgba(168,134,61,0) 100%);
+  }
+}
+
+/* 320px: Inhaltsbreite nur 292px. Grade zuruecknehmen, nichts darf ueberlaufen. */
+@media (max-width:400px){
+  body.vx-a .vx-anw-flow{--anw-portrait:220px}
+  body.vx-a .vx-anw-flow .vx-anw-rolle{font-size:.8rem;letter-spacing:.14em}
+  body.vx-a .vx-anw-flow .anwaeltin-zitat p{line-height:1.46}
+  body.vx-a .vx-anw-flow .features li{font-size:.93rem}
+}
+/* Keine Bewegung eingefuehrt — nichts zu animieren, daher auch keine
+   prefers-reduced-motion-Ausnahme noetig. */
