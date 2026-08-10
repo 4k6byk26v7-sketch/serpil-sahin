@@ -303,9 +303,9 @@
         en: 'After an accident: stay calm, secure the scene, call 112 for injuries and the police (110). Document everything (photos, witnesses, plates) and sign no admission of fault. We check whether you are entitled to damages, compensation for pain and suffering, or your own expert. For an initial assessment, message us via WhatsApp or e-mail.'
       }},
       { keys: ['gutachter','sachverständige','sachverständiger','kooperation','gutachten','honorar durchsetzen','bilirkişi','ekspertiz','assessor','expert','cooperation'], answer: {
-        de: 'Sie sind Kfz-Sachverständiger? Wir setzen gekürzte Gutachterhonorare gegenüber Versicherern durch – auf Basis der BGH-Rechtsprechung 2024 zum Sachverständigenrisiko. Ihre Neutralität bleibt gewahrt: Die Gutachterwahl liegt stets beim Mandanten, wir geben keine Vermittlungszusagen. Details und Anfrage: Menüpunkt „Für Gutachter“.',
-        tr: 'Kfz bilirkişisi misiniz? Kesilen bilirkişi ücretlerini, BGH\'nin 2024 bilirkişi riski içtihadına dayanarak sigortalara karşı tahsil ederiz. Tarafsızlığınız korunur: bilirkişi seçimi her zaman müvekkile aittir, iş yönlendirme sözü vermeyiz. Ayrıntılar ve başvuru: „Bilirkişiler İçin“ menüsü.',
-        en: 'Are you a vehicle expert? We enforce reduced expert fees against insurers – based on the BGH\'s 2024 case law on the expert risk. Your neutrality is preserved: the client always chooses the expert, and we make no referral promises. Details and enquiry: the „For Experts“ menu.'
+        de: 'Sie sind Kfz-Sachverständiger? Wir machen gekürzte Gutachterhonorare gegenüber Versicherern geltend – auf Basis der BGH-Rechtsprechung 2024 zum Sachverständigenrisiko. Ihre Neutralität bleibt gewahrt: Die Gutachterwahl liegt stets beim Mandanten, wir geben keine Vermittlungszusagen. Details und Anfrage: Menüpunkt „Für Gutachter“.',
+        tr: 'Kfz bilirkişisi misiniz? Kesilen bilirkişi ücretlerini, BGH\'nin 2024 bilirkişi riski içtihadına dayanarak sigortalara karşı talep ediyoruz. Tarafsızlığınız korunur: bilirkişi seçimi her zaman müvekkile aittir, iş yönlendirme sözü vermeyiz. Ayrıntılar ve başvuru: „Bilirkişiler İçin“ menüsü.',
+        en: 'Are you a vehicle expert? We assert reduced expert fees against insurers – based on the BGH\'s 2024 case law on the expert risk. Your neutrality is preserved: the client always chooses the expert, and we make no referral promises. Details and enquiry: the „For Experts“ menu.'
       }},
       { keys: ['kosten','kostet','kost','preis','honorar','gebühr','teuer','maliyet','ücret','cost','price','fee','how much','what does it cost'], answer: {
         de: 'Bei einem unverschuldeten Verkehrsunfall trägt die gegnerische Haftpflichtversicherung in der Regel die erforderlichen Anwaltskosten. Verfügen Sie über eine Rechtsschutzversicherung, übernimmt diese die Kosten – wir klären die Deckung gern für Sie. Was in Ihrem Fall gilt, sagen wir Ihnen vor der Beauftragung.',
@@ -323,9 +323,9 @@
         en: 'For fine notices, a threatened driving ban or points in Flensburg, an appeal is often worthwhile – measurement and formal errors are common. Important: the appeal deadline is only 2 weeks from service. Send us the notice as soon as possible.'
       }},
       { keys: ['schmerzensgeld','schaden','schadenersatz','entschädigung','verdienstausfall','tazminat','manevi','compensation','damages'], answer: {
-        de: 'Nach einem unverschuldeten Unfall können Ihnen u.a. Reparaturkosten, Wertminderung, Nutzungsausfall, Schmerzensgeld, Verdienstausfall und Anwaltskosten zustehen. Wir setzen Ihre Ansprüche gegenüber der Versicherung durch.',
+        de: 'Nach einem unverschuldeten Unfall können Ihnen u.a. Reparaturkosten, Wertminderung, Nutzungsausfall, Schmerzensgeld, Verdienstausfall und Anwaltskosten zustehen. Wir machen Ihre Ansprüche gegenüber der Versicherung geltend.',
         tr: 'Kusursuz bir kazadan sonra onarım masrafları, değer kaybı, kullanım kaybı, manevi tazminat, gelir kaybı ve avukatlık ücretleri gibi haklarınız olabilir. Taleplerinizi sigortaya karşı biz takip ederiz.',
-        en: 'After a no-fault accident you may be entitled to repair costs, loss of value, loss of use, compensation for pain and suffering, loss of earnings and legal fees. We enforce your claims against the insurer.'
+        en: 'After a no-fault accident you may be entitled to repair costs, loss of value, loss of use, compensation for pain and suffering, loss of earnings and legal fees. We assert your claims against the insurer.'
       }},
       { keys: ['termin','beratung','erstberatung','kontakt','erreichen','sprechzeiten','randevu','iletişim','appointment','contact','reach'], answer: {
         de: 'Sie erreichen uns telefonisch, per E-Mail oder WhatsApp. Am schnellsten: der WhatsApp-Button. Alternativ schreiben Sie uns per E-Mail – wir melden uns kurzfristig zurück.',
