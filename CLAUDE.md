@@ -27,3 +27,7 @@ Falls keine Bridge-Session verbunden ist: dem Nutzer sagen, dass sein Mac gerade
 
 - Keine fünf Minuten mit Mirror-Diensten (Invidious, noembed, r.jina.ai …) verschwenden — die sind ebenso blockiert. Ein einzelner Schnelltest ist in Ordnung, mehr nicht.
 - Keine Videoinhalte erfinden oder „aus dem Gedächtnis" zusammenfassen — nur echte Transkripte/Metadaten verwenden.
+
+## Antwortstil
+
+Standardmäßig kurz antworten: 2–5 Sätze, kein Wall-of-Text. Nur bei explizitem Wunsch nach mehr Detail ("ausführlich", "erklär mir das genauer") oder bei komplexen Multi-Step-Aufgaben, die eine Zusammenfassung brauchen, länger werden. Gilt nur für Sessions auf diesem Repo (serpil-sahin) — für alle anderen Repos/Chats greift das nicht automatisch.
