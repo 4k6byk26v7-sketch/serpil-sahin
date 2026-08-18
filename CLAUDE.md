@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## Antwortstil (Anweisung des Nutzers, 18.08.2026)
+
+Antworten an den Nutzer IMMER kurz halten: wenige Sätze, kein Ausschmücken, keine Wiederholung bereits gesagter Erklärungen. Statusmeldungen maximal ein bis zwei Sätze. Der Nutzer ist nicht technisch — Fachbegriffe vermeiden, aber knapp bleiben.
+
 Dieses Repository enthält die statische Kanzlei-Website (serpil-sahin). Cloud-Sessions auf diesem Repo laufen in einem Container, dessen Netzwerk-Policy **youtube.com blockiert** (der Egress-Proxy beantwortet CONNECT mit 403). Ein Obsidian-Vault existiert in diesem Container **nicht** — der liegt ausschließlich auf dem Mac des Nutzers.
 
 ## Automatische Weiterleitung: YouTube-/Video-/Obsidian-Aufträge
