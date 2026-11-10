@@ -12,9 +12,9 @@
   var CONFIG = {
     kanzlei:  'Anwaltskanzlei Serpil Şahin',
     email:    'info@serpil-sahin.de',
-    telefon:  '+49 162 62 100 87',
-    telRaw:   '+491626210087',
-    whatsapp: '491626210087',
+    telefon:  '+49 15630 017591',
+    telRaw:   '+4915630017591',
+    whatsapp: '4915630017591',
     adresse:  'Klingholzstraße 7, 65189 Wiesbaden'
   };
 
